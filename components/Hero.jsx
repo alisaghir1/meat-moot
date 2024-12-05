@@ -57,7 +57,7 @@ const Hero = () => {
         initial='hidden'
         whileInView={'show'}
         viewport={{once:false, amount:0.4}}
-         className="hidden xl:flex xl:relative xl:-top-32">
+         className="hidden xl:flex xl:relative xl:-top-24 z-50">
         <Image height={404} width={320} alt="meat dish" src={'/main3rm.png'}></Image>
         </motion.div>
     </section>
