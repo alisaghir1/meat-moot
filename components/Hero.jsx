@@ -47,8 +47,8 @@ const Hero = () => {
                 initial='hidden'
                 whileInView={'show'}
                 viewport={{once:false, amount:0.4}}
-                 className="hidden xl:flex xl:absolute xl:top-[50px] xl:right-0">
-                    <Image height={682} width={756} alt="meat dish" src={'/mainn.png'}></Image>
+                 className="hidden xl:flex xl:absolute xl:top-[200px] xl:right-0">
+                    <Image height={682} width={900} alt="meat dish" src={'/main11.png'}></Image>
                 </motion.div>
             </div>
         </div>
@@ -64,4 +64,4 @@ const Hero = () => {
   )
 }
 
-export default Hero
+export default Hero 

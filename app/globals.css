@@ -7,7 +7,7 @@
     @apply box-border
   }
   body{
-    @apply font-serif bg-body text-black tracking-[0.5px]
+    @apply font-serif bg-black text-black tracking-[0.5px]
   }
   h1,h2,h3{
     @apply font-bold

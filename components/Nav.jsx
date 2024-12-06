@@ -3,14 +3,14 @@ import Link from "next/link"
 
 const links =[
   {
-    path: 'home',
+    path: '/',
     name: 'home',
     offset: -50
   },
   {
-    path: 'menu',
+    path: '/#menu',
     name: 'menu',
-    offset: -50
+    offset: -100
   },
   {
     path: 'locations',

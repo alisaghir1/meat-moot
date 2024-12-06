@@ -15,7 +15,7 @@ import { Button } from "./ui/button"
 const links =[
   {
     icon:<RiHomeFill />,
-    path: 'home',
+    path: '/',
     name: 'home',
     offset: -50
   },

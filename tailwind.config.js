@@ -1,3 +1,4 @@
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
     darkMode: ["class"],
@@ -36,7 +37,12 @@ module.exports = {
 			primary:'40px 4px 40px 0px rgba(68, 68, 68, 0.25i)'
 		},
 		backgroundImage:{
-			hero:'url(/hero-bg2.jpg)'
+			hero:'url(/hero-bg2.jpg)',
+			reservation:'url(/reservation.jpg)'
+		},
+		backgroundSize: {
+			hero: 'cover',
+			reservation: 'cover',
 		},
   		borderRadius: {
   			lg: 'var(--radius)',

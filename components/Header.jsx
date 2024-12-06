@@ -40,7 +40,7 @@ const Header = () => {
             <Image priority  alt="logo" width={120} height={35} src={"/logo.png"} />
           </Link>
           <Nav containerStyles={'hidden xl:flex gap-x-12 text-white'} linkStyles={'capitalize'} />
-          <ScrollLink to="reservation" smooth={true}>
+          <ScrollLink offset={150} to="reservation" smooth={true}>
             <Button variant="orange" size="sm">
               Book now
             </Button>
