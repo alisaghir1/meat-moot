@@ -32,7 +32,7 @@ const About = () => {
               className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28"
             >
               <div className="sm:text-center lg:text-left">
-                <h2 className="my-6 text-2xl tracking-tight font-extrabold text-orange sm:text-3xl md:text-4xl">
+                <h2 className="my-6 text-center text-2xl tracking-tight font-extrabold text-orange sm:text-3xl md:text-4xl">
                   ABOUT OUR RESTAURANT
                 </h2>
 
@@ -94,7 +94,7 @@ const About = () => {
 
         <p className="text-white">
           DUBAI - JBR | Abu Dhabi - AL QANA | DUBAI - DUBAI HILLS | DUBAI -
-          DUBAI CITY WALK
+          DUBAI CITY WALK | DUBAI - AL KHAWANEEJ
         </p>
       </motion.div>
       <motion.div

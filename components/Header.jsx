@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Link as ScrollLink } from "react-scroll";
 import Nav from "./Nav";
 import NavMobile from "./NavMobile";
 import { Button } from "./ui/button";
@@ -26,7 +25,6 @@ const Header = () => {
     };
   }, []);
 
-  console.log(active);
 
   return (
     <header
@@ -40,11 +38,11 @@ const Header = () => {
             <Image priority  alt="logo" width={120} height={35} src={"/logo.png"} />
           </Link>
           <Nav containerStyles={'hidden xl:flex gap-x-12 text-white'} linkStyles={'capitalize'} />
-          <ScrollLink offset={150} to="reservation" smooth={true}>
+          <Link offset={150} href="/#reservation" smooth='true'>
             <Button variant="orange" size="sm">
               Book now
             </Button>
-          </ScrollLink>
+          </Link>
           <NavMobile containerStyles={'xl:hidden'} iconStyles={'text-3xl'} linkStyles={'uppercase'} />
         </div>
       </div>

@@ -52,7 +52,6 @@ const links =[
 
 const NavMobile = ({ containerStyles, linkStyles, iconStyles}) => {
   const [isOpen, setIsOpen] = useState(false)
-  console.log(isOpen)
 
   return (
     <div className={`${containerStyles}`}>

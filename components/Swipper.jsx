@@ -49,10 +49,10 @@ export default function App() {
         }}
       >
         <SwiperSlide>
-          <Image src={cr1} alt="slide 1" />
+          <Image src={cr2} alt="slide 1" />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src={cr2} alt="slide 2" />
+          <Image src={cr1} alt="slide 2" />
         </SwiperSlide>
         <SwiperSlide>
           <Image src={cr3} alt="slide 3" />

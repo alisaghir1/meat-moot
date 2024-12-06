@@ -63,10 +63,10 @@ const Menu = () => {
                viewport={{once:false, amount:0.4}} 
             className="mb-3 max-w-[570px] mx-auto text-center xl:text-left">
                 <h2 className="text-white">Our Menu</h2>
-                <Link className="text-orange flex justify-center xl:justify-start items-center mb-16 hover:text-orange-500" href={'/'}>
+                <div className="text-orange flex justify-center xl:justify-start items-center mb-16" href={'/'}>
                 <IoIosArrowRoundForward className="text-3xl"/>
-                View All
-                </Link>
+                Our Premium Meat Specials
+                </div>
             </motion.div>
 
             <motion.div 
@@ -81,11 +81,9 @@ const Menu = () => {
                             <Image className="group-hover:scale-110 transition-all duration-300" src={item.img} width={270} height={270} alt={`menu image ${index}`} />
                         </div>
                         <div className="bg-black-heavy pt-[20px] pb-[28px] px-[30px]">
-                            <Link href='/'>
                             <h3 className="text-white mb-[14px]">
                                 {item.title}
                             </h3>
-                            </Link>
                             <div className="text-sm text-gray-400 font-semibold mb-[14px]">
                                 {item.description}
                             </div>
