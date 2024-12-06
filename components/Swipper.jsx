@@ -11,6 +11,12 @@ import "swiper/css/pagination";
 import "./swipper.css";
 import Image from "next/image";
 import about from '../public/about.jpg'
+import cr1 from '../public/carousel/cr1.jpg'
+import cr2 from '../public/carousel/cr2.jpg'
+import cr3 from '../public/carousel/cr3.jpg'
+import cr4 from '../public/carousel/cr4.jpg'
+import cr5 from '../public/carousel/cr5.jpg'
+
 
 // import required modules
 import { FreeMode, Pagination } from "swiper/modules";
@@ -43,19 +49,19 @@ export default function App() {
         }}
       >
         <SwiperSlide>
-          <Image src={about} alt="slide 1" />
+          <Image src={cr1} alt="slide 1" />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src={about} alt="slide 2" />
+          <Image src={cr2} alt="slide 2" />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src={about} alt="slide 3" />
+          <Image src={cr3} alt="slide 3" />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src={about} alt="slide 4" />
+          <Image src={cr4} alt="slide 4" />
         </SwiperSlide>
         <SwiperSlide>
-          <Image src={about} alt="slide 5" />
+          <Image src={cr5} alt="slide 5" />
         </SwiperSlide>
         <SwiperSlide>
           <Image src={about} alt="slide 6" />

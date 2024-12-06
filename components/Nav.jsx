@@ -13,8 +13,8 @@ const links =[
     offset: -100
   },
   {
-    path: 'locations',
-    name: 'locations',
+    path: 'branches',
+    name: 'branches',
     offset: -150
   },
   {

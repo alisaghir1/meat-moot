@@ -1,7 +1,10 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import about from "../../public/about.jpg";
-import Swipper from '../../components/Swipper'
+import Swipper from "../../components/Swipper";
+import { motion } from "framer-motion";
+import { fadeIn } from "@/variants";
 
 const About = () => {
   return (
@@ -21,7 +24,13 @@ const About = () => {
 
             <div className="pt-1"></div>
 
-            <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+            <motion.main
+              variants={fadeIn("down", 1)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.4 }}
+              className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28"
+            >
               <div className="sm:text-center lg:text-left">
                 <h2 className="my-6 text-2xl tracking-tight font-extrabold text-orange sm:text-3xl md:text-4xl">
                   ABOUT OUR RESTAURANT
@@ -43,35 +52,59 @@ const About = () => {
                   facility.
                 </p>
               </div>
-            </main>
+            </motion.main>
           </div>
         </div>
-        <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+        <motion.div
+          variants={fadeIn("right", 0.8)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.4 }}
+          className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"
+        >
           <Image
             src={about}
-            className="h-56 w-full object-cover object-top sm:h-72 md:h-96 lg:w-full lg:h-full"
+            className="w-full object-fill object-top sm:h-72 md:h-96 lg:w-full lg:h-full"
             alt="about image"
           />
-        </div>
-        
+        </motion.div>
       </div>
-      <div className="text-center mx-5 xl:mx-10 mt-20 mb-10">
-                <h2 className="my-6 text-2xl tracking-tight font-extrabold text-orange sm:text-3xl md:text-4xl">
-                Our History
-                </h2>
+      <motion.div
+        variants={fadeIn("up", 0.6)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: false, amount: 0.4 }}
+        className="text-center mx-5 xl:mx-10 mt-20 mb-10"
+      >
+        <h2 className="my-6 text-2xl tracking-tight font-extrabold text-orange sm:text-3xl md:text-4xl">
+          Our History
+        </h2>
 
-                <p className="text-white">
-                Established in 2021, we now have Meat Moot locations in 14 countries around the world. We are headquartered Istanbul, Turkey. Meat Moot is an exciting rather newly established restaurant brand, which expands very successfully and rapidly internationally. We are introducing a whole new concept of great smoked meat to the market and combining casual dining with great and fast service.
-                </p>
-                <h2 className="mb-6 mt-14 text-2xl tracking-tight font-extrabold text-orange sm:text-3xl md:text-4xl">
-                UAE Branches
-                </h2>
+        <p className="text-white">
+          Established in 2021, we now have Meat Moot locations in 14 countries
+          around the world. We are headquartered Istanbul, Turkey. Meat Moot is
+          an exciting rather newly established restaurant brand, which expands
+          very successfully and rapidly internationally. We are introducing a
+          whole new concept of great smoked meat to the market and combining
+          casual dining with great and fast service.
+        </p>
+        <h2 className="mb-6 mt-14 text-2xl tracking-tight font-extrabold text-orange sm:text-3xl md:text-4xl">
+          UAE Branches
+        </h2>
 
-                <p className="text-white">
-                DUBAI - JBR | Abu Dhabi - AL QANA | DUBAI - DUBAI HILLS | DUBAI - DUBAI CITY WALK
-                </p>
-              </div>
-              <Swipper />
+        <p className="text-white">
+          DUBAI - JBR | Abu Dhabi - AL QANA | DUBAI - DUBAI HILLS | DUBAI -
+          DUBAI CITY WALK
+        </p>
+      </motion.div>
+      <motion.div
+        variants={fadeIn("up", 0.8)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: false, amount: 0.4 }}
+      >
+        <Swipper />
+      </motion.div>
     </section>
   );
 };
