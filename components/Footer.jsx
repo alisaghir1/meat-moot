@@ -62,10 +62,10 @@ const Footer = () => {
     </p>
     <ul className="flex items-center flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
       <li>
-        <Link href="/" className="text-sm text-white transition-colors duration-300 hover:text-deep-purple-accent-400">Privacy Policy</Link>
+        <Link href="/terms" className="text-sm text-white transition-colors duration-300 hover:text-deep-purple-accent-400">Privacy Policy</Link>
       </li>
       <li>
-        <Link href="/terms&condtions" className="text-sm text-white transition-colors duration-300 hover:text-deep-purple-accent-400">Terms &amp; Conditions</Link>
+        <Link href="/terms" className="text-sm text-white transition-colors duration-300 hover:text-deep-purple-accent-400">Terms &amp; Conditions</Link>
       </li>
     </ul>
   </div>
