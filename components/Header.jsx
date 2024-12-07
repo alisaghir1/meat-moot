@@ -38,11 +38,6 @@ const Header = () => {
             <Image priority  alt="logo" width={120} height={35} src={"/logo.png"} />
           </Link>
           <Nav containerStyles={'hidden xl:flex gap-x-12 text-white'} linkStyles={'capitalize'} />
-          <Link offset={150} href="/#reservation" smooth='true'>
-            <Button variant="orange" size="sm">
-              Book now
-            </Button>
-          </Link>
           <NavMobile containerStyles={'xl:hidden'} iconStyles={'text-3xl'} linkStyles={'uppercase'} />
         </div>
       </div>

@@ -1,21 +1,22 @@
-
 import Link from "next/link"
+import { useState } from "react"
+import { FaCaretDown } from "react-icons/fa" // Import the caret down icon
 
-const links =[
+const links = [
   {
     path: '/',
     name: 'home',
-    offset: -50
+    offset: 0
   },
   {
     path: '/#menu',
     name: 'menu',
-    offset: -100
+    offset: 0
   },
   {
     path: 'branches',
     name: 'branches',
-    offset: -150
+    offset: 0
   },
   {
     path: 'about',
@@ -23,23 +24,64 @@ const links =[
     offset: 0
   },
   {
-    path: 'blogs',
-    name: 'blogs',
+    path: 'media',
+    name: 'media',
     offset: 0
   },
   {
-  path:'contact',
-  name:'contact',
-  offset: 0
-}
+    path: 'contact',
+    name: 'contact',
+    offset: 0
+  }
 ]
 
-
 const Nav = ({ containerStyles, linkStyles }) => {
+  const [showDropdown, setShowDropdown] = useState(false)
+
   return (
     <nav className={`${containerStyles}`}>
       {links.map((link, index) => {
-        return <Link offset={link.offset} href={link.path} spy='true' smooth='true' key={index} duration={500} className={`${linkStyles}`}>{link.name}</Link>
+        // If it's the "media" link, show the dropdown logic
+        if (link.name === "media") {
+          return (
+            <div key={index} className="relative">
+              <button
+                onClick={() => setShowDropdown(!showDropdown)}
+                className={`${linkStyles} cursor-pointer flex  items-center`} // Add flex to align the icon with text
+              >
+                <span className="hover:text-orange transition-all duration-300">{link.name}</span>
+                {/* Add the arrow icon next to the "Media" text */}
+                <FaCaretDown className={`ml-2 transform transition-all ${showDropdown ? 'rotate-180' : ''}`} />
+              </button>
+              {/* Dropdown menu for Blogs and News */}
+              {showDropdown && (
+                <div className="absolute bg-black-heavy text-white p-2 rounded shadow-lg mt-1">
+                  <Link onClick={() => setShowDropdown(false)} href="/blogs" className="block px-4 py-2 hover:text-orange">
+                    Blogs
+                  </Link>
+                  <Link onClick={() => setShowDropdown(false)} href="/news" className="block px-4 py-2 hover:text-orange">
+                    News
+                  </Link>
+                </div>
+              )}
+            </div>
+          )
+        }
+        
+        // Regular links
+        return (
+          <Link
+            key={index}
+            href={link.path}
+            offset={link.offset}
+            spy="true"
+            smooth="true"
+            duration={500}
+            className={`${linkStyles}`}
+          >
+            {link.name}
+          </Link>
+        )
       })}
     </nav>
   )

@@ -3,6 +3,7 @@ import Image from "next/image"
 import {motion} from 'framer-motion'
 import { Button } from "./ui/button"
 import { fadeIn } from "@/variants"
+import {Link as ScrollLink} from 'react-scroll'
 
 const Hero = () => {
   return (
@@ -39,7 +40,9 @@ const Hero = () => {
                     initial='hidden'
                     whileInView={'show'}
                     viewport={{once:false, amount:0.4}}>
+                        <ScrollLink to="reservation" smooth={true}>
                         <Button variant='orange'>Let's eat</Button>
+                        </ScrollLink>
                     </motion.div>
                 </div>
                 <motion.div

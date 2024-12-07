@@ -8,38 +8,38 @@ import { fadeIn } from "@/variants"
 
 const menu = [
     {
-        img:'/menu/meat1.webp',
+        img:'/menu/lambShanks.webp',
         title:'Lamb Shank',
         price:'AED 436.5(excl.VAT) / KG',
         description:'The finest, and tastiest smoked shanks.it comes with 8 sauces, 6 Salads and beverage of your choice.'
     },
     {
-        img:'/menu/meat1.webp',
+        img:'/menu/lambNeck.webp',
         title:'Lamb Neck',
         price:'AED 436.5(excl.VAT) / KG',
         description:'A classic smoked neck meat. it comes with 8 sauces, 6 Salads and beverage of your choice.'
     },
     {
-        img:'/menu/meat1.webp',
+        img:'/menu/lambShoulder.webp',
         title:'Lamb Shoulder',
         price:'AED 436.5(excl.VAT) / KG',
         description:'An authentic smoked meat. it comes with 8 sauces, 6 Salads and beverage of your choice.'
     },
     {
-        img:'/menu/meat1.webp',
+        img:'/menu/LambRibs.webp',
         title:'Lamb Ribs',
         price:'AED 436.5(excl.VAT) / KG',
         description:'The finest smoked lamb ribs. it comes with 8 sauces, 6 Salads and beverage of your choice.'
 
     },
     {
-        img:'/menu/meat1.webp',
+        img:'/menu/beefRibs.webp',
         title:'Beef Ribs',
         price:'AED 436.5(excl.VAT) / KG',
         description:'Juicy and flavorful ribs. it comes with 8 sauces, 6 Salads and beverage of your choice.'
     },
     {
-        img:'/menu/meat1.webp',
+        img:'/menu/beefBrisket.webp',
         title:'Beef Brisket',
         price:'AED 436.5(excl.VAT) / KG',
         description:'Tender Smoked Brisket. it comes with 8 sauces, 6 Salads and beverage of your choice.'
@@ -78,7 +78,7 @@ const Menu = () => {
                 {menu.map((item, index) => {
                     return (<div key={index} className="max-w-[270px] bg-white shadow-primary mx-auto xl:mx-0 group">
                         <div className="overflow-hidden">
-                            <Image className="group-hover:scale-110 transition-all duration-300" src={item.img} width={270} height={270} alt={`menu image ${index}`} />
+                            <Image className="group-hover:scale-110 object-cover transition-all duration-300 h-56" src={item.img} width={270} height={270} alt={`menu image ${index}`} />
                         </div>
                         <div className="bg-black-heavy pt-[20px] pb-[28px] px-[30px]">
                             <h3 className="text-white mb-[14px]">
