@@ -6,32 +6,26 @@ const links = [
   {
     path: '/',
     name: 'home',
-    offset: 0
   },
   {
     path: '/#menu',
     name: 'menu',
-    offset: 0
   },
   {
     path: 'branches',
     name: 'branches',
-    offset: 0
   },
   {
     path: 'about',
     name: 'about',
-    offset: 0
   },
   {
     path: 'media',
     name: 'media',
-    offset: 0
   },
   {
     path: 'contact',
     name: 'contact',
-    offset: 0
   }
 ]
 
@@ -73,7 +67,6 @@ const Nav = ({ containerStyles, linkStyles }) => {
           <Link
             key={index}
             href={link.path}
-            offset={link.offset}
             spy="true"
             smooth="true"
             duration={500}

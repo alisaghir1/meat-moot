@@ -53,7 +53,12 @@ const Page = () => {
 
       {/* Displaying Blogs */}
       {blogs.map((item) => (
-        <div key={item.id} className="mb-16">
+        <motion.div
+        variants={fadeIn('left' , 1)}
+         initial='hidden'
+         whileInView={'show'}
+         viewport={{once:false, amount:0.4}} 
+        key={item.id} className="mb-16">
           <div
             className="bg-cover bg-center text-center overflow-hidden"
             style={{
@@ -81,7 +86,7 @@ const Page = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       ))}
     </div>
   );

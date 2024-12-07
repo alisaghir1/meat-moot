@@ -24,11 +24,11 @@ const Footer = () => {
       <p className="text-base font-bold tracking-wide text-orange">Contacts</p>
       <div className="flex items-center">
         <p className="mr-1 text-orange">Phone:</p>
-        <a href="tel:850-123-5021" aria-label="Our phone" title="Our phone" className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">850-123-5021</a>
+        <a href="tel:+971 55 992 9207" aria-label="Our phone" title="Our phone" className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">+971 55 992 9207</a>
       </div>
       <div className="flex items-center">
         <p className="mr-1 text-orange">Email:</p>
-        <a href="mailto:info@lorem.mail" aria-label="Our email" title="Our email" className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">info@lorem.mail</a>
+        <a href="mailto:info@lorem.mail" aria-label="Our email" title="Our email" className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">hello@meatmoot.ae</a>
       </div>
     </div>
     
