@@ -25,7 +25,7 @@ const menu = [
         description:'An authentic smoked meat. it comes with 8 sauces, 6 Salads and beverage of your choice.'
     },
     {
-        img:'/smallBg3.jpg',
+        img:'/menu/meat1.webp',
         title:'Lamb Ribs',
         price:'AED 436.5(excl.VAT) / KG',
         description:'The finest smoked lamb ribs. it comes with 8 sauces, 6 Salads and beverage of your choice.'
@@ -83,7 +83,7 @@ const Menu = () => {
                             <h3 className="text-white mb-[14px]">
                                 {item.title}
                             </h3>
-                            <div className="text-sm text-gray-400 font-semibold mb-[14px]">
+                            <div className="text-md text-gray-400 font-semibold mb-[14px]">
                                 {item.description}
                             </div>
                             <div className="text-sm text-orange font-semibold">
