@@ -2,64 +2,45 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
-import { SlCalender } from "react-icons/sl";
 import { useRouter } from "next/navigation";
 
 const blogs = [
   {
     id: 1,
-    title: "Meet Moot Event",
+    title: "The Art of Smoking Meat at Meat Moot",
     content: `
-      Lorem Ipsum is simply dummy text of the printing and typesetting
-      industry. Lorem Ipsum has been the industry's standard dummy text
-      ever since the 1500s, when an unknown printer took a galley of
-      type and scrambled it to make a type specimen book. It has
-      survived not only five centuries, but also the leap into
-      electronic typesetting, remaining essentially unchanged.
+      At Meat Moot, we believe in perfecting the craft of smoked meat. Our slow-smoking process, combined with high-quality cuts, delivers a unique flavor that keeps our guests coming back for more. Discover the secrets behind our signature smoked brisket and ribs.
     `,
     image: "/contact.jpg",
     date: ["28/2/2024"],
   },
   {
     id: 2,
-    title: "The Future of Politics in 2024",
+    title: "Perfect Pairings: Wine and Meat",
     content: `
-      Exploring the trends shaping the political landscape as we move into 2024.
-      This article delves into the impact of technology and societal shifts on politics.
+      Wine and meat are a timeless combination. In this blog, we explore the best wine pairings for different cuts of meat, helping you elevate your dining experience. Learn how to pair our signature dishes with the perfect glass of wine.
     `,
-    image: "/contact.jpg",
+    image: "/reservation.jpg",
     date: ["28/2/2024"],
   },
   {
     id: 3,
-    title: "The Future of Politics in 2024",
+    title: "The Rise of Plant-Based Menus in Restaurants",
     content: `
-      Exploring the trends shaping the political landscape as we move into 2024.
-      This article delves into the impact of technology and societal shifts on politics.
+      As more people embrace plant-based diets, restaurants are responding with creative, flavorful dishes. In this blog, we take a look at the rise of plant-based menus and how they’re transforming the restaurant industry, offering something for everyone.
     `,
-    image: "/contact.jpg",
+    image: "/smallBg3.jpg",
     date: ["28/2/2024"],
   },
   {
     id: 4,
-    title: "The Future of Politics in 2024",
+    title: "Why Every Chef Needs a Signature Dish",
     content: `
-      Exploring the trends shaping the political landscape as we move into 2024.
-      This article delves into the impact of technology and societal shifts on politics.
+      A signature dish is a reflection of a chef’s creativity and expertise. At Meat Moot, our chefs have crafted unique dishes that define our restaurant. In this post, we dive into the importance of a signature dish and why it matters to the identity of a restaurant.
     `,
-    image: "/contact.jpg",
+    image: "/smallBg.jpg",
     date: ["28/2/2024"],
-  },
-  {
-    id: 5,
-    title: "The Future of Politics in 2024",
-    content: `
-      Exploring the trends shaping the political landscape as we move into 2024.
-      This article delves into the impact of technology and societal shifts on politics.
-    `,
-    image: "/contact.jpg",
-    date: ["28/2/2024"],
-  },
+  }
 ];
 
 const Page = () => {

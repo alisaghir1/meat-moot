@@ -2,62 +2,43 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
-import { SlCalender } from "react-icons/sl";
 import { useRouter } from 'next/navigation';
 
 const news = [
   {
-    id: 1,
-    title: 'Meet Moot Event',
-    content: `
-      Lorem Ipsum is simply dummy text of the printing and typesetting
-      industry. Lorem Ipsum has been the industry's standard dummy text
-      ever since the 1500s, when an unknown printer took a galley of
-      type and scrambled it to make a type specimen book. It has
-      survived not only five centuries, but also the leap into
-      electronic typesetting, remaining essentially unchanged.
-    `,
-    image: '/contact.jpg',
-    date: ['28/2/2024'],    
-  },
-  {
     id: 2,
-    title: 'The Future of Politics in 2024',
+    title: 'Introducing Lamb Shoulder: A New Favorite',
     content: `
-      Exploring the trends shaping the political landscape as we move into 2024.
-      This article delves into the impact of technology and societal shifts on politics.
+      Our new lamb shoulder dish is here to satisfy your cravings! Slow-cooked to perfection with aromatic spices and a rich, smoky flavor. A must-try for meat lovers.
     `,
-    image: '/contact.jpg',
+    image: '/menu/lambShoulder.webp',
     date: ['28/2/2024'],
   },
   {
     id: 3,
-    title: 'The Future of Politics in 2024',
+    title: 'Lamb Neck: The Tender Cut You Need to Try',
     content: `
-      Exploring the trends shaping the political landscape as we move into 2024.
-      This article delves into the impact of technology and societal shifts on politics.
+      Our lamb neck is braised to perfection, delivering a melt-in-your-mouth experience. Tender, juicy, and packed with flavor—it's the perfect addition to our menu.
     `,
-    image: '/contact.jpg',
+    image: '/menu/lambNeck.webp',
     date: ['28/2/2024'],
   },
   {
     id: 4,
-    title: 'The Future of Politics in 2024',
+    title: 'Beef Ribs: Fall-Off-The-Bone Goodness',
     content: `
-      Exploring the trends shaping the political landscape as we move into 2024.
-      This article delves into the impact of technology and societal shifts on politics.
+      Our new beef ribs are slow-cooked to tender perfection, served with our signature smoky glaze. Perfect for those who love bold, savory flavors.
     `,
-    image: '/contact.jpg',
+    image: '/menu/beefRibs.webp',
     date: ['28/2/2024'],
   },
   {
     id: 5,
-    title: 'The Future of Politics in 2024',
+    title: 'Beef Brisket: A Smoked Masterpiece',
     content: `
-      Exploring the trends shaping the political landscape as we move into 2024.
-      This article delves into the impact of technology and societal shifts on politics.
+      Our smoked beef brisket is the highlight of our menu. Carefully smoked over hours to achieve the perfect balance of smokiness and tenderness. It's a dish that speaks for itself.
     `,
-    image: '/contact.jpg',
+    image: '/menu/beefBrisket.webp',
     date: ['28/2/2024'],
   },
 ];
@@ -99,7 +80,7 @@ const Page = () => {
             className="bg-black-heavy text-white rounded-lg overflow-hidden shadow-lg"
           >
             <div
-              onClick={() => handleBlogsclick(item)}
+              onClick={() => handleNewsClick(item)}
               className="bg-cover bg-center h-64 transform transition-all hover:scale-105 cursor-pointer"
               style={{
                 backgroundImage: `url(${item.image})`,

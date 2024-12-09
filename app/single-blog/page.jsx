@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import { SlCalender } from "react-icons/sl";
@@ -7,14 +7,20 @@ import { useSearchParams } from 'next/navigation';
 
 const Page = () => {
   const searchParams = useSearchParams();
+  const [data, setData] = useState({ title: '', content: '', image: '', date: [] });
 
-  // Extract query parameters from the URL
-  const title = searchParams.get('title');
-  const content = searchParams.get('content');
-  const image = searchParams.get('image');
-  const date = searchParams.get('date')?.split(','); // Convert string back to array if needed
+  useEffect(() => {
+    const title = searchParams.get('title');
+    const content = searchParams.get('content');
+    const image = searchParams.get('image');
+    const date = searchParams.get('date')?.split(',') || [];
 
-  if (!title) {
+    if (title && content && image) {
+      setData({ title, content, image, date });
+    }
+  }, [searchParams]); // Depend on searchParams to trigger re-run when the URL changes
+
+  if (!data.title) {
     return <p>Loading...</p>; // Handle the case where the data is not yet loaded
   }
 
@@ -32,9 +38,9 @@ const Page = () => {
           className="bg-cover bg-center text-center overflow-hidden"
           style={{
             minHeight: '500px',
-            backgroundImage: `url(${image})`,
+            backgroundImage: `url(${data.image})`,
           }}
-          title={title}
+          title={data.title}
         ></div>
 
         {/* Content Section */}
@@ -42,15 +48,15 @@ const Page = () => {
           <div className="mt-3 bg-black-heavy rounded-b lg:rounded-b-none lg:rounded-r flex flex-col justify-between leading-normal">
             <div className="bg-black-heavy relative top-0 -mt-32 p-5 sm:p-10">
               {/* Title */}
-              <h1 className="text-orange font-bold text-3xl mb-2">{title}</h1>
+              <h1 className="text-orange font-bold text-3xl mb-2">{data.title}</h1>
 
               {/* Content */}
-              <p className="text-base text-white leading-8 my-5">{content}</p>
+              <p className="text-base text-white leading-8 my-5">{data.content}</p>
 
               {/* Dates */}
-              {date && (
+              {data.date.length > 0 && (
                 <div className="space-x-2 flex">
-                  {date.map((d, index) => (
+                  {data.date.map((d, index) => (
                     <p
                       key={index}
                       className="text-xs flex items-center justify-center gap-2 text-orange font-medium hover:text-white cursor-pointer transition duration-500 ease-in-out"
