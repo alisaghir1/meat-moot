@@ -4,15 +4,26 @@ import Link from "next/link";
 import { useEffect } from "react";
 
 import { useMediaQuery } from "react-responsive";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { Icon } from "leaflet";
+// import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+// import { Icon } from "leaflet";
 
 import "leaflet/dist/leaflet.css";
 
 import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
 
-const page = () => {
+import dynamic from "next/dynamic";
+const MapContainer = dynamic(() => import("react-leaflet").then(mod => mod.MapContainer), { ssr: false });
+const TileLayer = dynamic(() => import("react-leaflet").then(mod => mod.TileLayer), { ssr: false });
+const Marker = dynamic(() => import("react-leaflet").then(mod => mod.Marker), { ssr: false });
+const Popup = dynamic(() => import("react-leaflet").then(mod => mod.Popup), { ssr: false });
+
+// Dynamically import Icon from leaflet to avoid SSR issues
+const Icon = dynamic(() => import("leaflet").then(mod => mod.Icon), { ssr: false });
+
+
+
+const Branches = () => {
   const markers = [
     {
       position: [25.081737452270744, 55.13825487822296],
@@ -40,6 +51,10 @@ const page = () => {
       image: "/logo.png",
     },
   ];
+
+  const DynamicLeaflet = dynamic(() => import('react-leaflet'), {
+    ssr: false,
+  });
 
   const customIcon = new Icon({
     iconUrl: "/pin.svg",
@@ -126,4 +141,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Branches;

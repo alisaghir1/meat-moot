@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const page = () => {
+const Contact = () => {
   return (
     <div className="px-6 pb-12 pt-24 sm:pb-24 sm:pt-40 lg:px-8 mt-10">
   <motion.div
@@ -22,8 +22,8 @@ const page = () => {
       whileInView={'show'}
       viewport={{once:false, amount:0.4}} 
   className="mx-auto max-w-xl flex flex-col items-center justify-center text-center">
-    <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-orange">Let's Talk</h1>
-    <p className="mt-3 text-lg text-white">Got a feature request, suggestion, or feedback? We’d love to hear from you! We also offer franchise opportunities for those interested in bringing our concept to new locations. Fill out the form below, and we'll get back to you soon!</p>
+    <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-orange">Let&lsquo;s Talk</h1>
+    <p className="mt-3 text-lg text-white">Got a feature request, suggestion, or feedback? We&aposd love to hear from you! We also offer franchise opportunities for those interested in bringing our concept to new locations. Fill out the form below, and we&lsquo;ll get back to you soon!</p>
   </motion.div>
   <form className="mx-auto mt-16 max-w-xl sm:mt-20 z-10">
     <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -82,4 +82,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Contact

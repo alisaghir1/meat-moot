@@ -43,7 +43,7 @@ const news = [
   },
 ];
 
-const Page = () => {
+const News = () => {
   const router = useRouter();
 
   const handleNewsClick = (item) => {
@@ -97,4 +97,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default News;

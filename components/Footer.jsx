@@ -11,9 +11,9 @@ const Footer = () => {
     <footer className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
   <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
     <div className="sm:col-span-2">
-      <a href="/" aria-label="Go home" title="Company" className="inline-flex items-center">
+      <Link href="/" aria-label="Go home" title="Company" className="inline-flex items-center">
       <Image src={logo} alt='logo' />
-      </a>
+      </Link>
       <div className="mt-6 lg:max-w-sm">
         <p className="text-sm text-white">
         Delivering exceptional service and quality with every bite. Experience the finest in dining, prepared with passion and care.
@@ -24,11 +24,11 @@ const Footer = () => {
       <p className="text-base font-bold tracking-wide text-orange">Contacts</p>
       <div className="flex items-center">
         <p className="mr-1 text-orange">Phone:</p>
-        <a href="tel:+971 55 992 9207" aria-label="Our phone" title="Our phone" className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">+971 55 992 9207</a>
+        <Link href="tel:+971 55 992 9207" aria-label="Our phone" title="Our phone" className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">+971 55 992 9207</Link>
       </div>
       <div className="flex items-center">
         <p className="mr-1 text-orange">Email:</p>
-        <a href="mailto:info@lorem.mail" aria-label="Our email" title="Our email" className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">hello@meatmoot.ae</a>
+        <Link href="mailto:info@lorem.mail" aria-label="Our email" title="Our email" className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">hello@meatmoot.ae</Link>
       </div>
     </div>
     

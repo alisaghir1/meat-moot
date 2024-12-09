@@ -41,7 +41,7 @@ const Hero = () => {
                     whileInView={'show'}
                     viewport={{once:false, amount:0.4}}>
                         <ScrollLink to="reservation" smooth={true}>
-                        <Button variant='orange'>Let's eat</Button>
+                        <Button variant='orange'>Let&lsquo;s eat</Button>
                         </ScrollLink>
                     </motion.div>
                 </div>

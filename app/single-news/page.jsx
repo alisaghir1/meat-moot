@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react'; // Import Suspense
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import { SlCalender } from "react-icons/sl";
@@ -74,4 +74,11 @@ const Page = () => {
   );
 };
 
-export default Page;
+// Wrap the component in Suspense
+const PageWithSuspense = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <Page />
+  </Suspense>
+);
+
+export default PageWithSuspense;

@@ -43,7 +43,7 @@ const blogs = [
   }
 ];
 
-const Page = () => {
+const Blogs = () => {
   const router = useRouter();
 
   const handleBlogsclick = (item) => {
@@ -102,4 +102,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Blogs;

@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import Nav from "./Nav";
 import NavMobile from "./NavMobile";
-import { Button } from "./ui/button";
 
 const Header = () => {
   const [active, setActive] = useState(false);
