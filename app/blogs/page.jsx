@@ -67,7 +67,7 @@ const Page = () => {
 
   const handleBlogsclick = (item) => {
     const query = new URLSearchParams(item).toString();
-    router.push(`/single-news?${query}`); // Navigate with query params
+    router.push(`/single-blog?${query}`); // Navigate with query params
   };
 
   return (
