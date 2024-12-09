@@ -3,6 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import { SlCalender } from "react-icons/sl";
+import { useRouter } from 'next/navigation';
 
 const news = [
   {
@@ -62,6 +63,13 @@ const news = [
 ];
 
 const Page = () => {
+  const router = useRouter();
+
+  const handleNewsClick = (item) => {
+    const query = new URLSearchParams(item).toString();
+    router.push(`/single-news?${query}`); // Navigate with query params
+  };
+
   return (
     <div className="max-w-screen-2xl mx-auto p-5 sm:p-10 md:p-16 relative mt-32">
       {/* Header Section */}
@@ -88,6 +96,7 @@ const Page = () => {
             whileInView={'show'}
             viewport={{once:false, amount:0.4}} 
             key={item.id}
+            onClick={() => handleNewsClick(item)}
             className="bg-black-heavy text-white rounded-lg overflow-hidden shadow-lg"
           >
             <div
