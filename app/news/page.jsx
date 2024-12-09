@@ -96,11 +96,11 @@ const Page = () => {
             whileInView={'show'}
             viewport={{once:false, amount:0.4}} 
             key={item.id}
-            onClick={() => handleNewsClick(item)}
             className="bg-black-heavy text-white rounded-lg overflow-hidden shadow-lg"
           >
             <div
-              className="bg-cover bg-center h-64 transform transition-all hover:scale-105"
+              onClick={() => handleBlogsclick(item)}
+              className="bg-cover bg-center h-64 transform transition-all hover:scale-105 cursor-pointer"
               style={{
                 backgroundImage: `url(${item.image})`,
               }}
