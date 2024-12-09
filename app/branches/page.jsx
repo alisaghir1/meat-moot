@@ -63,12 +63,12 @@ const Branches = () => {
 
   // This useEffect is because the map will reinitialize whenever you navigate between branches
   useEffect(() => {
-    // Cleanup any lingering Leaflet instances on unmount
     return () => {
+      // Explicitly remove all map containers
       const mapContainers = document.querySelectorAll(".leaflet-container");
       mapContainers.forEach((container) => {
         if (container._leaflet_id) {
-          container._leaflet_id = null; // Reset Leaflet ID to prevent reinitialization
+          container.remove(); // Clean up the map container
         }
       });
     };

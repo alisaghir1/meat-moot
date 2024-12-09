@@ -32,7 +32,7 @@ const menu = [
 
     },
     {
-        img:'/menu/beefRibs.webp',
+        img:'/menu/lambShanks.webp',
         title:'Beef Ribs',
         price:'AED 436.5(excl.VAT) / KG',
         description:'Juicy and flavorful ribs. it comes with 8 sauces, 6 Salads and beverage of your choice.'
