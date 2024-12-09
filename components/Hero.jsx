@@ -7,7 +7,7 @@ import {Link as ScrollLink} from 'react-scroll'
 
 const Hero = () => {
   return (
-    <section id="home" className="bg-hero bg-no-repeat relative xl:bg-cover xl:h-[1098px] py-40 pb-32 xl:py-0">
+    <section id="home" className="bg-hero2 xl:bg-hero bg-no-repeat relative xl:bg-cover xl:h-[1098px] py-40 pb-32 xl:py-0">
         <div className="container mx-auto">
 
             <div className="flex items-center xl:h-[960px]">

@@ -38,11 +38,14 @@ module.exports = {
 		},
 		backgroundImage:{
 			hero:'url(/hero-bg2.jpg)',
-			reservation:'url(/reservation.jpg)'
+			reservation:'url(/reservation.jpg)',
+			hero2:'url(/smallBg3.jpg)',
+
 		},
 		backgroundSize: {
 			hero: 'cover',
 			reservation: 'cover',
+			hero2:'cover'
 		},
   		borderRadius: {
   			lg: 'var(--radius)',
