@@ -77,7 +77,7 @@ const Menu = () => {
                 {menu.map((item, index) => {
                     return (<div key={index} className="max-w-[270px] bg-white shadow-primary mx-auto xl:mx-0 group">
                         <div className="overflow-hidden">
-                            <Image className="group-hover:scale-110 object-cover transition-all duration-300 h-56" src={item.img} width={270} height={270} alt={`menu image ${index}`} />
+                            <Image className="group-hover:scale-110 object-cover transition-all duration-300 h-56 w-72" src={item.img} width={270} height={270} alt={`menu image ${index}`} />
                         </div>
                         <div className="bg-black-heavy pt-[20px] pb-[28px] px-[30px]">
                             <h3 className="text-white mb-[14px]">
