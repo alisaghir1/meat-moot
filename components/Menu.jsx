@@ -25,7 +25,7 @@ const menu = [
         description:'An authentic smoked meat. it comes with 8 sauces, 6 Salads and beverage of your choice.'
     },
     {
-        img:'/menu/LambRibs.webp',
+        img:'/smallBg3.jpg',
         title:'Lamb Ribs',
         price:'AED 436.5(excl.VAT) / KG',
         description:'The finest smoked lamb ribs. it comes with 8 sauces, 6 Salads and beverage of your choice.'
