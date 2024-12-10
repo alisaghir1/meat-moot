@@ -18,7 +18,7 @@ const links = [
   },
   {
     icon: <BiSolidFoodMenu />,
-    path: '#menu',
+    path: '/#menu',
     name: 'menu',
     
   },
