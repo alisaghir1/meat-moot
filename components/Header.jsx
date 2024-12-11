@@ -34,7 +34,7 @@ const Header = () => {
       <div className="container mx-auto">
         <div className="flex items-center justify-between">
           <Link href={"/"}>
-            <Image priority  alt="logo" width={120} height={35} src={"/logo.png"} />
+            <Image priority  alt="logo" width={120} height={35} src={"/logo.svg"} />
           </Link>
           <Nav containerStyles={'hidden xl:flex gap-x-12 text-white'} linkStyles={'capitalize'} />
           <NavMobile containerStyles={'xl:hidden'} iconStyles={'text-3xl'} linkStyles={'uppercase'} />

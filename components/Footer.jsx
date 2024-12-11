@@ -1,11 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../public/logo.png";
+import logo from "../public/logo.svg";
 import { RiTwitterXLine } from "react-icons/ri";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { TbBrandTripadvisor } from "react-icons/tb";
-import ticktock from "../public/ticktock2.svg";
 
 const Footer = () => {
   return (
@@ -18,7 +17,7 @@ const Footer = () => {
             title="Company"
             className="inline-flex items-center"
           >
-            <Image src={logo} alt="logo" />
+            <Image width={125} height={35} src={logo} alt="logo" />
           </Link>
           <div className="mt-6 lg:max-w-sm">
             <p className="text-sm text-white">

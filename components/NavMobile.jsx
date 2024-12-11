@@ -59,7 +59,7 @@ const NavMobile = ({ containerStyles, linkStyles, iconStyles }) => {
             <IoCloseOutline />
           </div>
           <Link href={'/'}>
-            <Image alt="logo" width={120} height={50} src={'/logo.png'} />
+            <Image alt="logo" width={120} height={50} src={'/logo.svg'} />
           </Link>
 
           <div className="flex flex-col gap-y-8">
