@@ -1,7 +1,5 @@
 'use client'
 import Image from "next/image"
-import {IoIosArrowRoundForward} from 'react-icons/io'
-
 import {motion} from 'framer-motion'
 import { fadeIn } from "@/variants"
 
@@ -9,44 +7,44 @@ const menu = [
     {
         img:'/menu/lambShanks.webp',
         title:'Lamb Shank',
-        price:'AED 436.5(excl.VAT) / KG',
+        price:'436.5',
         description:'The finest, and tastiest smoked shanks.it comes with 8 sauces, 6 Salads and beverage of your choice.'
     },
     {
         img:'/menu/lambNeck.webp',
         title:'Lamb Neck',
-        price:'AED 436.5(excl.VAT) / KG',
+        price:'436.5',
         description:'A classic smoked neck meat. it comes with 8 sauces, 6 Salads and beverage of your choice.'
     },
     {
         img:'/menu/lambShoulder.webp',
         title:'Lamb Shoulder',
-        price:'AED 436.5(excl.VAT) / KG',
+        price:'436.5',
         description:'An authentic smoked meat. it comes with 8 sauces, 6 Salads and beverage of your choice.'
     },
     {
         img:'/menu/meat1.webp',
         title:'Lamb Ribs',
-        price:'AED 436.5(excl.VAT) / KG',
+        price:'436.5',
         description:'The finest smoked lamb ribs. it comes with 8 sauces, 6 Salads and beverage of your choice.'
 
     },
     {
         img:'/menu/lambShanks.webp',
         title:'Beef Ribs',
-        price:'AED 436.5(excl.VAT) / KG',
+        price:'436.5',
         description:'Juicy and flavorful ribs. it comes with 8 sauces, 6 Salads and beverage of your choice.'
     },
     {
         img:'/menu/beefBrisket.webp',
         title:'Beef Brisket',
-        price:'AED 436.5(excl.VAT) / KG',
+        price:'436.5',
         description:'Tender Smoked Brisket. it comes with 8 sauces, 6 Salads and beverage of your choice.'
     },
     {
         img:'/menu/meat1.webp',
         title:'Beef Shank',
-        price:'AED 436.5(excl.VAT) / KG',
+        price:'436.5',
         description:'Tender Smoked Shank. it comes with 8 sauces, 6 Salads and beverage of your choice.'
     },
 ]
@@ -60,12 +58,9 @@ const Menu = () => {
                initial='hidden'
                whileInView={'show'}
                viewport={{once:false, amount:0.4}} 
-            className="mb-3 max-w-[570px] mx-auto text-center xl:text-left">
-                <h2 className="text-white">Our Menu</h2>
-                <div className="text-orange flex justify-center xl:justify-start items-center mb-16" href={'/'}>
-                <IoIosArrowRoundForward className="text-3xl"/>
-                Our Premium Meat Specials
-                </div>
+            className="mb-3 max-w-[1000px] mx-auto text-center xl:text-left">
+                <h2 className="text-orange-300 mt-2">Our Menu Concept</h2>
+                <h3 className="text-white mt-2 mb-10">What distinguishes our menu and the concept behind it are the modern interpretations of familiar dishes and flavor combinations they create, resulting in unique tastes, innovative presentations, and a distinctive Quality Meats style.</h3>
             </motion.div>
 
             <motion.div 
@@ -77,7 +72,7 @@ const Menu = () => {
                 {menu.map((item, index) => {
                     return (<div key={index} className="max-w-[270px] bg-white shadow-primary mx-auto xl:mx-0 group">
                         <div className="overflow-hidden">
-                            <Image className="group-hover:scale-110 object-cover transition-all duration-300 h-56 w-72" src={item.img} width={270} height={270} alt={`menu image ${index}`} />
+                            <Image className="group-hover:scale-105 object-cover transition-all duration-300 h-60 w-72" src={item.img} width={270} height={270} alt={`menu image ${index}`} />
                         </div>
                         <div className="bg-black-heavy pt-[20px] pb-[28px] px-[30px]">
                             <h3 className="text-white mb-[14px]">
@@ -87,7 +82,7 @@ const Menu = () => {
                                 {item.description}
                             </div>
                             <div className="text-sm text-orange font-semibold">
-                                {item.price}
+                                AED {item.price}/KG (excl.VAT)
                             </div>
                         </div>
                     </div>)

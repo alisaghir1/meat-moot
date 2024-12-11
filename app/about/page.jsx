@@ -5,6 +5,8 @@ import about from "../../public/about.jpg";
 import Swipper from "../../components/Swipper";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const About = () => {
   return (
@@ -105,6 +107,48 @@ const About = () => {
       >
         <Swipper />
       </motion.div>
+
+      <div className="flex flex-col justify-center items-center px-10  mb-12">
+        <motion.h2 
+        variants={fadeIn("down", 0.8)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: false, amount: 0.4 }}
+        className="my-6 text-2xl tracking-tight font-extrabold text-orange sm:text-3xl md:text-4xl">
+          Atmosphere Of Our Restaurant
+        </motion.h2>
+        <motion.p
+        variants={fadeIn("up", 1)}
+        initial="hidden"
+        whileInView={"show"}
+        viewport={{ once: false, amount: 0.4 }} 
+        className="text-white ">
+          The warm, industrial decor draws on cues from traditional Istanbul
+          butcher shops, and the usage of warm wood, stainless steel, and dark
+          marble.
+          <br />
+          The space succeeds in being simultaneously rustic, inviting, and
+          luxurious with rich details. Interior details include an homage to a
+          traditional “meat locker” interior with finished walnut planks
+          covering the length of the dining room wall.
+          <br />
+          <br />
+          The unique experience for guests is complemented by the creative
+          interior design of all branches of <span className="text-orange">Meat Moot</span> restaurants, which
+          accentuates to the restaurants warm atmosphere and integrates the
+          iconic wooden material inspired by the restaurants identity that
+          provides relaxation and tranquility.
+          <br />
+          <br />
+          The soothing quiet music brings comfort while the guests indulge and
+          unwind. From big details down to the small intricate ones have been
+          given a thoughtful consideration to provide a wonderful and
+          unforgettable dining experience.
+        </motion.p>
+        <Link href={'/#menu'}>
+        <Button className='mt-10' variant='orange'>Discover our menu</Button>
+        </Link>
+      </div>
     </section>
   );
 };
