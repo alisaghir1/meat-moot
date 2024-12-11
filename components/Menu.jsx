@@ -52,13 +52,13 @@ const menu = [
 const Menu = () => {
   return (
     <section className="bg-black relative py-12 xl:py-24 " id="menu">
-        <div className="container mx-auto">
+        <div className="container mx-auto ">
             <motion.div
                variants={fadeIn('left' , 0.6)}
                initial='hidden'
                whileInView={'show'}
                viewport={{once:false, amount:0.4}} 
-            className="mb-3 max-w-[1000px] mx-auto text-center xl:text-left">
+            className="mb-3 max-w-[1000px] mx-auto text-center xl:text-left ">
                 <h2 className="text-orange-300 mt-2">Our Menu Concept</h2>
                 <h3 className="text-white mt-2 mb-10">What distinguishes our menu and the concept behind it are the modern interpretations of familiar dishes and flavor combinations they create, resulting in unique tastes, innovative presentations, and a distinctive Quality Meats style.</h3>
             </motion.div>
@@ -70,9 +70,9 @@ const Menu = () => {
             viewport={{once:false, amount:0}}
             className="grid grid-cols-1 gap-[30px] md:grid-cols-3 md:gap-[15px] xl:grid-cols-4">
                 {menu.map((item, index) => {
-                    return (<div key={index} className="max-w-[270px] bg-white shadow-primary mx-auto xl:mx-0 group">
+                    return (<div key={index} className="max-w-[270px] bg-black-heavy shadow-primary mx-auto xl:mx-0 group">
                         <div className="overflow-hidden">
-                            <Image className="group-hover:scale-105 object-cover transition-all duration-300 h-60 w-72" src={item.img} width={270} height={270} alt={`menu image ${index}`} />
+                            <Image width={270} height={270} className="group-hover:scale-110 object-cover transition-all duration-300 h-64" src={item.img}  alt={`menu image ${index}`} />
                         </div>
                         <div className="bg-black-heavy pt-[20px] pb-[28px] px-[30px]">
                             <h3 className="text-white mb-[14px]">
