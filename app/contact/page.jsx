@@ -6,6 +6,8 @@ import { Input } from '@/app/components/ui/input';
 import { Button } from '@/app/components/ui/button';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
+import { useAppContext } from '../context'; // Import the language context
+import contactTrans from '../translation/contactTrans'; // Import the translation file
 import {
   Select,
   SelectContent,
@@ -27,6 +29,8 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [alertMessage, setAlertMessage] = useState('');
   const [showAlert, setShowAlert] = useState(false);
+
+  const [languege] = useAppContext(); // Get the selected language from the context
 
   // Handle form input changes
   const handleChange = (e) => {
@@ -68,10 +72,10 @@ const Contact = () => {
         message: '',
       });
 
-      setAlertMessage("Thank you for your message! We have received your request and will get back to you shortly.");
+      setAlertMessage(contactTrans[languege].alertSuccess);
       setShowAlert(true);
     } catch (error) {
-      setAlertMessage("Error! Something went wrong. Please try again.");
+      setAlertMessage(contactTrans[languege].alertError);
       setShowAlert(true);
       console.error("FAILED...", error);
     } finally {
@@ -88,13 +92,13 @@ const Contact = () => {
         viewport={{ once: false, amount: 0.4 }}
         className="mx-auto max-w-xl flex flex-col items-center justify-center text-center"
       >
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-orange">Let&rsquo;s Talk</h1>
-        <p className="mt-3 text-lg text-white">Got a feature request, suggestion, or feedback? We&rsquo;d love to hear from you! We also offer franchise opportunities for those interested in bringing our concept to new locations. Fill out the form below, and we&rsquo;ll get back to you soon!</p>
+        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-orange">{contactTrans[languege].headerTitle}</h1>
+        <p className="mt-3 text-lg text-white">{contactTrans[languege].headerDescription}</p>
       </motion.div>
       <form onSubmit={sendEmail} className="mx-auto mt-16 max-w-xl sm:mt-20 z-10">
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
           <div>
-            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-orange">First name</label>
+            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-orange">{contactTrans[languege].firstName}</label>
             <div className="mt-2.5">
               <Input
                 required
@@ -102,13 +106,13 @@ const Contact = () => {
                 id="firstName"
                 value={formData.firstName}
                 onChange={handleChange}
-                placeholder="Your First Name"
+                placeholder={contactTrans[languege].firstName}
                 className="block w-full rounded-md border px-3.5 py-2 text-orange shadow-sm b-orange sm:text-sm sm:leading-6"
               />
             </div>
           </div>
           <div>
-            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-orange">Last name</label>
+            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-orange">{contactTrans[languege].lastName}</label>
             <div className="mt-2.5">
               <Input
                 required
@@ -116,28 +120,28 @@ const Contact = () => {
                 id="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
-                placeholder="Your Last Name"
+                placeholder={contactTrans[languege].lastName}
                 className="block w-full rounded-md border px-3.5 py-2 text-orange shadow-sm b-orange sm:text-sm sm:leading-6"
               />
             </div>
           </div>
           <div className="sm:col-span-2">
-            <label htmlFor="subject" className="block text-sm font-semibold leading-6 text-orange">Subject</label>
+            <label htmlFor="subject" className="block text-sm font-semibold leading-6 text-orange">{contactTrans[languege].subject}</label>
             <div className="mt-2.5">
               <Select onValueChange={handleSubjectChange} value={formData.subject}>
                 <SelectTrigger className="w-full">
-                  <SelectValue placeholder="Select Subject" />
+                  <SelectValue placeholder={contactTrans[languege].subject} />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="Franchise Inquiry">Franchise Inquiry</SelectItem>
-                  <SelectItem value="Report a Problem">Report a Problem</SelectItem>
-                  <SelectItem value="Other">Other</SelectItem>
+                  <SelectItem value="Franchise Inquiry">{contactTrans[languege].subjectOptions.franchiseInquiry}</SelectItem>
+                  <SelectItem value="Report a Problem">{contactTrans[languege].subjectOptions.reportProblem}</SelectItem>
+                  <SelectItem value="Other">{contactTrans[languege].subjectOptions.other}</SelectItem>
                 </SelectContent>
               </Select>
             </div>
           </div>
           <div className="sm:col-span-2">
-            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-orange">Email</label>
+            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-orange">{contactTrans[languege].email}</label>
             <div className="mt-2.5">
               <Input
                 required
@@ -145,13 +149,13 @@ const Contact = () => {
                 id="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Your Email Address"
+                placeholder={contactTrans[languege].email}
                 className="block w-full rounded-md border px-3.5 py-2 text-orange shadow-sm b-orange sm:text-sm sm:leading-6"
               />
             </div>
           </div>
           <div className="sm:col-span-2">
-            <label htmlFor="phone" className="block text-sm font-semibold leading-6 text-orange">Phone number</label>
+            <label htmlFor="phone" className="block text-sm font-semibold leading-6 text-orange">{contactTrans[languege].phone}</label>
             <div className="mt-2.5">
               <Input
                 required
@@ -159,42 +163,37 @@ const Contact = () => {
                 id="phone"
                 value={formData.phone}
                 onChange={handleChange}
-                placeholder="Your Phone Number"
+                placeholder={contactTrans[languege].phone}
                 className="block w-full rounded-md border px-3.5 py-2 text-orange shadow-sm b-orange sm:text-sm sm:leading-6"
               />
             </div>
           </div>
           <div className="sm:col-span-2">
-            <label htmlFor="message" className="block text-sm font-semibold leading-6 text-orange">Message</label>
+            <label htmlFor="message" className="block text-sm font-semibold leading-6 text-orange">{contactTrans[languege].message}</label>
             <div className="mt-2.5">
               <textarea
-                required
                 id="message"
+                required
                 value={formData.message}
                 onChange={handleChange}
+                placeholder={contactTrans[languege].message}
                 rows="4"
-                placeholder="Share your thoughts..."
-                className="block bg-black w-full rounded-md border px-3.5 py-2 text-orange shadow-sm b-orange sm:text-sm sm:leading-6"
-              />
+                className="block w-full rounded-md border px-3.5 py-2 text-orange bg-black shadow-sm b-orange sm:text-sm sm:leading-6"
+              ></textarea>
             </div>
           </div>
         </div>
-        <div className="mt-10">
-          <Button
-            variant="orange"
-            type="submit"
-            className="text-white py-2 w-full flex items-center justify-center"
-            disabled={loading}
-          >
-            {loading ? (
-              <div className="loader text-center"></div> // Add your loader component or CSS here
-            ) : (
-              "Submit →"
-            )}
+        <div className="mt-6">
+          <Button type="submit" disabled={loading} className="w-full rounded-md bg-orange px-3.5 py-2.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-orange focus:outline-none focus:ring-2 focus:ring-orange focus:ring-offset-2">
+            {loading ? "Sending..." : contactTrans[languege].submitButton}
           </Button>
         </div>
       </form>
-      {showAlert && <p className="mt-4 text-white text-center">{alertMessage}</p>}
+      {showAlert && (
+        <div className='mt-6 p-4 text-white text-center' >
+          {alertMessage}
+        </div>
+      )}
     </div>
   );
 };
