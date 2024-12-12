@@ -16,9 +16,12 @@ import VectorSource from "ol/source/Vector";
 import { Select } from "ol/interaction";
 import { click } from "ol/events/condition";
 import Overlay from "ol/Overlay";
-import MouseWheelZoom from "ol/interaction/MouseWheelZoom"; // Import MouseWheelZoom
+import MouseWheelZoom from "ol/interaction/MouseWheelZoom";
+import { useAppContext } from "../context";
+import branchesTrans from "../translation/branchesTrans";
 
 const Branches = () => {
+  const [language] = useAppContext(); // Get the current language from context
   const mapRef = useRef(null);
   const isMobile = useMediaQuery({ query: "(max-width: 768px)" });
 
@@ -121,16 +124,16 @@ const Branches = () => {
         const title = selectedFeature.get("title");
         const position = selectedFeature.get("position");
 
-        // Set the active marker to show/hide the popup
-
         // Position the overlay on the clicked marker
         const coordinates = selectedFeature.getGeometry().getCoordinates();
         overlay.setPosition(coordinates);
 
         // Create content dynamically with the "Get Directions" link
         const overlayContent = document.createElement("div");
-        overlayContent.className = "bg-white text-black p-3 shadow-md rounded-lg z-10";
-        
+        overlayContent.className =
+          "bg-white text-black p-3 shadow-md rounded-lg z-10";
+        overlayContent.style.direction = "ltr"; // Force LTR for popup content
+
         const titleElement = document.createElement("h3");
         titleElement.className = "font-bold";
         titleElement.textContent = title;
@@ -139,22 +142,20 @@ const Branches = () => {
         linkElement.href = `https://www.google.com/maps?q=${position[1]},${position[0]}`;
         linkElement.target = "_blank";
         linkElement.rel = "noopener noreferrer";
-        linkElement.className = "text-orange mt-2 inline-block";
-        linkElement.textContent = "Get Directions";
+        linkElement.className = "text-orange mt-2 inline-block ";
+        linkElement.textContent = branchesTrans[language].get_directions;
 
         overlayContent.appendChild(titleElement);
         overlayContent.appendChild(linkElement);
         overlay.getElement().innerHTML = "";
         overlay.getElement().appendChild(overlayContent);
-      } else {
-        // If no feature is selected, reset active marker
       }
     });
 
     return () => {
       map.setTarget(undefined); // Clean up map on component unmount
     };
-  }, [isMobile]);
+  }, [isMobile, language]);
 
   return (
     <motion.section
@@ -165,12 +166,11 @@ const Branches = () => {
       id="branches"
     >
       <div className="flex flex-col justify-center items-center mt-52 mb-10">
-        <h2 className="text-orange text-center">Our Branches</h2>
+        <h2 className="text-orange text-center">
+          {branchesTrans[language].branches_title}
+        </h2>
         <p className="text-white text-center mx-10 mt-5">
-          Discover the flavors of Meat Moot at our prime locations across Dubai
-          and Abu Dhabi. Each branch offers a unique dining experience, blending
-          exceptional service with our signature dishes. Find your nearest Meat
-          Moot and indulge in a feast like no other.
+          {branchesTrans[language].branches_description}
         </p>
       </div>
 
@@ -180,6 +180,7 @@ const Branches = () => {
           height: isMobile ? "300px" : "800px",
           width: "100%",
         }}
+        dir="ltr" // Force LTR for the map container
       ></div>
     </motion.section>
   );
