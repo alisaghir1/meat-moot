@@ -50,7 +50,12 @@ const Blogs = () => {
   const [languege] = useAppContext(); // Get the language context
 
   const handleBlogsclick = (item) => {
-    const query = new URLSearchParams(item).toString();
+    // Get the translated title and content based on the selected language
+    const translatedTitle = blogTrans[languege].blogs.find(blog => blog.title === item.title)?.translatedTitle || item.title;
+    const translatedContent = blogTrans[languege].blogs.find(blog => blog.title === item.title)?.content || item.content;
+    
+    // Add the translated title and content to query params
+    const query = new URLSearchParams({ ...item, title: translatedTitle, content: translatedContent }).toString();
     router.push(`/single-blog?${query}`); // Navigate with query params
   };
 

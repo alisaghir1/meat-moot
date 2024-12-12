@@ -50,7 +50,12 @@ const News = () => {
   const [languege] = useAppContext(); // Get the selected language from the context
 
   const handleNewsClick = (item) => {
-    const query = new URLSearchParams(item).toString();
+    // Get the translated title and content based on the selected language
+    const translatedTitle = newsTrans[languege].news.find(news => news.title === item.title)?.translatedTitle || item.title;
+    const translatedContent = newsTrans[languege].news.find(news => news.title === item.title)?.content || item.content;
+    
+    // Add the translated title and content to query params
+    const query = new URLSearchParams({ ...item, title: translatedTitle, content: translatedContent }).toString();
     router.push(`/single-news?${query}`); // Navigate with query params
   };
 
