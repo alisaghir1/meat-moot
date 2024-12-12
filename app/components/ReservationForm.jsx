@@ -7,7 +7,11 @@ import emailjs from "emailjs-com";
 
 import { cn } from "@/lib/utils";
 import { Calendar } from "@/app/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/app/components/ui/popover";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/app/components/ui/popover";
 import { Button } from "./ui/button";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
@@ -35,7 +39,7 @@ const ReservationForm = () => {
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
 
-  const [ languege ] = useAppContext(); // Get the current languege from context
+  const [languege] = useAppContext(); // Get the current languege from context
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -91,7 +95,9 @@ const ReservationForm = () => {
       <div>
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-[30px]">
           <div>
-            <Label htmlFor="firstName">{reservationFormTrans[languege].firstName}</Label>
+            <Label htmlFor="firstName">
+              {reservationFormTrans[languege].firstName}
+            </Label>
             <Input
               id="firstName"
               type="text"
@@ -101,7 +107,9 @@ const ReservationForm = () => {
             />
           </div>
           <div>
-            <Label htmlFor="lastName">{reservationFormTrans[languege].lastName}</Label>
+            <Label htmlFor="lastName">
+              {reservationFormTrans[languege].lastName}
+            </Label>
             <Input
               id="lastName"
               type="text"
@@ -111,7 +119,9 @@ const ReservationForm = () => {
             />
           </div>
           <div>
-            <Label htmlFor="persons">{reservationFormTrans[languege].persons}</Label>
+            <Label htmlFor="persons">
+              {reservationFormTrans[languege].persons}
+            </Label>
             <Input
               id="persons"
               type="text"
@@ -124,13 +134,30 @@ const ReservationForm = () => {
             <Label>{reservationFormTrans[languege].branch}</Label>
             <Select onValueChange={handleBranchChange} value={formData.branch}>
               <SelectTrigger className="w-full">
-                <SelectValue placeholder={reservationFormTrans[languege].branch} />
+                <SelectValue
+                  placeholder={reservationFormTrans[languege].branch}
+                />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="ABu-Dhabi-Al-Qana">ABu Dhabi Al Qana</SelectItem>
-                <SelectItem value="Dubai-JBR">Dubai JBR</SelectItem>
-                <SelectItem value="Dubai-Hills">Dubai Hills</SelectItem>
-                <SelectItem value="Dubai-City-Walk">Dubai City Walk</SelectItem>
+                <SelectItem value="ABu-Dhabi-Al-Qana">
+                  {reservationFormTrans[languege].branches["ABu-Dhabi-Al-Qana"]}
+                </SelectItem>
+                <SelectItem value="Dubai-JBR">
+                  {reservationFormTrans[languege].branches["Dubai-JBR"]}
+                </SelectItem>
+                <SelectItem value="Dubai-Hills">
+                  {reservationFormTrans[languege].branches["Dubai-Hills"]}
+                </SelectItem>
+                <SelectItem value="Dubai-City-Walk">
+                  {reservationFormTrans[languege].branches["Dubai-City-Walk"]}
+                </SelectItem>
+                <SelectItem value="Dubai-Al-Khawaneej">
+                  {
+                    reservationFormTrans[languege].branches[
+                      "Dubai-Al-Khawaneej"
+                    ]
+                  }
+                </SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -145,7 +172,11 @@ const ReservationForm = () => {
                   className={cn("w-full justify-start text-left font-normal")}
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
-                  {formData.date ? format(formData.date, "PPP") : <span>{reservationFormTrans[languege].date}</span>}
+                  {formData.date ? (
+                    format(formData.date, "PPP")
+                  ) : (
+                    <span>{reservationFormTrans[languege].date}</span>
+                  )}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0">

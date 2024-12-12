@@ -1,9 +1,11 @@
 // menuTrans.js
 const menuTrans = {
     en: {
+      conceptTitle: "Our Menu Concept",
+      conceptDescription: "What distinguishes our menu and the concept behind it are the modern interpretations of familiar dishes and flavor combinations they create, resulting in unique tastes, innovative presentations, and a distinctive Quality Meats style. translate to arabic and russian",
       lambShank: {
         title: "Lamb Shank",
-        description: "The finest, and tastiest smoked shanks. It comes with 8 sauces, 6 Salads, and a beverage of your choice.",
+        description: "The finest, and tastiest smoked shanks.it comes with 8 sauces, 6 Salads and beverage of your choice.",
         price: "AED 436.5/KG (excl.VAT)"
       },
       lambNeck: {
@@ -37,7 +39,10 @@ const menuTrans = {
         price: "AED 436.5/KG (excl.VAT)"
       },
     },
-    ru: {
+    ru: 
+    {
+      conceptTitle: "Концепция нашего меню",
+      conceptDescription: "То, что отличает наше меню и концепцию, — это современные интерпретации знакомых блюд и сочетаний вкусов, которые они создают, что приводит к уникальным вкусам, инновационным презентациям и отличительному стилю качественного мяса.",
       lambShank: {
         title: "Бараний голяшка",
         description: "Лучшие и самые вкусные копченые голяшки. Подается с 8 соусами, 6 салатами и напитком на выбор.",
@@ -75,6 +80,8 @@ const menuTrans = {
       },
     },
     ar: {
+      conceptTitle: "مفهوم قائمتنا",
+      conceptDescription: "ما يميز قائمتنا والمفهوم وراءها هو التفسير العصري للأطباق المألوفة وتوليفات النكهات التي تخلقها، مما ينتج عنه طعوم فريدة، وعروض مبتكرة، وأسلوب مميز في اللحوم عالية الجودة.",
       lambShank: {
         title: "عقب الغنم",
         description: "أفضل وأشهى أضلاع الغنم المدخنة. تأتي مع 8 صلصات، 6 سلطات، ومشروب من اختيارك.",

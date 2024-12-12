@@ -47,12 +47,17 @@ const Menu = () => {
           initial="hidden"
           whileInView={"show"}
           viewport={{ once: false, amount: 0.4 }}
-          className="mb-3 max-w-[1000px] mx-auto text-center xl:text-left "
+          className={`mb-5 max-w-[1000px] mx-auto ${languege === 'ar' ? 'xl:text-right' : 'text-center'} xl:text-left`}
         >
-          <h2 className="text-orange-300 mt-2">Our Menu Concept</h2>
-          <h3 className="text-white mt-2 mb-10">
-            {menuTrans[languege].menuDescription}
-          </h3>
+ <div>
+      <h2 className="text-orange-300 mt-2">
+        {menuTrans[languege].conceptTitle}
+      </h2>
+      <p className="text-white mt-2">
+        {menuTrans[languege].conceptDescription}
+      </p>
+      {/* Add any other menu-related content here */}
+    </div>
         </motion.div>
 
         <motion.div
