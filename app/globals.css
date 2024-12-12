@@ -62,3 +62,14 @@
     transform: rotate(360deg);
   }
 }
+
+html, body {
+  height: 100%;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-y: auto; /* Ensure vertical scrolling */
+}

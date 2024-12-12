@@ -1,8 +1,9 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/app/components/Header";
+import Footer from "@/app/components/Footer";
 import Head from "next/head";
+import { AppWrapper } from "./context";
 
 const geistSans = localFont({
   src: "./fonts/framd.ttf",
@@ -34,9 +35,11 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <AppWrapper>
+          <Header />
+          {children}
+          <Footer />
+        </AppWrapper>
       </body>
     </html>
   );

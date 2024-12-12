@@ -10,12 +10,12 @@ import "swiper/css/pagination";
 
 import "./swipper.css";
 import Image from "next/image";
-import about from '../public/about.jpg'
-import cr1 from '../public/carousel/cr1.jpg'
-import cr2 from '../public/carousel/cr2.jpg'
-import cr3 from '../public/carousel/cr3.jpg'
-import cr4 from '../public/carousel/cr4.jpg'
-import cr5 from '../public/carousel/cr5.jpg'
+import about from '../../public/about.jpg'
+import cr1 from '../../public/carousel/cr1.jpg'
+import cr2 from '../../public/carousel/cr2.jpg'
+import cr3 from '../../public/carousel/cr3.jpg'
+import cr4 from '../../public/carousel/cr4.jpg'
+import cr5 from '../../public/carousel/cr5.jpg'
 
 
 // import required modules

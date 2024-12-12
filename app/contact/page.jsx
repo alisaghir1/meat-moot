@@ -2,8 +2,8 @@
 
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+import { Input } from '@/app/components/ui/input';
+import { Button } from '@/app/components/ui/button';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import {
@@ -12,7 +12,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/app/components/ui/select";
 
 const Contact = () => {
   const [formData, setFormData] = useState({

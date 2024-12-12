@@ -1,8 +1,8 @@
 // import StyleGuide from "@/components/StyleGuide";
-import Hero from "@/components/Hero";
-import Menu from "@/components/Menu";
-import Reservation from "../components/Reservation";
-import Celebrities from "@/components/Celebrities";
+import Hero from "@/app/components/Hero";
+import Menu from "@/app/components/Menu";
+import Reservation from "@/app/components/Reservation";
+import Celebrities from "@/app/components/Celebrities";
 
 export default function Home() {
   return (

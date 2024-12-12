@@ -6,12 +6,12 @@ import { Calendar as CalendarIcon } from "lucide-react";
 import emailjs from "emailjs-com";
 
 import { cn } from "@/lib/utils";
-import { Calendar } from "@/components/ui/calendar";
+import { Calendar } from "@/app/components/ui/calendar";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from "@/app/components/ui/popover";
 
 import { Button } from "./ui/button";
 import { Label } from "./ui/label";
@@ -23,7 +23,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/app/components/ui/select";
 
 const ReservationForm = () => {
   const [formData, setFormData] = useState({

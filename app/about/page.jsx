@@ -2,13 +2,14 @@
 import React from "react";
 import Image from "next/image";
 import about from "../../public/about.jpg";
-import Swipper from "../../components/Swipper";
+import Swipper from "../../app/components/Swipper";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/app/components/ui/button";  
 import Link from "next/link";
 
 const About = () => {
+  
   return (
     <section className="mt-32 bg-black">
       <div id="about" className="relative bg-white overflow-hidden mt-16">
