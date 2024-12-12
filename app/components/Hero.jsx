@@ -71,10 +71,10 @@ const Hero = () => {
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: false, amount: 0.4 }}
-            className={`hidden xl:flex xl:absolute xl:top-[200px] ${isRtl ? 'xl:left-[-40]' : 'xl:right-0'}`} // Position based on rtl/ltr
+            className={`hidden xl:flex xl:absolute xl:top-[180px] ${isRtl ? 'xl:left-[-20px] transform translate-x-[-100%]' : 'xl:right-[-20px]'}`}
           >
             <Image
-              height={682}
+              height={700}
               width={900}
               alt="meat dish"
               src={"/main11.png"}

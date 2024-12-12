@@ -13,7 +13,7 @@ const footerTrans = {
     ru: {
       contacts: "Контакты",
       phone: "Телефон:",
-      email: "Электронная почта:",
+      email: "почта:",
       social: "Социальные сети",
       privacyPolicy: "Политика конфиденциальности",
       terms: "Условия использования",
