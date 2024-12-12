@@ -7,16 +7,10 @@ import emailjs from "emailjs-com";
 
 import { cn } from "@/lib/utils";
 import { Calendar } from "@/app/components/ui/calendar";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/app/components/ui/popover";
-
+import { Popover, PopoverContent, PopoverTrigger } from "@/app/components/ui/popover";
 import { Button } from "./ui/button";
 import { Label } from "./ui/label";
 import { Input } from "./ui/input";
-
 import {
   Select,
   SelectContent,
@@ -24,6 +18,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/app/components/ui/select";
+
+import reservationFormTrans from "../translation/reservationFormTrans.js"; // Adjust path
+import { useAppContext } from "../context";
 
 const ReservationForm = () => {
   const [formData, setFormData] = useState({
@@ -38,23 +35,21 @@ const ReservationForm = () => {
   const [alertMessage, setAlertMessage] = useState("");
   const [showAlert, setShowAlert] = useState(false);
 
-  // Handle form input changes
+  const [ languege ] = useAppContext(); // Get the current languege from context
+
   const handleChange = (e) => {
     const { id, value } = e.target;
     setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
-  // Handle branch selection
   const handleBranchChange = (value) => {
     setFormData((prev) => ({ ...prev, branch: value }));
   };
 
-  // Handle date selection
   const handleDateChange = (date) => {
     setFormData((prev) => ({ ...prev, date }));
   };
 
-  // Send email using EmailJS
   const sendEmail = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -80,10 +75,10 @@ const ReservationForm = () => {
         branch: "",
         date: null,
       });
-      setAlertMessage("Thank you for your reservation! We have received your request and will contact you shortly to confirm the details.");
+      setAlertMessage(reservationFormTrans[languege].alertSuccess);
       setShowAlert(true);
     } catch (error) {
-      setAlertMessage("Error! Something went wrong. Please try again.");
+      setAlertMessage(reservationFormTrans[languege].alertError);
       setShowAlert(true);
       console.error("FAILED...", error);
     } finally {
@@ -96,7 +91,7 @@ const ReservationForm = () => {
       <div>
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-[30px]">
           <div>
-            <Label htmlFor="firstName">First Name</Label>
+            <Label htmlFor="firstName">{reservationFormTrans[languege].firstName}</Label>
             <Input
               id="firstName"
               type="text"
@@ -106,7 +101,7 @@ const ReservationForm = () => {
             />
           </div>
           <div>
-            <Label htmlFor="lastName">Last Name</Label>
+            <Label htmlFor="lastName">{reservationFormTrans[languege].lastName}</Label>
             <Input
               id="lastName"
               type="text"
@@ -116,7 +111,7 @@ const ReservationForm = () => {
             />
           </div>
           <div>
-            <Label htmlFor="persons">How Many Persons</Label>
+            <Label htmlFor="persons">{reservationFormTrans[languege].persons}</Label>
             <Input
               id="persons"
               type="text"
@@ -126,10 +121,10 @@ const ReservationForm = () => {
             />
           </div>
           <div>
-            <Label>Branch</Label>
+            <Label>{reservationFormTrans[languege].branch}</Label>
             <Select onValueChange={handleBranchChange} value={formData.branch}>
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="Which Branch?" />
+                <SelectValue placeholder={reservationFormTrans[languege].branch} />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="ABu-Dhabi-Al-Qana">ABu Dhabi Al Qana</SelectItem>
@@ -142,7 +137,7 @@ const ReservationForm = () => {
         </div>
         <div className="grid mt-[30px] grid-cols-1 xl:grid-cols-1 gap-[30px]">
           <div>
-            <Label>Date</Label>
+            <Label>{reservationFormTrans[languege].date}</Label>
             <Popover>
               <PopoverTrigger asChild>
                 <Button
@@ -150,7 +145,7 @@ const ReservationForm = () => {
                   className={cn("w-full justify-start text-left font-normal")}
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
-                  {formData.date ? format(formData.date, "PPP") : <span>Pick a date</span>}
+                  {formData.date ? format(formData.date, "PPP") : <span>{reservationFormTrans[languege].date}</span>}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0">
@@ -173,7 +168,7 @@ const ReservationForm = () => {
         {loading ? (
           <div className="loader"></div> // Add your loader component or CSS here
         ) : (
-          "Submit"
+          reservationFormTrans[languege].submit
         )}
       </Button>
       {showAlert && <p className="mt-4 text-white">{alertMessage}</p>}

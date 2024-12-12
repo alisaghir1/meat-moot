@@ -3,33 +3,33 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { fadeIn } from "@/variants";
-import { Link as ScrollLink } from "react-scroll";
 import Link from "next/link";
 import { useAppContext } from "../context"; // Import the context to get language
 
 import heroTrans from "../translation/heroTrans.js"; // Import translation file
 
 const Hero = () => {
-  const [ language ] = useAppContext(); // Get current language from context
+  const [language] = useAppContext(); // Get current language from context
 
   // Fallback to English if the language is invalid or undefined
   const t = heroTrans[language] || heroTrans.en;
 
+  const isRtl = language === "ar"; // Check if the language is Arabic (rtl)
 
   return (
     <section
       id="home"
       className="bg-hero2 xl:bg-hero bg-no-repeat relative xl:bg-cover xl:h-[1098px] py-40 pb-32 xl:py-0"
     >
-      <div className="container mx-auto ">
+      <div className="container mx-auto">
         <div className="flex items-center xl:h-[960px]">
-          <div className="w-full xl:max-w-[460px] text-center xl:text-left font-geis">
+        <div className={`w-full xl:max-w-[460px] text-center ${isRtl ? 'xl:text-right' : ''} font-geis`}>
             <motion.h1
               variants={fadeIn("down", 0.6)}
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.4 }}
-              className="text-white mb-7 "
+              className="text-white mb-7"
             >
               {t.title.split("\n").map((line, index) => (
                 <span key={index}>{line}<br /></span>
@@ -64,12 +64,14 @@ const Hero = () => {
               </Link>
             </motion.div>
           </div>
+          
+          {/* Conditionally positioning image */}
           <motion.div
             variants={fadeIn("up", 1)}
             initial="hidden"
             whileInView={"show"}
             viewport={{ once: false, amount: 0.4 }}
-            className="hidden xl:flex xl:absolute xl:top-[200px] xl:right-0"
+            className={`hidden xl:flex xl:absolute xl:top-[200px] ${isRtl ? 'xl:left-[-40]' : 'xl:right-0'}`} // Position based on rtl/ltr
           >
             <Image
               height={682}
@@ -80,12 +82,14 @@ const Hero = () => {
           </motion.div>
         </div>
       </div>
+      
+      {/* Another conditional image */}
       <motion.div
         variants={fadeIn("up", 1.2)}
         initial="hidden"
         whileInView={"show"}
         viewport={{ once: false, amount: 0.4 }}
-        className="hidden xl:flex xl:relative xl:-top-24 z-50"
+        className={`hidden xl:flex xl:relative xl:-top-24 z-50 ${isRtl ? 'xl:left-0' : 'xl:right-0'}`} // Position based on rtl/ltr
       >
         <Image
           height={404}

@@ -1,8 +1,10 @@
+'use client'
 import Link from "next/link";
 import { useState } from "react";
 import { FaCaretDown } from "react-icons/fa"; // Import the caret down icon
 import navTrans from "../translation/navTrans.js"; // Import the navbar translations
 import { useAppContext } from "../context/index.jsx"; // Import the context to get/set the language
+import { useEffect } from "react";
 
 const links = [
   { path: "/", key: "home" },
@@ -25,6 +27,12 @@ const Nav = ({ containerStyles, linkStyles }) => {
   const [language, setLanguage] = useAppContext(); // Get and set language from context
 
   const t = navTrans[language] || navTrans.en; // Current language translations
+
+  useEffect(() => {
+    // Update the direction when the language changes
+    const dir = language === "ar" ? "rtl" : "ltr";
+    document.documentElement.setAttribute("dir", dir);
+  }, [language]); // This effect runs whenever the language changes
 
   return (
     <nav className={`${containerStyles}`}>

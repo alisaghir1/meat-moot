@@ -4,21 +4,35 @@ import { createContext, useState, useContext, useEffect } from "react";
 const AppContext = createContext();
 
 export function AppWrapper({ children }) {
-  // Start with a default language during SSR
   const [language, setLanguage] = useState("en");
   const [isHydrated, setIsHydrated] = useState(false); // Track hydration state
 
-  // Load language from localStorage after hydration
+  // Function to set a cookie
+  const setCookie = (name, value, days) => {
+    const expires = new Date();
+    expires.setTime(expires.getTime() + days * 24 * 60 * 60 * 1000);
+    document.cookie = `${name}=${value}; expires=${expires.toUTCString()}; path=/`;
+  };
+
+  // Function to get a cookie
+  const getCookie = (name) => {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+    return null;
+  };
+
+  // Load language from cookies after hydration
   useEffect(() => {
-    const storedLanguage = localStorage.getItem("language") || "en";
+    const storedLanguage = getCookie("language") || "en";
     setLanguage(storedLanguage);
     setIsHydrated(true); // Mark hydration complete
   }, []);
 
-  // Function to update language and save to localStorage
+  // Function to update language and save to cookies
   const updateLanguage = (lang) => {
     setLanguage(lang);
-    localStorage.setItem("language", lang); // Save to localStorage
+    setCookie("language", lang, 30); // Save language in cookie for 30 days
   };
 
   // Render children only after hydration to avoid mismatches
