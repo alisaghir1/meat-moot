@@ -3,6 +3,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
 import { useRouter } from "next/navigation";
+import { useAppContext } from "../context";
+import blogTrans from "../translation/blogTrans"; // Import the translation file
 
 const blogs = [
   {
@@ -45,6 +47,7 @@ const blogs = [
 
 const Blogs = () => {
   const router = useRouter();
+  const [languege] = useAppContext(); // Get the language context
 
   const handleBlogsclick = (item) => {
     const query = new URLSearchParams(item).toString();
@@ -59,20 +62,18 @@ const Blogs = () => {
         initial="hidden"
         whileInView={"show"}
         viewport={{ once: false, amount: 0.4 }}
-        className="flex flex-col items-center justify-center mb-10 "
+        className="flex flex-col items-center justify-center mb-10"
       >
         <h2 className="text-orange font-bold text-center text-3xl">
-          Explore Our Blogs
+          {blogTrans[languege].headerTitle}
         </h2>
         <p className="text-white font-light text-center text-lg mt-2">
-          Stay up to date with the latest insights, trends, and stories in
-          various industries. Our blogs offer expert opinions and in-depth
-          analysis on a wide range of topics.
+          {blogTrans[languege].headerDescription}
         </p>
       </motion.div>
 
       {/* Blog Grid Layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-8 ">
+      <div className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {blogs.map((item) => (
           <motion.div
             variants={fadeIn("left", 0.6)}
@@ -92,7 +93,9 @@ const Blogs = () => {
             ></div>
             <div className="p-5">
               <h1 className="text-white font-bold text-2xl mb-3">
-                {item.title}
+                {
+                  blogTrans[languege].blogs.find(blog => blog.title === item.title)?.translatedTitle || item.title
+                }
               </h1>
             </div>
           </motion.div>
