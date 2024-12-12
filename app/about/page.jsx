@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import about from "../../public/about.jpg";
 import Swipper from "../../app/components/Swipper";
@@ -7,9 +7,14 @@ import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
 import { Button } from "@/app/components/ui/button";  
 import Link from "next/link";
+import { useAppContext } from "../context"; // Make sure to import your context
+import aboutTrans from "../translation/abouTrans.js"; // Import your translation file
 
 const About = () => {
+  const [ language ] = useAppContext(); // Assuming you have a language context
   
+  const translation = aboutTrans[language] || aboutTrans.en; // Fallback to English if no language is set
+
   return (
     <section className="mt-32 bg-black">
       <div id="about" className="relative bg-white overflow-hidden mt-16">
@@ -36,24 +41,11 @@ const About = () => {
             >
               <div className="sm:text-center lg:text-left">
                 <h2 className="my-6 text-center text-2xl tracking-tight font-extrabold text-orange sm:text-3xl md:text-4xl">
-                  ABOUT OUR RESTAURANT
+                  {translation.aboutTitle}
                 </h2>
 
-                <p>
-                  Founded in 2021, Meat Moot has successfully established 43
-                  locations across 14 countries worldwide, and we continue to
-                  diligently pursue the execution of our growth strategy, aiming
-                  to penetrate new markets.
-                </p>
-                <p className="mt-6">
-                  We are headquartered in Istanbul, Turkey. At Meat Moot
-                  Restaurant, you will sit at a king’s banquet, you will be
-                  presented with a feast of garnished meat cooked following
-                  world-class recipes that will always leave you wanting more.
-                  Traditional continues to meet modern in our kitchen, where a
-                  state-of-the-art cooking facility lies next to a meat curing
-                  facility.
-                </p>
+                <p>{translation.aboutText1}</p>
+                <p className="mt-6">{translation.aboutText2}</p>
               </div>
             </motion.main>
           </div>
@@ -63,7 +55,7 @@ const About = () => {
           initial="hidden"
           whileInView={"show"}
           viewport={{ once: false, amount: 0.4 }}
-          className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2"
+          className={`lg:absolute lg:inset-y-0 ${language === 'ar' ? 'lg:left-0' : 'lg:right-0'}  lg:w-1/2`}
         >
           <Image
             src={about}
@@ -80,25 +72,15 @@ const About = () => {
         className="text-center mx-5 xl:mx-10 mt-20 mb-10"
       >
         <h2 className="my-6 text-2xl tracking-tight font-extrabold text-orange sm:text-3xl md:text-4xl">
-          Our History
+          {translation.historyTitle}
         </h2>
 
-        <p className="text-white">
-          Established in 2021, we now have Meat Moot locations in 14 countries
-          around the world. We are headquartered Istanbul, Turkey. Meat Moot is
-          an exciting rather newly established restaurant brand, which expands
-          very successfully and rapidly internationally. We are introducing a
-          whole new concept of great smoked meat to the market and combining
-          casual dining with great and fast service.
-        </p>
+        <p className="text-white">{translation.historyText}</p>
         <h2 className="mb-6 mt-14 text-2xl tracking-tight font-extrabold text-orange sm:text-3xl md:text-4xl">
-          UAE Branches
+          {translation.uaeBranchesTitle}
         </h2>
 
-        <p className="text-white">
-          DUBAI - JBR | Abu Dhabi - AL QANA | DUBAI - DUBAI HILLS | DUBAI -
-          DUBAI CITY WALK | DUBAI - AL KHAWANEEJ
-        </p>
+        <p className="text-white">{translation.uaeBranchesText}</p>
       </motion.div>
       <motion.div
         variants={fadeIn("up", 0.8)}
@@ -116,38 +98,16 @@ const About = () => {
         whileInView={"show"}
         viewport={{ once: false, amount: 0.4 }}
         className="my-6 text-2xl tracking-tight font-extrabold text-orange sm:text-3xl md:text-4xl">
-          Atmosphere Of Our Restaurant
+          {translation.atmosphereTitle}
         </motion.h2>
         <motion.p
         variants={fadeIn("up", 1)}
         initial="hidden"
         whileInView={"show"}
         viewport={{ once: false, amount: 0.4 }} 
-        className="text-white ">
-          The warm, industrial decor draws on cues from traditional Istanbul
-          butcher shops, and the usage of warm wood, stainless steel, and dark
-          marble.
-          <br />
-          The space succeeds in being simultaneously rustic, inviting, and
-          luxurious with rich details. Interior details include an homage to a
-          traditional “meat locker” interior with finished walnut planks
-          covering the length of the dining room wall.
-          <br />
-          <br />
-          The unique experience for guests is complemented by the creative
-          interior design of all branches of <span className="text-orange">Meat Moot</span> restaurants, which
-          accentuates to the restaurants warm atmosphere and integrates the
-          iconic wooden material inspired by the restaurants identity that
-          provides relaxation and tranquility.
-          <br />
-          <br />
-          The soothing quiet music brings comfort while the guests indulge and
-          unwind. From big details down to the small intricate ones have been
-          given a thoughtful consideration to provide a wonderful and
-          unforgettable dining experience.
-        </motion.p>
+        className="text-white ">{translation.atmosphereText}</motion.p>
         <Link href={'/#menu'}>
-        <Button className='mt-10' variant='orange'>Discover our menu</Button>
+          <Button className='mt-10' variant='orange'>{translation.menuButton || 'Discover our menu'}</Button>
         </Link>
       </div>
     </section>
