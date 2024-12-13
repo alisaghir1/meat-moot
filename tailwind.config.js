@@ -23,7 +23,7 @@ module.exports = {
   			body: '#e5e5e5',
 			white:'#fff',
 			green:{DEFAULT: '#539592', hover:'#50807d'},
-			black:{DEFAULT: '#273029', heavy:'#1b211c'},
+			black:{DEFAULT: '#222222', heavy:'#100c08'},
 			grey: '#888888',
 			orange:{
 				DEFAULT: '#f2994a',
@@ -40,7 +40,7 @@ module.exports = {
 			hero:'url(/hero-bg2.jpg)',
 			reservation:'url(/reservation.jpg)',
 			hero2:'url(/smallBg3.jpg)',
-
+			heroXl:'url(/heroXl.jpg)',
 		},
 		backgroundSize: {
 			hero: 'cover',

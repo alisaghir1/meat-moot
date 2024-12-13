@@ -2,9 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --font-geist-sans: "FRAMDCN", sans-serif;
-  --font-geist-mono: "GeistMonoVF", monospace;
+@font-face {
+  font-family: "franklin Gothic Demi Cond";
+  src:url("/path-to-fonts/FRAMDCN.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Antique Olive Compact";
+  src:url("../app/fonts/11120.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 
@@ -41,9 +50,14 @@
   }
 }
 
-* {
-  font-family: var(--font-geist-sans), sans-serif
+h1,h2,h3,h4,h5{
+  font-family: "Antique Olive Compact", sans-serif;
 }
+
+p {
+  font-family: 'franklin Gothic Demi Cond, sans-serif'
+}
+
 
 .loader {
   border: 4px solid #f3f3f3; /* Light gray */

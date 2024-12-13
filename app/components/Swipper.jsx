@@ -16,6 +16,9 @@ import cr2 from '../../public/carousel/cr2.jpg'
 import cr3 from '../../public/carousel/cr3.jpg'
 import cr4 from '../../public/carousel/cr4.jpg'
 import cr5 from '../../public/carousel/cr5.jpg'
+import cr6 from '../../public/hero-bg3.webp'
+import cr7 from '../../public/contact.jpg'
+
 
 
 // import required modules
@@ -65,6 +68,12 @@ export default function App() {
         </SwiperSlide>
         <SwiperSlide>
           <Image src={about} alt="slide 6" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image src={cr6} alt="slide 7" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <Image src={cr7} alt="slide 8" />
         </SwiperSlide>
       </Swiper>
     </>

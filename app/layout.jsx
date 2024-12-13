@@ -12,6 +12,12 @@ const geistSans = localFont({
   weight: "100 900",
 });
 
+const antique = localFont({
+  src: "./fonts/11120.ttf",
+  variable: "--font-antique",
+  weight: "100 900",
+});
+
 export async function generateMetadata() {
   // Access cookies asynchronously
   const cookieStore = await cookies(); // Await the cookies function
@@ -47,7 +53,7 @@ export default async function RootLayout({ children }) {
       <Head>
         <link rel="icon" href="/logo.svg" />
       </Head>
-      <body className={`${geistSans.variable} antialiased`}>
+      <body className={`${geistSans.variable}${antique.variable} antialiased`}>
         <AppWrapper>
           <Header />
           {children}

@@ -1,6 +1,7 @@
 // menuTrans.js
 const menuTrans = {
     en: {
+      menuTitle: 'Our Menu',
       conceptTitle: "Our Menu Concept",
       conceptDescription: "What distinguishes our menu and the concept behind it are the modern interpretations of familiar dishes and flavor combinations they create, resulting in unique tastes, innovative presentations, and a distinctive Quality Meats style. translate to arabic and russian",
       lambShank: {
@@ -41,6 +42,7 @@ const menuTrans = {
     },
     ru: 
     {
+      menuTitle: ' Наше меню',
       conceptTitle: "Концепция нашего меню",
       conceptDescription: "То, что отличает наше меню и концепцию, — это современные интерпретации знакомых блюд и сочетаний вкусов, которые они создают, что приводит к уникальным вкусам, инновационным презентациям и отличительному стилю качественного мяса.",
       lambShank: {
@@ -80,6 +82,7 @@ const menuTrans = {
       },
     },
     ar: {
+      menuTitle: ' قائمتنا',
       conceptTitle: "مفهوم قائمتنا",
       conceptDescription: "ما يميز قائمتنا والمفهوم وراءها هو التفسير العصري للأطباق المألوفة وتوليفات النكهات التي تخلقها، مما ينتج عنه طعوم فريدة، وعروض مبتكرة، وأسلوب مميز في اللحوم عالية الجودة.",
       lambShank: {

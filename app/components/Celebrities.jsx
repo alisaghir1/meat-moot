@@ -24,7 +24,7 @@ const Celebrities = () => {
   ];
 
   return (
-    <div className="px-4 py-8 lg:px-16 lg:py-16 bg-gradient-to-b from-black via-gray-900 to-black">
+    <div className="px-4 py-8 xl:px-16 lg:py-16 bg-gradient-to-b from-gray-900 via-black to-gray-900">
       <motion.div
         variants={fadeIn("right", 0.6)}
         initial="hidden"
@@ -35,7 +35,7 @@ const Celebrities = () => {
         <h1 className="text-4xl md:text-5xl font-extrabold text-orange">
           {title}
         </h1>
-        <p className="text-lg md:text-xl text-gray-300 max-w-xl mx-auto">
+        <p className="text-white text-center">
           {description}
         </p>
       </motion.div>

@@ -47,57 +47,53 @@ const Menu = () => {
           initial="hidden"
           whileInView={"show"}
           viewport={{ once: false, amount: 0.4 }}
-          className={`mb-5 max-w-[1000px] mx-auto ${languege === 'ar' ? 'xl:text-right' : 'text-center'} xl:text-left`}
+          className={`mb-5 max-w-[2000px] mx-auto ${languege === 'ar' ? 'xl:text-right' : 'text-center'} xl:text-left`}
         >
  <div>
-      <h2 className="text-orange-300 mt-2">
-        {menuTrans[languege].conceptTitle}
+      <h2 className="text-orange mt-2">
+        {menuTrans[languege].menuTitle}
       </h2>
-      <p className="text-white mt-2">
-        {menuTrans[languege].conceptDescription}
-      </p>
-      {/* Add any other menu-related content here */}
     </div>
         </motion.div>
 
-        <motion.div
-          variants={fadeIn("right", 0.6)}
-          initial="hidden"
-          whileInView={"show"}
-          viewport={{ once: false, amount: 0 }}
-          className="grid grid-cols-1 gap-[30px] md:grid-cols-3 md:gap-[15px] xl:grid-cols-4"
+        <div
+        className="flex flex-col gap-5"
         >
           {menu.map((item, index) => {
             const translatedItem = menuTrans[languege][item.key];
             return (
-              <div
-                key={index}
-                className="max-w-[270px] bg-black-heavy shadow-primary mx-auto xl:mx-0 group"
+              <motion.div
+              variants={fadeIn("left", 0.6)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0 }}
+              key={index}
+              className="flex flex-col xl:flex-row bg-gray-900 shadow-primary mx-auto xl:mx-0 group mt-5"
               >
                 <div className="overflow-hidden">
                   <Image
-                    width={270}
-                    height={270}
-                    className="group-hover:scale-110 object-cover transition-all duration-300 h-64"
+                    width={300}
+                    height={300}
+                    className="group-hover:scale-110 object-cover transition-all duration-300 w-full f-full"
                     src={item.img}
                     alt={`menu image ${index}`}
                   />
                 </div>
-                <div className="bg-black-heavy pt-[20px] pb-[28px] px-[30px]">
-                  <h3 className="text-white mb-[14px]">
+                <div className="bg-black-heavy flex flex-col justify-between pt-[20px] pb-[28px] px-[30px]">
+                  <h3 className="text-orange text-2xl mb-[14px]">
                     {translatedItem.title}
                   </h3>
-                  <div className="text-md text-gray-400 font-semibold mb-[14px]">
+                  <div className="text-xl text-gray-400 font-semibold mb-[14px]">
                     {translatedItem.description}
                   </div>
-                  <div className="text-sm text-orange font-semibold">
+                  <div className="text-md text-white font-semibold">
                     {translatedItem.price}
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

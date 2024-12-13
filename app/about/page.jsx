@@ -1,7 +1,6 @@
 "use client";
-import React, { useContext } from "react";
 import Image from "next/image";
-import about from "../../public/about.jpg";
+import about from "../../public/hero-bg3.webp";
 import Swipper from "../../app/components/Swipper";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
@@ -105,9 +104,9 @@ const About = () => {
         initial="hidden"
         whileInView={"show"}
         viewport={{ once: false, amount: 0.4 }} 
-        className="text-white ">{translation.atmosphereText}</motion.p>
+        className="text-white text-center ">{translation.atmosphereText}</motion.p>
         <Link href={'/#menu'}>
-          <Button className='mt-10' variant='orange'>{translation.menuButton || 'Discover our menu'}</Button>
+          <Button className='mt-10 w-56' variant='orange'>{translation.menuButton || 'Discover our menu'}</Button>
         </Link>
       </div>
     </section>

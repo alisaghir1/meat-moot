@@ -19,11 +19,11 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="bg-hero2 xl:bg-hero bg-no-repeat relative xl:bg-cover xl:h-[1098px] py-40 pb-32 xl:py-0"
+      className="bg-hero2 bg-no-repeat relative xl:bg-cover xl:h-[1098px] py-40 pb-32 xl:py-0"
     >
       <div className="container mx-auto">
-        <div className="flex items-center xl:h-[960px]">
-        <div className={`w-full xl:max-w-[460px] text-center ${isRtl ? 'xl:text-right' : ''} font-geis`}>
+        <div className="flex items-center justify-center xl:h-[960px]">
+        <div className={`w-full xl:max-w-[700px] text-center font-geis`}>
             <motion.h1
               variants={fadeIn("down", 0.6)}
               initial="hidden"
@@ -40,7 +40,7 @@ const Hero = () => {
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.4 }}
-              className="font-semibold mb-7 text-orange"
+              className="font-semibold text-lg Xl:text-2xl mb-7 text-orange"
             >
               {t.subtitle}
             </motion.p>
@@ -73,12 +73,6 @@ const Hero = () => {
             viewport={{ once: false, amount: 0.4 }}
             className={`hidden xl:flex xl:absolute xl:top-[180px] ${isRtl ? 'xl:left-[-20px] transform translate-x-[-100%]' : 'xl:right-[-20px]'}`}
           >
-            <Image
-              height={700}
-              width={900}
-              alt="meat dish"
-              src={"/main11.png"}
-            ></Image>
           </motion.div>
         </div>
       </div>
@@ -89,13 +83,13 @@ const Hero = () => {
         initial="hidden"
         whileInView={"show"}
         viewport={{ once: false, amount: 0.4 }}
-        className={`hidden xl:flex xl:relative xl:-top-24 z-50 ${isRtl ? 'xl:left-0' : 'xl:right-0'}`} // Position based on rtl/ltr
+        className={`hidden xl:flex xl:relative xl:-top-50 z-50 ${isRtl ? 'xl:left-0' : 'xl:right-0'}`} // Position based on rtl/ltr
       >
         <Image
           height={404}
           width={320}
           alt="meat dish"
-          src={"/main3rm.png"}
+          src={"/main11.png"}
         ></Image>
       </motion.div>
     </section>
