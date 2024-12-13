@@ -19,7 +19,7 @@ const Reservation = () => {
         viewport={{ once: false, amount: 0.4 }}
         className="bg-black bg-opacity-20 border border-black w-full xl:max-w-[868px] min-h-[518px] p-8 xl:p-16 shadow-lg backdrop-blur-md"
       >
-        <h2 className="text-orange mb-9 capitalize">
+        <h2 className="text-orange mb-9">
           {language === "en" && "Book a table"}
           {language === "ru" && "Забронировать столик"}
           {language === "ar" && "احجز طاولة"}

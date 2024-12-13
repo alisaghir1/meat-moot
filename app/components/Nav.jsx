@@ -49,7 +49,7 @@ const Nav = ({ containerStyles, linkStyles }) => {
                   {t[link.key]}
                 </span>
                 <FaCaretDown
-                  className={`ml-2 transform transition-all ${
+                  className={`transform transition-all ${
                     showDropdown ? "rotate-180" : ""
                   }`}
                 />
@@ -97,7 +97,7 @@ const Nav = ({ containerStyles, linkStyles }) => {
             {languages.find((lang) => lang.code === language)?.label || "English"}
           </span>
           <FaCaretDown
-            className={`ml-2 transform transition-all ${
+            className={`transform transition-all ${
               showLanguageDropdown ? "rotate-180" : ""
             }`}
           />

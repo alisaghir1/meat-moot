@@ -83,7 +83,7 @@ const Hero = () => {
         initial="hidden"
         whileInView={"show"}
         viewport={{ once: false, amount: 0.4 }}
-        className={`hidden xl:flex xl:relative xl:-top-50 z-50 ${isRtl ? 'xl:left-0' : 'xl:right-0'}`} // Position based on rtl/ltr
+        className={`hidden xl:flex xl:relative xl:-top-5 z-50 ${isRtl ? 'xl:left-0' : 'xl:right-0'}`} // Position based on rtl/ltr
       >
         <Image
           height={404}

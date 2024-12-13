@@ -83,16 +83,16 @@ const NavMobile = ({ containerStyles, linkStyles, iconStyles }) => {
             {links.map((link, index) => {
               if (link.name === "media") {
                 return (
-                  <div key={index} className="relative">
+                  <div key={index} className="relative ">
                     <button
                       onClick={() => setShowMediaDropdown(!showMediaDropdown)}
-                      className="flex text-white items-center"
+                      className="flex justify-center items-center text-white"
                     >
-                      <div className="flex gap-x-3 hover:text-orange transition-all duration-300">
+                      <div className="flex gap-x-3 justify-center items-center hover:text-orange transition-all duration-300">
                         <div className={`${iconStyles}`}>{link.icon}</div>
                         <div className={`${linkStyles}`}>{t[link.name]}</div>
                       </div>
-                      <FaCaretDown className={`ml-2 transform transition-all ${showMediaDropdown ? 'rotate-180' : ''}`} />
+                      <FaCaretDown className={` transform transition-all ${showMediaDropdown ? 'rotate-180' : ''}`} />
                     </button>
                     {showMediaDropdown && (
                       <div className="absolute bg-black-heavy text-white p-2 rounded shadow-lg mt-1">
@@ -122,13 +122,13 @@ const NavMobile = ({ containerStyles, linkStyles, iconStyles }) => {
                 onClick={() => setShowLanguageDropdown(!showLanguageDropdown)}
                 className="flex text-white items-center"
               >
-                <div className="flex gap-x-3 ml-2 hover:text-orange transition-all duration-300">
-                  <LuLanguages />
+                <div className="flex gap-x-3 justify-center items-center  hover:text-orange transition-all duration-300">
+                  <LuLanguages className="text-3xl" />
                   <span className={`${linkStyles}`}>
                     {languages.find((lang) => lang.code === language)?.label || "English"}
                   </span>
                 </div>
-                <FaCaretDown className={`ml-2 transform transition-all ${showLanguageDropdown ? 'rotate-180' : ''}`} />
+                <FaCaretDown className={` transform transition-all ${showLanguageDropdown ? 'rotate-180' : ''}`} />
               </button>
               {showLanguageDropdown && (
                 <div className="absolute bg-black-heavy text-white p-2 rounded shadow-lg mt-1">
