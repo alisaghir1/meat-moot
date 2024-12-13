@@ -40,7 +40,7 @@ module.exports = {
 			hero:'url(/hero-bg2.jpg)',
 			reservation:'url(/reservation.jpg)',
 			hero2:'url(/smallBg3.jpg)',
-			heroXl:'url(/heroXl.jpg)',
+			heroXl:'url(/smallBg3.jpg)',
 		},
 		backgroundSize: {
 			hero: 'cover',
