@@ -6,7 +6,7 @@ import Head from "next/head";
 import { AppWrapper } from "./context";
 import { cookies } from "next/headers"; // Import to access cookies
 
-const geistSans = localFont({
+const franklin = localFont({
   src: "./fonts/framd.ttf",
   variable: "--font-geist-sans",
   weight: "100 900",
@@ -53,7 +53,7 @@ export default async function RootLayout({ children }) {
       <Head>
         <link rel="icon" href="/logo.svg" />
       </Head>
-      <body className={`${geistSans.variable}${antique.variable} antialiased`}>
+      <body className={`${franklin.variable}${antique.variable} antialiased`}>
         <AppWrapper>
           <Header />
           {children}
