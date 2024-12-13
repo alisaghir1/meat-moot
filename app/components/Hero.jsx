@@ -19,7 +19,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="bg-hero2 bg-no-repeat relative xl:bg-cover xl:h-[1098px] py-40 pb-32 xl:py-0"
+      className="bg-heroXl bg-no-repeat relative xl:bg-cover xl:h-[1098px] py-40 pb-32 xl:py-0"
     >
       <div className="container mx-auto">
         <div className="flex items-center justify-center xl:h-[960px]">
@@ -29,7 +29,7 @@ const Hero = () => {
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.4 }}
-              className="text-white mb-7"
+              className="text-white mb-7 text-4xl md:text-5xl xl:text-6xl mt-5"
             >
               {t.title.split("\n").map((line, index) => (
                 <span key={index}>{line}<br /></span>
@@ -59,7 +59,7 @@ const Hero = () => {
               whileInView={"show"}
               viewport={{ once: false, amount: 0.4 }}
             >
-              <Link href={'/#reservation'}>
+              <Link href={'/branches/jbr'}>
                 <Button variant="orange">{t.button}</Button>
               </Link>
             </motion.div>

@@ -1,10 +1,9 @@
 'use client'
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaCaretDown } from "react-icons/fa"; // Import the caret down icon
 import navTrans from "../translation/navTrans.js"; // Import the navbar translations
 import { useAppContext } from "../context/index.jsx"; // Import the context to get/set the language
-import { useEffect } from "react";
 
 const links = [
   { path: "/", key: "home" },
@@ -14,7 +13,15 @@ const links = [
   { path: "media", key: "media" },
   { path: "contact", key: "contact" },
 ];
-  
+
+const branches = [
+  { path: "/branches/jbr", key: "jbr" },
+  { path: "/branches/city-walk", key: "city_walk" },
+  { path: "/branches/al-qana", key: "al_qana" },
+  { path: "/branches/khawaneej", key: "khawaneej" },
+  { path: "/branches/dubai-hills", key: "dubai_hills" },
+];
+
 const languages = [
   { code: "en", label: "English" },
   { code: "ru", label: "Русский" },
@@ -23,6 +30,7 @@ const languages = [
 
 const Nav = ({ containerStyles, linkStyles }) => {
   const [showDropdown, setShowDropdown] = useState(false); // For media dropdown
+  const [showBranchesDropdown, setShowBranchesDropdown] = useState(false); // For branches dropdown
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false); // For language dropdown
   const [language, setLanguage] = useAppContext(); // Get and set language from context
 
@@ -74,14 +82,41 @@ const Nav = ({ containerStyles, linkStyles }) => {
               )}
             </div>
           );
+        } else if (link.key === "branches") {
+          return (
+            <div key={index} className="relative">
+              <button
+                onClick={() => setShowBranchesDropdown(!showBranchesDropdown)}
+                className={`${linkStyles} cursor-pointer flex items-center`}
+              >
+                <span className="hover:text-orange transition-all duration-300">
+                  {t[link.key]}
+                </span>
+                <FaCaretDown
+                  className={`transform transition-all ${
+                    showBranchesDropdown ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {showBranchesDropdown && (
+                <div className="absolute bg-black-heavy text-white p-4 text-sm rounded shadow-lg mt-1">
+                  {branches.map((branch, i) => (
+                    <Link
+                      key={i}
+                      onClick={() => setShowBranchesDropdown(false)}
+                      href={branch.path}
+                      className="block px-6 py-2 hover:text-orange"
+                    >
+                      {t[branch.key]}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          );
         }
-
         return (
-          <Link
-            key={index}
-            href={link.path}
-            className={`${linkStyles}`}
-          >
+          <Link key={index} href={link.path} className={`${linkStyles}`}>
             {t[link.key]}
           </Link>
         );

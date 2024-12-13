@@ -51,8 +51,11 @@ const Menu = () => {
         >
  <div>
       <h2 className="text-orange mt-2">
-        {menuTrans[languege].menuTitle}
+        {menuTrans[languege].conceptTitle}
       </h2>
+      <p className="text-white">
+      {menuTrans[languege].conceptDescription}
+      </p>
     </div>
         </motion.div>
 
