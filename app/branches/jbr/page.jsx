@@ -56,7 +56,7 @@ const page = () => {
       </div>
       <div className='flex flex-col justify-center items-center my-20 text-white gap-5'>
         <h2 className='text-white'>
-        Let&apos;s Meat Now
+        Let&apos;s Meat At JBR!
         </h2>
         <FaLongArrowAltDown className='text-4xl' />
         <h2 className='underline'>

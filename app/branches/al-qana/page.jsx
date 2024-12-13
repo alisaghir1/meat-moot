@@ -10,14 +10,14 @@ import { Button } from '@/app/components/ui/button';
 
 
 const jbr = [
-  { image: '/jbr/jb1.jpg' },
-  { image: '/jbr/jb2.jpg' },
-  { image: '/jbr/jb3.jpg' },
-  { image: '/jbr/jb4.jpg' },
-  { image: '/jbr/jb5.jpg' },
-  { image: '/jbr/jb6.jpg' },
-  { image: '/jbr/jb7.jpg' },
-  { image: '/jbr/jb8.jpg' },
+  { image: '/al-qana/aq1.jpg' },
+  { image: '/al-qana/aq2.jpg' },
+  { image: '/al-qana/aq3.jpg' },
+  { image: '/al-qana/aq4.jpg' },
+  { image: '/al-qana/aq5.jpg' },
+  { image: '/al-qana/aq6.jpg' },
+  { image: '/al-qana/aq7.jpg' },
+  { image: '/al-qana/aq8.jpg' },
 
 ];
 
@@ -56,11 +56,11 @@ const page = () => {
       </div>
       <div className='flex flex-col justify-center items-center my-20 text-white gap-5'>
         <h2 className='text-white'>
-        Let&apos;s Meat Now
+        Let&apos;s Meat At Al-QANA!
         </h2>
         <FaLongArrowAltDown className='text-4xl' />
         <h2 className='underline'>
-          <Link target='_blank' href={'https://maps.app.goo.gl/F65xWMAg8dSQcAAu7'}>
+          <Link target='_blank' href={'https://maps.app.goo.gl/b27RxKsU4tMEMdraA'}>
           <Button variant='orange'>Get Directions</Button>
           </Link>
         </h2>

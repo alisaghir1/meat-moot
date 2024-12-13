@@ -15,12 +15,14 @@ const Celebrities = () => {
 
   // Example data for celebrity images
   const celebrities = [
-    { image: '/celeb2.webp' },
     { image: '/celeb1.webp' },
     { image: '/celeb5.jpeg' },
-    { image: '/celeb6.jpeg' },
+    { image: '/celeb2.webp' },
+    { image: '/celeb7.jpg' },
     { image: '/celeb3.jpeg' },
     { image: '/celeb4.jpeg' },
+    { image: '/celeb8.jpg' },
+    { image: '/celeb9.jpg' },
   ];
 
   return (

@@ -10,14 +10,14 @@ import { Button } from '@/app/components/ui/button';
 
 
 const jbr = [
-  { image: '/jbr/jb1.jpg' },
-  { image: '/jbr/jb2.jpg' },
-  { image: '/jbr/jb3.jpg' },
-  { image: '/jbr/jb4.jpg' },
-  { image: '/jbr/jb5.jpg' },
-  { image: '/jbr/jb6.jpg' },
-  { image: '/jbr/jb7.jpg' },
-  { image: '/jbr/jb8.jpg' },
+  { image: '/dubai-hills/db1.jpg' },
+  { image: '/dubai-hills/db2.jpg' },
+  { image: '/dubai-hills/db3.jpg' },
+  { image: '/dubai-hills/db4.jpg' },
+  { image: '/dubai-hills/db5.jpg' },
+  { image: '/dubai-hills/db6.jpg' },
+  { image: '/dubai-hills/db7.jpg' },
+  { image: '/dubai-hills/db8.jpg' },
 
 ];
 
@@ -25,11 +25,11 @@ const page = () => {
   return (
     <div className='mt-20 px-5 xl:px-10'>
       <div className='flex flex-col justify-center text-center items-center'>
-      <h2 className='text-orange mt-20'>
-      Meat Moot JBR Branch
+      <h2 className='text-orange mt-20 mb-10'>
+      Meat Moot Dubai Hills Branch
       </h2>
       <p className='text-white'>
-      Experience the ultimate in smoked meat dining at our JBR branch! Located in the heart of Dubai&apos;s vibrant Jumeirah Beach Residence, our restaurant offers a perfect blend of mouthwatering smoked delicacies, a warm and welcoming atmosphere, and stunning views of the city&apos;s iconic coastline. Whether you&apos;re here for a casual meal or a special occasion, Meat Moot JBR promises an unforgettable culinary experience. Indulge in the best flavors, relax in style, and let us take your dining to the next level.
+      Nestled in the serene surroundings of Dubai Hills, Meat Moot offers a tranquil dining experience with a focus on exceptional smoked meats. Our Dubai Hills branch combines a peaceful atmosphere with the perfect setting for a relaxed meal or a memorable gathering. Enjoy our signature dishes while taking in the beautiful views of the lush green landscapes. Whether you&apo;re unwinding with loved ones or celebrating a special occasion, Meat Moot Dubai Hills promises a dining experience that&apo;s as extraordinary as its surroundings.
       </p>
       <div className="columns-1 gap-5 sm:columns-2 sm:gap-8 md:columns-3 lg:columns-4 [&>img:not(:first-child)]:mt-8 mt-10">
         {jbr.map((celebrity, index) => (
@@ -56,11 +56,11 @@ const page = () => {
       </div>
       <div className='flex flex-col justify-center items-center my-20 text-white gap-5'>
         <h2 className='text-white'>
-        Let&apos;s Meat Now
+        Let&apos;s Meat At Dubai Hills!
         </h2>
         <FaLongArrowAltDown className='text-4xl' />
         <h2 className='underline'>
-          <Link target='_blank' href={'https://maps.app.goo.gl/F65xWMAg8dSQcAAu7'}>
+          <Link target='_blank' href={'https://maps.app.goo.gl/osbAHFtm3kygLaWJA'}>
           <Button variant='orange'>Get Directions</Button>
           </Link>
         </h2>
