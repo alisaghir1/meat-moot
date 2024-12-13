@@ -45,7 +45,8 @@ module.exports = {
 		backgroundSize: {
 			hero: 'cover',
 			reservation: 'cover',
-			hero2:'cover'
+			hero2:'cover',
+			heroXl:'cover',
 		},
   		borderRadius: {
   			lg: 'var(--radius)',
