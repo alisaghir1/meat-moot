@@ -44,11 +44,11 @@ const links = [
 ];
 
 const branches = [
-  { path: "/branches/jbr", name: "jbr" },
-  { path: "/branches/city-walk", name: "city_walk" },
-  { path: "/branches/al-qana", name: "al_qana" },
-  { path: "/branches/khawaneej", name: "khawaneej" },
-  { path: "/branches/dubai-hills", name: "dubai_hills" },
+  { path: "/  jbr", name: "jbr" },
+  { path: "/  city-walk", name: "city_walk" },
+  { path: "/  al-qana", name: "al_qana" },
+  { path: "/  khawaneej", name: "khawaneej" },
+  { path: "/  dubai-hills", name: "dubai_hills" },
 ];
 
 const languages = [

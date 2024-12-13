@@ -15,11 +15,11 @@ const links = [
 ];
 
 const branches = [
-  { path: "/branches/jbr", key: "jbr" },
-  { path: "/branches/city-walk", key: "city_walk" },
-  { path: "/branches/al-qana", key: "al_qana" },
-  { path: "/branches/khawaneej", key: "khawaneej" },
-  { path: "/branches/dubai-hills", key: "dubai_hills" },
+  { path: "/jbr", key: "jbr" },
+  { path: "/city-walk", key: "city_walk" },
+  { path: "/al-qana", key: "al_qana" },
+  { path: "/khawaneej", key: "khawaneej" },
+  { path: "/dubai-hills", key: "dubai_hills" },
 ];
 
 const languages = [
