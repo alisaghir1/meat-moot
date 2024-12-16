@@ -23,7 +23,7 @@ const navTrans = {
       contact: "Контакты",
       blogs: "Блоги",
       news: "Новости",
-      jbr: "JBR",
+      jbr: "ДжБР",
       city_walk: "Сити_Уок",
       al_qana: "Аль_Кана",
       khawaneej: "Хаваниж",
