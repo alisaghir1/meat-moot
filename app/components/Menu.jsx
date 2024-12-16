@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
 import menuTrans from "../translation/menuTrans.js"; // Import the translation object
 import { useAppContext } from "../context";
+import heroTrans from "../translation/heroTrans.js";
 
 const Menu = () => {
   const [languege] = useAppContext();
@@ -97,6 +98,15 @@ const Menu = () => {
             );
           })}
         </div>
+        <motion.p
+              variants={fadeIn("down", 0.8)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.4 }}
+              className="mb-7 text-xl xl:text-2xl text-orange font-base mt-10 text-center"
+            >
+              {heroTrans[languege].description}
+            </motion.p>
       </div>
     </section>
   );

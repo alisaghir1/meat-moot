@@ -29,7 +29,7 @@ const Hero = () => {
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.4 }}
-              className="text-white mb-7 text-4xl md:text-5xl xl:text-6xl mt-5"
+              className="text-white mb-7 text-4xl md:text-5xl xl:text-5xl mt-5"
             >
               {t.title.split("\n").map((line, index) => (
                 <span key={index}>{line}<br /></span>
@@ -44,15 +44,7 @@ const Hero = () => {
             >
               {t.subtitle}
             </motion.p>
-            <motion.p
-              variants={fadeIn("down", 0.8)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false, amount: 0.4 }}
-              className="mb-7 text-white font-base"
-            >
-              {t.description}
-            </motion.p>
+
             <motion.div
               variants={fadeIn("down", 1)}
               initial="hidden"
