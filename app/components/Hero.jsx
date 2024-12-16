@@ -59,7 +59,7 @@ const Hero = () => {
               whileInView={"show"}
               viewport={{ once: false, amount: 0.4 }}
             >
-              <Link href={'/branches/jbr'}>
+              <Link href={'/jbr'}>
                 <Button variant="orange">{t.button}</Button>
               </Link>
             </motion.div>
