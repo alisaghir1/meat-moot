@@ -60,7 +60,7 @@ const Page = () => {
           </h2>
           <FaLongArrowAltDown className='text-4xl' />
           <h2 className='underline'>
-            <Link target='_blank' href={'https://maps.app.goo.gl/F65xWMAg8dSQcAAu7'}>
+            <Link target='_blank' href={'https://maps.app.goo.gl/LtWYcLpVERud56WT6'}>
               <Button className='w-30' variant='orange'>{t.get_directions}</Button>
             </Link>
           </h2>

@@ -2,8 +2,8 @@
 const menuTrans = {
     en: {
       menuTitle: 'Our Menu',
-      conceptTitle: "Our Menu Concept",
-      conceptDescription: "What distinguishes our menu and the concept behind it are the modern interpretations of familiar dishes and flavor combinations they create, resulting in unique tastes, innovative presentations, and a distinctive Quality Meats style. translate to arabic and russian",
+      conceptTitle: "Signature Dishes Worth Tasting",
+      conceptDescription: "The menu highlights an impressive range of options. Juicy lamps and mouthwatering meat stand out as customer favorites. Smoked meats cooked to perfection are another highlight. For those exploring restaurants in JBR Dubai, this spot offers unforgettable flavors.",
       lambShank: {
         title: "Lamb Shank",
         description: "The finest, and tastiest smoked shanks.it comes with 8 sauces, 6 Salads and beverage of your choice.",
@@ -43,8 +43,8 @@ const menuTrans = {
     ru: 
     {
       menuTitle: ' Наше меню',
-      conceptTitle: "Концепция нашего меню",
-      conceptDescription: "То, что отличает наше меню и концепцию, — это современные интерпретации знакомых блюд и сочетаний вкусов, которые они создают, что приводит к уникальным вкусам, инновационным презентациям и отличительному стилю качественного мяса.",
+      conceptTitle: "Фирменные блюда, которые стоит попробовать",
+      conceptDescription: "Меню предлагает впечатляющий выбор блюд. Сочные ребра и аппетитное мясо — фавориты среди клиентов. Копченые мясные блюда, приготовленные до совершенства, также являются одной из особенностей. Для тех, кто исследует рестораны в ДжБР, это место предлагает незабываемые вкусы.",
       lambShank: {
         title: "Бараний голяшка",
         description: "Лучшие и самые вкусные копченые голяшки. Подается с 8 соусами, 6 салатами и напитком на выбор.",
@@ -83,8 +83,8 @@ const menuTrans = {
     },
     ar: {
       menuTitle: ' قائمتنا',
-      conceptTitle: "مفهوم قائمتنا",
-      conceptDescription: "ما يميز قائمتنا والمفهوم وراءها هو التفسير العصري للأطباق المألوفة وتوليفات النكهات التي تخلقها، مما ينتج عنه طعوم فريدة، وعروض مبتكرة، وأسلوب مميز في اللحوم عالية الجودة.",
+      conceptTitle: "أطباق مميزة تستحق التذوق",
+      conceptDescription: "يبرز قائمة الطعام مجموعة رائعة من الخيارات. الأضلاع العصيرية واللحوم الشهية تعد من المفضلات لدى الزبائن. اللحوم المدخنة المطهوة بإتقان هي أيضًا من أبرز المميزات. لأولئك الذين يستكشفون المطاعم في جي بي آر دبي، يقدم هذا المكان نكهات لا تُنسى.",
       lambShank: {
         title: "عقب الغنم",
         description: "أفضل وأشهى أضلاع الغنم المدخنة. تأتي مع 8 صلصات، 6 سلطات، ومشروب من اختيارك.",

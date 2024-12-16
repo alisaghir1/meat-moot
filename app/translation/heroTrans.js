@@ -1,24 +1,24 @@
 // heroTranslations.js
 const heroTrans = {
     en: {
-      title: "Enjoy the Winter Vibes At JBR Branch",
+      title: "An Unforgettable Experience in Dubai, JBR",
       subtitle: "Slowly Crafted, Quickly Devoured",
       description:
-        "At Meat Moot, We Give You Kingly Presentation Of Great Meat Garnished With World-Class Recipe That Will Always Leave You Wanting More",
+        "Located in the center of the elite neighborhood Jumeirah Beach Residence, Meat Moot offers a remarkable experience for food enthusiasts. This spot stands out among the bustling variety of restaurants in JBR. Every visit promises an unforgettable culinary experience",
       button: "Let’s eat",
     },
     ru: {
-      title: "Наслаждайтесь зимней атмосферой В филиале (Джумейра Бич Резиденс)",
+      title: "Незабываемый опыт в Дубае, ДжБР",
       subtitle: "Медленно приготовлено, быстро съедено",
       description:
-        "В Meat Moot мы предлагаем вам королевское оформление великолепного мяса, украшенного рецептами мирового уровня, которые всегда оставляют желание вернуться",
+        "Расположенный в центре элитного района Джумейра Бич Резидэнс, Мит Мут предлагает уникальный опыт для гурманов. Это место выделяется среди множества ресторанов в ДжБР. Каждое посещение обещает незабываемое кулинарное впечатление.",
       button: "Давайте поедим",
     },
     ar: {
-      title: "استمتع بأجواء الشتاء في فرع جي بي آر",
+      title: "تجربة لا تُنسى في دبي، جي بي آر",
       subtitle: "تم تحضيره ببطء، يتم تناوله بسرعة",
       description:
-        "في میت مووت نقدم لك عرضًا ملكيًا للحم الرائع المزخرف بوصفات عالمية ستجعلك دائمًا ترغب في المزيد",
+        "يقع ميت موت في قلب حي جي بي آر الرفيع، ويقدم تجربة مميزة لعشاق الطعام. يتميز هذا المكان بين مجموعة المطاعم المتنوعة والمزدحمة في جي بي آر. كل زيارة تعد بتجربة طعام لا تُنسى.",
       button: "لنأكل",
     },
   };
