@@ -20,7 +20,7 @@ const blogs = [
     id: 2,
     title: "The perfect meat",
     content: `
-      Wine and meat are a timeless combination. In this blog, we explore cuts of meat, helping you elevate your dining experience. Learn how to pair our signature dishes with the perfect meat.
+      Meats are a timeless combination. In this blog, we explore cuts of meat, helping you elevate your dining experience. Learn how to pair our signature dishes with the perfect meat.
     `,
     image: "/reservation.jpg",
     date: ["28/2/2024"],
