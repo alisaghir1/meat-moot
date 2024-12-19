@@ -31,18 +31,18 @@ const Menu = () => {
       key: "beefRibs",
     },
     {
-      img: "/menu/meat1.webp",
-      key: "beefShank",
-    },
-    {
       img: "/menu/beefBrisket.webp",
       key: "beefBrisket",
+    },
+    {
+      img: "/menu/meat1.webp",
+      key: "beefShank",
     },
   ];
 
   return (
     <section className="bg-black relative py-12 xl:py-24 " id="menu">
-      <div className="container mx-auto">
+      <div className="container mx-auto ">
         <motion.div
           variants={fadeIn("left", 0.6)}
           initial="hidden"
@@ -70,17 +70,19 @@ const Menu = () => {
                 whileInView={"show"}
                 viewport={{ once: false, amount: 0 }}
                 key={index}
-                className="flex flex-col xl:flex-row shadow-primary mx-5 xl:mx-0 group mt-5"
+                className="flex flex-col xl:flex-row shadow-primary mx-auto xl:mx-0 group mt-5"
               >
-                <div className="overflow-hidden">
-                  <div className="relative w-full xl:w-[300px] h-[300px]">
-                    <Image
-                      fill
-                      className="group-hover:scale-110 object-cover transition-all duration-300 w-full"
-                      src={item.img}
-                      alt={`menu image ${index}`}
-                    />
-                  </div>
+                <div
+                  className="relative overflow-hidden w-full xl:w-96 h-80"
+                  style={{ flexShrink: 0 }}
+                >
+                  <Image
+                    src={item.img}
+                    alt={`menu image ${index}`}
+                    layout="fill"
+                    objectFit="cover"
+                    className="group-hover:scale-110 transition-all duration-300"
+                  />
                 </div>
                 <div className="bg-black-heavy flex flex-col justify-between pt-[20px] pb-[28px] px-[30px]">
                   <h3 className="text-orange text-2xl mb-[14px]">
