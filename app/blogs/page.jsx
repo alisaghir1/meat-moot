@@ -18,7 +18,7 @@ const blogs = [
   },
   {
     id: 2,
-    title: "The perfect meat",
+    title: "The Perfect meat",
     content: `
       Meats are a timeless combination. In this blog, we explore cuts of meat, helping you elevate your dining experience. Learn how to pair our signature dishes with the perfect meat.
     `,
