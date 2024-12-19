@@ -27,9 +27,7 @@
     "react-scroll": "^1.9.0",
     "swiper": "^11.1.15",
     "tailwind-merge": "^2.5.5",
-    "tailwindcss-animate": "^1.0.7"
-  },
-  "devDependencies": {
+    "tailwindcss-animate": "^1.0.7",
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.26.3",
