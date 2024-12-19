@@ -19,9 +19,8 @@ const antique = localFont({
 });
 
 export async function generateMetadata() {
-  // Access cookies asynchronously
-  const cookieStore = await cookies(); // Await the cookies function
-  const language = cookieStore.get("language")?.value || "en"; // Default to 'en' if not found
+  const cookieStore = await cookies();
+  const language = cookieStore.get("language")?.value || "en";
 
   const metadata = {
     title:
@@ -45,31 +44,54 @@ export async function generateMetadata() {
 }
 
 export default async function RootLayout({ children }) {
-  // Access cookies directly from the request headers
-  const cookieStore = await cookies(); // Await the cookies function
-  const language = cookieStore.get("language")?.value || "en"; // Default to 'en' if not found
-  const dir = language === "ar" ? "rtl" : language === "ru" ? "ltr" : "ltr"; // Set direction based on language
+  const cookieStore = await cookies();
+  const language = cookieStore.get("language")?.value || "en";
+  const dir = language === "ar" ? "rtl" : "ltr";
 
   return (
     <html lang={language} dir={dir}>
       <head>
         <link rel="icon" href="/logo.svg" />
+        {/* Google Analytics */}
         <Script
           strategy="afterInteractive"
-          src="https://www.googletagmanager.com/gtag/js?id=G-N846QXCV"
+          src="https://www.googletagmanager.com/gtag/js?id=G-7HR8LLCZMW"
           async
         />
         <Script id="google-analytics" strategy="afterInteractive">
           {`
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-N846QXCV');
-  `}
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-7HR8LLCZMW');
+          `}
+        </Script>
+
+        {/* Google Tag Manager */}
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`
+            (function(w,d,s,l,i){
+              w[l]=w[l]||[];
+              w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+              var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+              j.async=true;
+              j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+              f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-N846QXCV');
+          `}
         </Script>
       </head>
       <body className={`${franklin.variable}${antique.variable} antialiased`}>
-        
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-N846QXCV"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <AppWrapper>
           <Header />
           {children}
