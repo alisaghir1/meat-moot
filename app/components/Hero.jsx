@@ -78,10 +78,11 @@ const Hero = () => {
         className={`hidden xl:flex xl:relative xl:-top-5 z-50 ${isRtl ? 'xl:left-0' : 'xl:right-0'}`} // Position based on rtl/ltr
       >
         <Image
-          height={404}
-          width={320}
+          height={1000}
+          width={1000}
           alt="meat dish"
           src={"/main11.png"}
+          className="w-72 h-52"
         ></Image>
       </motion.div>
     </section>
