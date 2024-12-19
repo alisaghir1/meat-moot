@@ -18,9 +18,9 @@ const blogs = [
   },
   {
     id: 2,
-    title: "Perfect Pairings: Wine and Meat",
+    title: "The perfect meat",
     content: `
-      Wine and meat are a timeless combination. In this blog, we explore the best wine pairings for different cuts of meat, helping you elevate your dining experience. Learn how to pair our signature dishes with the perfect glass of wine.
+      Wine and meat are a timeless combination. In this blog, we explore cuts of meat, helping you elevate your dining experience. Learn how to pair our signature dishes with the perfect meat.
     `,
     image: "/reservation.jpg",
     date: ["28/2/2024"],
