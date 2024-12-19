@@ -23,7 +23,7 @@ const Menu = () => {
       key: "lambShoulder",
     },
     {
-      img: "/menu/meat1.webp",
+      img: "/menu/lambRibs.webp",
       key: "lambRibs",
     },
     {
@@ -31,12 +31,12 @@ const Menu = () => {
       key: "beefRibs",
     },
     {
-      img: "/menu/beefBrisket.webp",
-      key: "beefBrisket",
-    },
-    {
       img: "/menu/meat1.webp",
       key: "beefShank",
+    },
+    {
+      img: "/menu/beefBrisket.webp",
+      key: "beefBrisket",
     },
   ];
 
@@ -72,13 +72,13 @@ const Menu = () => {
               whileInView={"show"}
               viewport={{ once: false, amount: 0 }}
               key={index}
-              className="flex flex-col xl:flex-row bg-gray-900 shadow-primary mx-auto xl:mx-0 group mt-5"
+              className="flex flex-col xl:flex-row shadow-primary mx-5 xl:mx-0 group mt-5"
               >
                 <div className="overflow-hidden">
                   <Image
-                    width={300}
-                    height={300}
-                    className="group-hover:scale-110 object-cover transition-all duration-300 w-full f-full"
+                    width={2000}
+                    height={1000}
+                    className="group-hover:scale-110 object-cover transition-all duration-300 xl:w-96 w-full "
                     src={item.img}
                     alt={`menu image ${index}`}
                   />

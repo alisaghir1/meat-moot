@@ -40,7 +40,7 @@ const Hero = () => {
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.4 }}
-              className="font-semibold text-lg Xl:text-2xl mb-7 text-orange"
+              className="font-semibold text-xl Xl:text-3xl mb-7 text-orange"
             >
               {t.subtitle}
             </motion.p>
