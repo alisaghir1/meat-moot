@@ -235,6 +235,7 @@ const ReservationForm = () => {
                   selected={formData.date}
                   onSelect={handleDateChange}
                   initialFocus
+                  required
                 />
               </PopoverContent>
             </Popover>
