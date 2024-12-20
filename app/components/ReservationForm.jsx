@@ -32,6 +32,8 @@ const ReservationForm = () => {
     lastName: "",
     persons: "",
     branch: "",
+    email: "",
+    phone: "",
     date: null, // Date object
   });
 
@@ -67,6 +69,8 @@ const ReservationForm = () => {
           lastName: formData.lastName,
           persons: formData.persons,
           branch: formData.branch,
+          email: formData.email,
+          phone: formData.phone,
           date: formData.date ? format(formData.date, "PPP") : "Not Selected",
         },
         "bz-racFIdw40qpvrn"
@@ -77,6 +81,8 @@ const ReservationForm = () => {
         lastName: "",
         persons: "",
         branch: "",
+        email:"",
+        phone:"",
         date: null,
       });
       setAlertMessage(reservationFormTrans[languege].alertSuccess);
@@ -106,6 +112,7 @@ const ReservationForm = () => {
               required
             />
           </div>
+
           <div>
             <Label htmlFor="lastName">
               {reservationFormTrans[languege].lastName}
@@ -118,6 +125,33 @@ const ReservationForm = () => {
               required
             />
           </div>
+
+          <div>
+            <Label htmlFor="email">
+              {reservationFormTrans[languege].email}
+            </Label>
+            <Input
+              id="email"
+              type="text"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div>
+            <Label htmlFor="phone">
+              {reservationFormTrans[languege].phone}
+            </Label>
+            <Input
+              id="phone"
+              type="text"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
           <div>
             <Label htmlFor="persons">
               {reservationFormTrans[languege].persons}
