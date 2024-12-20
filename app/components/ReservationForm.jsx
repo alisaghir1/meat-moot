@@ -32,6 +32,7 @@ const ReservationForm = () => {
     lastName: "",
     persons: "",
     branch: "",
+    time: "",
     email: "",
     phone: "",
     date: null, // Date object
@@ -69,6 +70,7 @@ const ReservationForm = () => {
           lastName: formData.lastName,
           persons: formData.persons,
           branch: formData.branch,
+          time: formData.time,
           email: formData.email,
           phone: formData.phone,
           date: formData.date ? format(formData.date, "PPP") : "Not Selected",
@@ -81,8 +83,9 @@ const ReservationForm = () => {
         lastName: "",
         persons: "",
         branch: "",
-        email:"",
-        phone:"",
+        time: "",
+        email: "",
+        phone: "",
         date: null,
       });
       setAlertMessage(reservationFormTrans[languege].alertSuccess);
@@ -197,6 +200,19 @@ const ReservationForm = () => {
           </div>
         </div>
         <div className="grid mt-[30px] grid-cols-1 xl:grid-cols-1 gap-[30px]">
+        <div>
+            <Label htmlFor="time">
+              {reservationFormTrans[languege].time}
+            </Label>
+            <Input
+              id="time"
+              type="text"
+              value={formData.time}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          
           <div>
             <Label>{reservationFormTrans[languege].date}</Label>
             <Popover>
