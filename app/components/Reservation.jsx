@@ -9,7 +9,7 @@ const Reservation = () => {
 
   return (
     <section
-      className="xl:py-32 xl:h-[1020px] bg-reservation xl:bg-no-repeat xl:flex xl:flex-col xl:justify-end xl:items-end"
+      className="xl:py-32 xl:h-[1200px] bg-reservation xl:bg-no-repeat xl:flex xl:flex-col xl:justify-end xl:items-end"
       id="reservation"
     >
       <motion.div
