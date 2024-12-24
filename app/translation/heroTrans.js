@@ -1,7 +1,7 @@
 // heroTranslations.js
 const heroTrans = {
     en: {
-      title: "An Unforgettable Experience in Dubai, JBR",
+      title: "An Unforgettable Experience in Dubai_JBR",
       subtitle: "Slowly Crafted, Quickly Devoured",
       description:
         "Located in the center of the elite neighborhood Jumeirah Beach Residence, Meat Moot offers a remarkable experience for food enthusiasts. This spot stands out among the bustling variety of restaurants in JBR. Every visit promises an unforgettable culinary experience",

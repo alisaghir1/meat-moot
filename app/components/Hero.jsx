@@ -44,7 +44,7 @@ const Hero = () => {
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.4 }}
-              className="text-white mb-7 text-4xl md:text-5xl xl:text-5xl mt-5"
+              className="text-white mb-7 text-3xl md:text-4xl xl:text-5xl mt-5"
             >
               {t.title.split("\n").map((line, index) => (
                 <span key={index}>{line}<br /></span>
@@ -55,7 +55,7 @@ const Hero = () => {
               initial="hidden"
               whileInView={"show"}
               viewport={{ once: false, amount: 0.4 }}
-              className="font-semibold text-xl Xl:text-3xl mb-7 text-orange"
+              className="font-semibold text-xl xl:text-3xl mb-7 text-orange"
             >
               {t.subtitle}
             </motion.p>
