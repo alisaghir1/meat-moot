@@ -37,16 +37,10 @@ module.exports = {
 			primary:'40px 4px 40px 0px rgba(68, 68, 68, 0.25i)'
 		},
 		backgroundImage:{
-			hero:'url(/hero-bg2.jpg)',
 			reservation:'url(/reservation.jpg)',
-			hero2:'url(/smallBg3.jpg)',
-			heroXl:'url(/smallBg3.jpg)',
 		},
 		backgroundSize: {
-			hero: 'cover',
 			reservation: 'cover',
-			hero2:'cover',
-			heroXl:'cover',
 		},
   		borderRadius: {
   			lg: 'var(--radius)',

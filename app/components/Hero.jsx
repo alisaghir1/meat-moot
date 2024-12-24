@@ -19,11 +19,24 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="bg-heroXl bg-no-repeat relative xl:bg-cover xl:h-[1098px] py-40 pb-32 xl:py-0"
+      className="relative xl:h-[1098px] py-40 pb-32 xl:py-0"
     >
-      <div className="container mx-auto">
+      {/* Video background */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          className="w-full h-full object-cover"
+        >
+          <source src="/vidio.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div className="container mx-auto relative z-10">
         <div className="flex items-center justify-center xl:h-[960px]">
-        <div className={`w-full xl:max-w-[700px] text-center font-geis`}>
+          <div className={`w-full xl:max-w-[700px] text-center font-geis`}>
             <motion.h1
               variants={fadeIn("down", 0.6)}
               initial="hidden"
