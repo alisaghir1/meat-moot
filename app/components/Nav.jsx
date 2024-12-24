@@ -8,10 +8,10 @@ import { useAppContext } from "../context/index.jsx"; // Import the context to g
 const links = [
   { path: "/", key: "home" },
   { path: "/#menu", key: "menu" },
-  { path: "branches", key: "branches" },
   { path: "about", key: "about" },
-  { path: "media", key: "media" },
   { path: "contact", key: "contact" },
+  { path: "media", key: "media" },
+  { path: "branches", key: "branches" },
 ];
 
 const branches = [

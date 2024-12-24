@@ -27,6 +27,11 @@ const links = [
     name: "about",
   },
   {
+    icon: <FaEnvelope />,
+    path: "contact",
+    name: "contact",
+  },
+  {
     icon: <FaImages />,
     path: "media",
     name: "media",
@@ -35,11 +40,6 @@ const links = [
     icon: <FaLocationArrow />,
     path: "branches",
     name: "branches",
-  },
-  {
-    icon: <FaEnvelope />,
-    path: "contact",
-    name: "contact",
   },
 ];
 
