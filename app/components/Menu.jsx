@@ -40,6 +40,8 @@ const Menu = () => {
     },
   ];
 
+  
+
   return (
     <section className="bg-black relative py-12 xl:py-24 " id="menu">
       <div className="container mx-auto ">
@@ -63,6 +65,7 @@ const Menu = () => {
         <div className="flex flex-col gap-5">
           {menu.map((item, index) => {
             const translatedItem = menuTrans[languege][item.key];
+            const flexDirection = index % 2 === 0 ? "xl:flex-row" : "xl:flex-row-reverse";
             return (
               <motion.div
                 variants={fadeIn("left", 0.6)}
@@ -70,10 +73,10 @@ const Menu = () => {
                 whileInView={"show"}
                 viewport={{ once: false, amount: 0 }}
                 key={index}
-                className="flex flex-col xl:flex-row shadow-primary mx-auto xl:mx-0 group mt-5"
+                className={`flex flex-col ${flexDirection} shadow-primary mx-auto xl:mx-0 group mt-5`}
               >
                 <div
-                  className="relative overflow-hidden w-full xl:w-96 h-80"
+                  className="relative overflow-hidden w-full xl:w-96 h-96"
                   style={{ flexShrink: 0 }}
                 >
                   <Image
@@ -85,13 +88,13 @@ const Menu = () => {
                   />
                 </div>
                 <div className="bg-black-heavy flex flex-col justify-between pt-[20px] pb-[28px] px-[30px]">
-                  <h3 className="text-orange text-2xl mb-[14px]">
+                  <h3 className="text-orange xl:text-3xl text-2xl mb-[14px]">
                     {translatedItem.title}
                   </h3>
-                  <div className="text-xl text-gray-400 font-semibold mb-[14px]">
+                  <div className="xl:text-2xl text-xl text-gray-400 font-semibold mb-[14px]">
                     {translatedItem.description}
                   </div>
-                  <div className="text-md text-white font-semibold">
+                  <div className="xl:text-lg text-md text-white font-semibold">
                     {translatedItem.price}
                   </div>
                 </div>
