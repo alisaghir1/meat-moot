@@ -105,7 +105,7 @@ const ReservationForm = () => {
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-[30px]">
           <div>
             <Label htmlFor="firstName">
-              {reservationFormTrans[languege].firstName}
+              {reservationFormTrans[languege].firstName} <span className="text-orange">*</span>
             </Label>
             <Input
               id="firstName"
@@ -118,7 +118,7 @@ const ReservationForm = () => {
 
           <div>
             <Label htmlFor="lastName">
-              {reservationFormTrans[languege].lastName}
+              {reservationFormTrans[languege].lastName} <span className="text-orange">*</span>
             </Label>
             <Input
               id="lastName"
@@ -131,7 +131,7 @@ const ReservationForm = () => {
 
           <div>
             <Label htmlFor="email">
-              {reservationFormTrans[languege].email}
+              {reservationFormTrans[languege].email} <span className="text-orange">*</span>
             </Label>
             <Input
               id="email"
@@ -144,7 +144,7 @@ const ReservationForm = () => {
 
           <div>
             <Label htmlFor="phone">
-              {reservationFormTrans[languege].phone}
+              {reservationFormTrans[languege].phone} <span className="text-orange">*</span>
             </Label>
             <Input
               id="phone"
@@ -157,7 +157,7 @@ const ReservationForm = () => {
 
           <div>
             <Label htmlFor="persons">
-              {reservationFormTrans[languege].persons}
+              {reservationFormTrans[languege].persons} <span className="text-orange">*</span>
             </Label>
             <Input
               id="persons"
@@ -168,11 +168,11 @@ const ReservationForm = () => {
             />
           </div>
           <div>
-            <Label>{reservationFormTrans[languege].branch}</Label>
+            <Label>{reservationFormTrans[languege].branch} <span className="text-orange">*</span></Label>
             <Select onValueChange={handleBranchChange} value={formData.branch}>
               <SelectTrigger className="w-full">
                 <SelectValue
-                  placeholder={reservationFormTrans[languege].branch}
+                  placeholder={reservationFormTrans[languege].branch} 
                 />
               </SelectTrigger>
               <SelectContent>
@@ -202,7 +202,7 @@ const ReservationForm = () => {
         <div className="grid mt-[30px] grid-cols-1 xl:grid-cols-1 gap-[30px]">
         <div>
             <Label htmlFor="time">
-              {reservationFormTrans[languege].time}
+              {reservationFormTrans[languege].time} <span className="text-orange">*</span>
             </Label>
             <Input
               id="time"
@@ -214,7 +214,7 @@ const ReservationForm = () => {
           </div>
           
           <div>
-            <Label>{reservationFormTrans[languege].date}</Label>
+            <Label>{reservationFormTrans[languege].date} <span className="text-orange">*</span></Label>
             <Popover>
               <PopoverTrigger asChild>
                 <Button
