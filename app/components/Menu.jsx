@@ -88,13 +88,13 @@ const Menu = () => {
                   />
                 </div>
                 <div className="bg-black-heavy flex flex-col justify-between pt-[20px] pb-[28px] px-[30px]">
-                  <h3 className="text-orange xl:text-3xl text-2xl mb-[14px]">
+                  <h3 className="text-orange xl:text-4xl text-2xl mb-[14px]">
                     {translatedItem.title}
                   </h3>
-                  <div className="xl:text-2xl text-xl text-gray-400 font-semibold mb-[14px]">
+                  <div className="xl:text-3xl text-xl text-gray-400 font-semibold mb-[14px]">
                     {translatedItem.description}
                   </div>
-                  <div className="xl:text-lg text-md text-white font-semibold">
+                  <div className="xl:text-xl text-lg text-white font-semibold">
                     {translatedItem.price}
                   </div>
                 </div>
