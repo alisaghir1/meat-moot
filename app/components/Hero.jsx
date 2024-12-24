@@ -22,11 +22,13 @@ const Hero = () => {
       className="relative xl:h-[1098px] py-40 pb-32 xl:py-0"
     >
       {/* Video background */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0"
+       onContextMenu={(e) => e.preventDefault()}>
         <video
           autoPlay
           loop
           muted
+          playsInline
           className="w-full h-full object-cover"
         >
           <source src="/vidio.mp4" type="video/mp4" />
