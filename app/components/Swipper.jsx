@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
+import "swiper/css/autoplay"; // Import autoplay styles
 
 import "./swipper.css";
 import Image from "next/image";
@@ -19,10 +20,8 @@ import cr5 from '../../public/carousel/cr5.jpg'
 import cr6 from '../../public/hero-bg3.webp'
 import cr7 from '../../public/contact.jpg'
 
-
-
 // import required modules
-import { FreeMode, Pagination } from "swiper/modules";
+import { FreeMode, Pagination, Autoplay } from "swiper/modules";
 
 export default function App() {
   return (
@@ -34,7 +33,11 @@ export default function App() {
         pagination={{
           clickable: true,
         }}
-        modules={[FreeMode, Pagination]}
+        autoplay={{
+          delay: 1500, // Time in ms between slide transitions
+          disableOnInteraction: false, // Continue autoplay after interaction
+        }}
+        modules={[FreeMode, Pagination, Autoplay]}
         className="mySwiper"
         breakpoints={{
           320: {
