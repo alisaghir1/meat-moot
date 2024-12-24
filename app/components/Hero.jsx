@@ -34,6 +34,7 @@ const Hero = () => {
           <source src="/vidio.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
+        <div className="absolute inset-x-0 bottom-0 h-1/3  bg-gradient-to-b from-transparent via-transparent to-black-heavy" />
       </div>
 
       <div className="container mx-auto relative z-10">
