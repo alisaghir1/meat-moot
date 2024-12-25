@@ -34,7 +34,7 @@ const Celebrities = () => {
         viewport={{ once: false, amount: 0.4 }}
         className="text-center space-y-6 mb-12"
       >
-        <h1 className="text-4xl md:text-5xl font-extrabold text-orange">
+        <h1 className="text-4xl md:text-5xl font-extrabold text-orange mt-20">
           {title}
         </h1>
         <p className="text-white text-center">
