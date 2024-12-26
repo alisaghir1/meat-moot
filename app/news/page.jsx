@@ -6,57 +6,80 @@ import { useRouter } from 'next/navigation';
 import { useAppContext } from '../context'; // Ensure you have the language context imported
 import newsTrans from '../translation/newsTrans'; // Import the translation file
 
-const news = [
-  {
-    id: 2,
-    title: 'Introducing Lamb Shoulder: A New Favorite',
-    content: `
-      Our new lamb shoulder dish is here to satisfy your cravings! Slow-cooked to perfection with aromatic spices and a rich, smoky flavor. A must-try for meat lovers.
-    `,
-    image: '/menu/lambShoulder.webp',
-    date: ['28/2/2024'],
-  },
-  {
-    id: 3,
-    title: 'Lamb Neck: The Tender Cut You Need to Try',
-    content: `
-      Our lamb neck is braised to perfection, delivering a melt-in-your-mouth experience. Tender, juicy, and packed with flavor—it's the perfect addition to our menu.
-    `,
-    image: '/menu/lambNeck.webp',
-    date: ['28/2/2024'],
-  },
-  {
-    id: 4,
-    title: 'Beef Ribs: Fall-Off-The-Bone Goodness',
-    content: `
-      Our new beef ribs are slow-cooked to tender perfection, served with our signature smoky glaze. Perfect for those who love bold, savory flavors.
-    `,
-    image: '/menu/beefRibs.webp',
-    date: ['28/2/2024'],
-  },
-  {
-    id: 5,
-    title: 'Beef Brisket: A Smoked Masterpiece',
-    content: `
-      Our smoked beef brisket is the highlight of our menu. Carefully smoked over hours to achieve the perfect balance of smokiness and tenderness. It's a dish that speaks for itself.
-    `,
-    image: '/menu/beefBrisket.webp',
-    date: ['28/2/2024'],
-  },
-];
-
 const News = () => {
   const router = useRouter();
   const [languege] = useAppContext(); // Get the selected language from the context
 
+  const news = [
+    {
+      id: 2,
+      title: newsTrans[languege].news[0].translatedTitle, // Translated Title
+      content: [
+        {
+          title: newsTrans[languege].news[0].content[0].translatedTitle,
+          images: ['/news/news1-1.webp'],
+          text: newsTrans[languege].news[0].content[0].text
+        },
+        {
+          title: newsTrans[languege].news[0].content[1].translatedTitle,
+          images: ['/news/news1-2.webp'],
+          text: newsTrans[languege].news[0].content[1].text
+        },
+        {
+          title: newsTrans[languege].news[0].content[2].translatedTitle,
+          images: ['/news/news1-3.webp'],
+          text: newsTrans[languege].news[0].content[2].text
+        }
+      ]
+    },
+    {
+      id: 4,
+      title: newsTrans[languege].news[1].translatedTitle,
+      content: [
+        {
+          title: newsTrans[languege].news[1].content[0].translatedTitle,
+          images: ['/news/news3-1.webp'],
+          text: newsTrans[languege].news[1].content[0].text
+        },
+        {
+          title: newsTrans[languege].news[1].content[1].translatedTitle,
+          images: ['/news/news3-1.png'],
+          text: newsTrans[languege].news[1].content[1].text
+        }
+      ]
+    },
+    {
+      id: 3,
+      title: newsTrans[languege].news[2].translatedTitle,
+      content: [
+        {
+          title: newsTrans[languege].news[2].content[0].translatedTitle,
+          images: ['/news/news2-1.webp'],
+          text: newsTrans[languege].news[2].content[0].text
+        },
+        {
+          title: newsTrans[languege].news[2].content[1].translatedTitle,
+          images: ['/news/news2-2.webp'],
+          text: newsTrans[languege].news[2].content[1].text
+        },
+        {
+          title: newsTrans[languege].news[2].content[2].translatedTitle,
+          images: ['/news/news2-3.webp'],
+          text: newsTrans[languege].news[2].content[2].text
+        },
+        {
+          title: newsTrans[languege].news[2].content[3].translatedTitle,
+          images: ['/news/news2-3.webp'],
+          text: newsTrans[languege].news[2].content[3].text
+        }
+      ]
+    }
+  ];
+
   const handleNewsClick = (item) => {
-    // Get the translated title and content based on the selected language
-    const translatedTitle = newsTrans[languege].news.find(news => news.title === item.title)?.translatedTitle || item.title;
-    const translatedContent = newsTrans[languege].news.find(news => news.title === item.title)?.content || item.content;
-    
-    // Add the translated title and content to query params
-    const query = new URLSearchParams({ ...item, title: translatedTitle, content: translatedContent }).toString();
-    router.push(`/single-news?${query}`); // Navigate with query params
+    // Store the item in local storage
+    localStorage.setItem('selectedNews', JSON.stringify(item));
+    router.push('/single-news'); // Navigate to the single news page
   };
 
   return (
@@ -92,15 +115,13 @@ const News = () => {
               onClick={() => handleNewsClick(item)}
               className="bg-cover bg-center h-64 transform transition-all hover:scale-105 cursor-pointer"
               style={{
-                backgroundImage: `url(${item.image})`,
+                backgroundImage: `url(${item.content[0].images[0]})`,
               }}
               title={item.title}
             ></div>
             <div className="p-5">
               <h1 className="text-white font-bold text-2xl mb-3">
-                {
-                  newsTrans[languege].news.find(newsItem => newsItem.title === item.title)?.translatedTitle || item.title
-                }
+                {item.title}
               </h1>
             </div>
           </motion.div>
