@@ -67,11 +67,6 @@ const News = () => {
           images: ['/news/news2-3.webp'],
           text: newsTrans[languege].news[2].content[2].text
         },
-        {
-          title: newsTrans[languege].news[2].content[3].translatedTitle,
-          images: ['/news/news2-3.webp'],
-          text: newsTrans[languege].news[2].content[3].text
-        }
       ]
     }
   ];

@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: "Franklin Gothic";
-  src:url("/path-to-fonts/FRAMDCN.ttf") format("truetype");
+  src:url("../app/fonts/framd.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }

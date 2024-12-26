@@ -60,11 +60,6 @@ const newsTrans = {
             translatedTitle: "A New Chapter in Dining",
             text: "Stepping into Meat Moot, guests were embraced by an interior that blends rustic charm with contemporary chic. The design features wood accents and soft lighting that create a cozy yet modern atmosphere. Intimate seating arrangements encourage social gatherings, while the open kitchen concept allows diners to observe the culinary finesse of the chefs as they work their magic on prime cuts. Each design element was thoughtfully curated to complement the smoky atmosphere of the cuisine."
           },
-          {
-            title: "A New Chapter in Dining",
-            translatedTitle: "A New Chapter in Dining",
-            text: "With its opulent opening, Meat Moot Dubai Hills has marked its territory on the culinary map of the city. It invites not only the lovers of fine meats but also those who appreciate the fusion of exquisite taste with a sophisticated environment. As the night came to a close, it was evident that Meat Moot’s promise of a culinary renaissance in Dubai Hills was not just met but exceeded once again."
-          }
         ]
       }
     ]
