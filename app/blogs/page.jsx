@@ -17,22 +17,22 @@ const Blogs = () => {
       content: [
         {
           title: blogsTrans[languege].blogs[0].content[0].translatedTitle,
-          images: ['/news/news1-1.webp'],
+          images: ['/blogs/blog1-1.jpg'],
           text: blogsTrans[languege].blogs[0].content[0].text
         },
         {
           title: blogsTrans[languege].blogs[0].content[1].translatedTitle,
-          images: ['/news/news1-2.webp'],
+          images: ['/blogs/blog1-2.jpg'],
           text: blogsTrans[languege].blogs[0].content[1].text
         },
         {
           title: blogsTrans[languege].blogs[0].content[2].translatedTitle,
-          images: ['/news/news1-3.webp'],
+          images: ['/blogs/blog1-3.jpg'],
           text: blogsTrans[languege].blogs[0].content[2].text
         },
         {
           title: blogsTrans[languege].blogs[0].content[3].translatedTitle,
-          images: ['/news/news1-3.webp'],
+          images: ['/blogs/blog1-4.jpg'],
           text: blogsTrans[languege].blogs[0].content[3].text
         }
       ]
@@ -43,22 +43,22 @@ const Blogs = () => {
       content: [
         {
           title: blogsTrans[languege].blogs[1].content[0].translatedTitle,
-          images: ['/news/news3-1.webp'],
+          images: ['/blogs/blog2-1.jpg'],
           text: blogsTrans[languege].blogs[1].content[0].text
         },
         {
           title: blogsTrans[languege].blogs[1].content[1].translatedTitle,
-          images: ['/news/news3-1.png'],
+          images: ['/blogs/blog2-2.jpg'],
           text: blogsTrans[languege].blogs[1].content[1].text
         },
         {
           title: blogsTrans[languege].blogs[1].content[2].translatedTitle,
-          images: ['/news/news3-1.png'],
+          images: ['/blogs/blog2-3.jpg'],
           text: blogsTrans[languege].blogs[1].content[2].text
         },
         {
           title: blogsTrans[languege].blogs[1].content[3].translatedTitle,
-          images: ['/news/news3-1.png'],
+          images: ['/blogs/blog2-4.jpg'],
           text: blogsTrans[languege].blogs[1].content[3].text
         }
       ]
@@ -69,22 +69,22 @@ const Blogs = () => {
       content: [
         {
           title: blogsTrans[languege].blogs[2].content[0].translatedTitle,
-          images: ['/news/news2-1.webp'],
+          images: ['/blogs/blog3-1.jpg'],
           text: blogsTrans[languege].blogs[2].content[0].text
         },
         {
           title: blogsTrans[languege].blogs[2].content[1].translatedTitle,
-          images: ['/news/news2-2.webp'],
+          images: ['/blogs/blog3-2.jpg'],
           text: blogsTrans[languege].blogs[2].content[1].text
         },
         {
           title: blogsTrans[languege].blogs[2].content[2].translatedTitle,
-          images: ['/news/news2-3.webp'],
+          images: ['/blogs/blog3-3.jpg'],
           text: blogsTrans[languege].blogs[2].content[2].text
         },
         {
           title: blogsTrans[languege].blogs[2].content[3].translatedTitle,
-          images: ['/news/news2-3.webp'],
+          images: ['/blogs/blog4-1.jpg'],
           text: blogsTrans[languege].blogs[2].content[3].text
         },
       ]
@@ -95,27 +95,27 @@ const Blogs = () => {
       content: [
         {
           title: blogsTrans[languege].blogs[3].content[0].translatedTitle,
-          images: ['/news/news2-1.webp'],
+          images: ['/blogs/blog4-1.jpg'],
           text: blogsTrans[languege].blogs[3].content[0].text
         },
         {
           title: blogsTrans[languege].blogs[3].content[1].translatedTitle,
-          images: ['/news/news2-2.webp'],
+          images: ['/blogs/blog4-2.jpg'],
           text: blogsTrans[languege].blogs[3].content[1].text
         },
         {
           title: blogsTrans[languege].blogs[3].content[2].translatedTitle,
-          images: ['/news/news2-3.webp'],
+          images: ['/blogs/blog4-3.jpg'],
           text: blogsTrans[languege].blogs[3].content[2].text
         },
         {
           title: blogsTrans[languege].blogs[3].content[3].translatedTitle,
-          images: ['/news/news2-3.webp'],
+          images: ['/blogs/blog3-1.jpg'],
           text: blogsTrans[languege].blogs[3].content[3].text
         },
         {
           title: blogsTrans[languege].blogs[3].content[4].translatedTitle,
-          images: ['/news/news2-3.webp'],
+          images: ['/blogs/blog1-2.jpg'],
           text: blogsTrans[languege].blogs[3].content[4].text
         },
       ]
@@ -126,32 +126,32 @@ const Blogs = () => {
       content: [
         {
           title: blogsTrans[languege].blogs[4].content[0].translatedTitle,
-          images: ['/news/news2-1.webp'],
+          images: ['/blogs/blog5-1.jpg'],
           text: blogsTrans[languege].blogs[4].content[0].text
         },
         {
           title: blogsTrans[languege].blogs[4].content[1].translatedTitle,
-          images: ['/news/news2-2.webp'],
+          images: ['/blogs/blog5-2.jpg'],
           text: blogsTrans[languege].blogs[4].content[1].text
         },
         {
           title: blogsTrans[languege].blogs[4].content[2].translatedTitle,
-          images: ['/news/news2-3.webp'],
+          images: ['/blogs/blog5-3.jpg'],
           text: blogsTrans[languege].blogs[4].content[2].text
         },
         {
           title: blogsTrans[languege].blogs[4].content[3].translatedTitle,
-          images: ['/news/news2-3.webp'],
+          images: ['/blogs/blog2-4.jpg'],
           text: blogsTrans[languege].blogs[4].content[3].text
         },
         {
           title: blogsTrans[languege].blogs[4].content[4].translatedTitle,
-          images: ['/news/news2-3.webp'],
+          images: ['/blogs/blog1-1.jpg'],
           text: blogsTrans[languege].blogs[4].content[4].text
         },
         {
           title: blogsTrans[languege].blogs[4].content[5].translatedTitle,
-          images: ['/news/news2-3.webp'],
+          images: ['/blogs/blog1-4.jpg'],
           text: blogsTrans[languege].blogs[4].content[5].text
         },
       ]
