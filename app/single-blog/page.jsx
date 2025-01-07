@@ -43,9 +43,9 @@ const SingleBlog = () => {
             <p className="text-white my-4">{contentItem.text}</p>
 
             {/* Render images for this content item */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4">
+            <div className="">
               {contentItem.images.map((image, imgIndex) => (
-                  <div key={imgIndex} className="overflow-hidden h-96 w-96 rounded-lg shadow-lg">
+                  <div key={imgIndex} className="overflow-hidden w rounded-lg shadow-lg">
                    <Image width={1920} height={1080} src={image} alt={contentItem.title} className="w-full h-full object-cover" />
                 </div>
               ))}

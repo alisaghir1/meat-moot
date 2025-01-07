@@ -69,22 +69,22 @@ const Blogs = () => {
       content: [
         {
           title: blogsTrans[languege].blogs[2].content[0].translatedTitle,
-          images: ['/blogs/blog3-1.jpg'],
+          images: ['/menu/lambShanks.webp'],
           text: blogsTrans[languege].blogs[2].content[0].text
         },
         {
           title: blogsTrans[languege].blogs[2].content[1].translatedTitle,
-          images: ['/blogs/blog3-2.jpg'],
+          images: ['/menu/lambNeck.webp'],
           text: blogsTrans[languege].blogs[2].content[1].text
         },
         {
           title: blogsTrans[languege].blogs[2].content[2].translatedTitle,
-          images: ['/blogs/blog3-3.jpg'],
+          images: ['/menu/lambShoulder.webp'],
           text: blogsTrans[languege].blogs[2].content[2].text
         },
         {
           title: blogsTrans[languege].blogs[2].content[3].translatedTitle,
-          images: ['/blogs/blog4-1.jpg'],
+          images: ['/menu/lambRibs.webp'],
           text: blogsTrans[languege].blogs[2].content[3].text
         },
       ]
