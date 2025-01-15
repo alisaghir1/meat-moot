@@ -19,7 +19,7 @@ const Footer = () => {
   const [language] = useAppContext();  // Get the current language from context
 
   // Conditionally convert phone number if language is Arabic
-  const phoneNumber = "+971 058 1264843";
+  const phoneNumber = "+971 058 126 4843";
   const arabicPhoneNumber = language === 'ar' ? convertToArabicNumerals(phoneNumber) : phoneNumber;
 
   return (
