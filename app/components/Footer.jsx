@@ -9,18 +9,9 @@ import { TbBrandTripadvisor } from "react-icons/tb";
 import { useAppContext } from "../context"; // Adjust path
 import footerTrans from "../translation/footerTrans"; // Adjust path
 
-// Function to convert Western digits to Arabic numerals
-const convertToArabicNumerals = (str) => {
-  const arabicNumerals = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
-  return str.replace(/\d/g, (digit) => arabicNumerals[digit]);
-};
 
 const Footer = () => {
   const [language] = useAppContext();  // Get the current language from context
-
-  // Conditionally convert phone number if language is Arabic
-  const phoneNumber = "+971 58 126 4843";
-  const arabicPhoneNumber = language === 'ar' ? convertToArabicNumerals(phoneNumber) : phoneNumber;
 
   return (
     <footer 
@@ -47,17 +38,7 @@ const Footer = () => {
           <p className="text-base font-bold tracking-wide text-orange">
             {footerTrans[language].contacts}
           </p>
-          <div className="flex items-center">
-            <p className="mr-1 text-orange">{footerTrans[language].phone}</p>
-            <Link
-              href={`tel:${phoneNumber}`}
-              aria-label="Our phone"
-              title="Our phone"
-              className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
-            >
-              {language === 'ar' ? arabicPhoneNumber : phoneNumber}
-            </Link>
-          </div>
+
           <div className="flex items-center">
             <p className="mr-1 text-orange">{footerTrans[language].email}</p>
             <Link

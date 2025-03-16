@@ -59,11 +59,20 @@ const Page = () => {
             {t.lets_meat}
           </h2>
           <FaLongArrowAltDown className='text-4xl' />
+
+          <div className='flex justify-center text-center items-center gap-5'>
           <h2 className='underline'>
             <Link target='_blank' href={'https://maps.app.goo.gl/cNBPgSUiT8mog4HFA'}>
-              <Button className='w-30' variant='orange'>{t.get_directions}</Button>
+              <Button className='w-30 border border-orange hover:bg-black hover:text-white' variant='orange'>{t.get_directions}</Button>
             </Link>
           </h2>
+          <h2 className='underline'>
+            <Link href="tel:+9710509915567">
+              <Button className='w-30 border border-orange hover:bg-orange hover:text-white' variant='black'>{t.call_us}</Button>
+            </Link>
+          </h2>
+          </div>
+
         </div>
       </div>
     </div>
