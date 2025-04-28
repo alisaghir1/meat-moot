@@ -28,7 +28,7 @@ const Menu = () => {
     { img: "/menu/UrgeMushroom.jpeg", key: "burger3" },
     { img: "/menu/DoubleUrgeMushroom.jpeg", key: "burger4" },
     { img: "/menu/UrgeMaxDouble.jpeg", key: "burger5" },
-    { img: "/menu/MiniUrgeKids.jpg", key: "burger6" },
+    { img: "/menu/MiniUrgeKids.png", key: "burger6" },
   ];
 
   const menuToShow = menuType === "meat" ? meatMenu : burgerMenu;
