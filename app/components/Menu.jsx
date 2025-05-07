@@ -77,10 +77,10 @@ const Menu = () => {
             }`}
           >
             {languege === "ar"
-              ? "برجر"
+              ? "أورج برجرز"
               : languege === "ru"
-              ? "Бургеры"
-              : "Burgers"}
+              ? "Урдж Бургеры"
+              : "Urge Burgers"}
           </Button>
         </div>
 

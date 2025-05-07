@@ -59,15 +59,7 @@ const Footer = () => {
           <div className="flex items-center mt-1  gap-6">
             <Link
               target="_blank"
-              href="https://x.com/meatmoot_sa?mx=2"
-              rel="noopener noreferrer"
-              className="text-white transition-colors duration-300 hover:text-deep-purple-accent-400"
-            >
-              <RiTwitterXLine className="h-6" />
-            </Link>
-            <Link
-              target="_blank"
-              href="https://www.instagram.com/meat_moot/#"
+              href="https://www.instagram.com/meatmoot.uae"
               rel="noopener noreferrer"
               className="text-white transition-colors duration-300 hover:text-deep-purple-accent-400"
             >
@@ -75,7 +67,7 @@ const Footer = () => {
             </Link>
             <Link
               target="_blank"
-              href="https://www.facebook.com/meatmoot/"
+              href="https://www.facebook.com/meatmoot.uae"
               rel="noopener noreferrer"
               className="text-white transition-colors duration-300 hover:text-deep-purple-accent-400"
             >
@@ -91,7 +83,7 @@ const Footer = () => {
             </Link>
             <Link
               target="_blank"
-              href="https://www.tiktok.com/@meatmoot1"
+              href="https://www.tiktok.com/@meatmootuae"
               rel="noopener noreferrer"
               className="text-white transition-colors duration-300 hover:text-deep-purple-accent-400"
             >
