@@ -119,18 +119,27 @@ const Menu = () => {
                   <div className="xl:text-3xl text-xl text-gray-400 font-semibold mb-[14px]">
                     {translatedItem.description}
                   </div>
-                  <div className="xl:text-xl text-lg text-white font-semibold">
-                    {translatedItem.price}
-                    {translatedItem.comboPrice && (
-                      <>
-                        <span className="text-gray-500 mx-2">|</span>
-                        <span className="text-orange">
-                          {languege === "ar" ? "كومبو: " : "Combo: "}
-                          {translatedItem.comboPrice}
-                        </span>
-                      </>
-                    )}
-                  </div>
+<div className="xl:text-xl text-lg text-white font-semibold">
+  {translatedItem.price && translatedItem.price !== "0" ? (
+    <>
+      {translatedItem.price}
+      {translatedItem.comboPrice && (
+        <>
+          <span className="text-gray-500 mx-2">|</span>
+          <span className="text-orange">
+            {languege === "ar" ? "كومبو: " : "Combo: "}
+            {translatedItem.comboPrice}
+          </span>
+        </>
+      )}
+    </>
+  ) : translatedItem.comboPrice ? (
+    <span className="text-orange">
+      {languege === "ar" ? "كومبو : " : "Combo: "}
+      {translatedItem.comboPrice}
+    </span>
+  ) : null}
+</div>
                 </div>
               </motion.div>
             );
