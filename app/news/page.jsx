@@ -12,69 +12,51 @@ const News = () => {
 
   const news = [
     {
-      id: 2,
-      title: newsTrans[languege].news[0].translatedTitle, // Translated Title
-      content: [
-        {
-          title: newsTrans[languege].news[0].content[0].translatedTitle,
-          images: ['/news/news1-1.webp'],
-          text: newsTrans[languege].news[0].content[0].text
-        },
-        {
-          title: newsTrans[languege].news[0].content[1].translatedTitle,
-          images: ['/news/news1-2.webp'],
-          text: newsTrans[languege].news[0].content[1].text
-        },
-        {
-          title: newsTrans[languege].news[0].content[2].translatedTitle,
-          images: ['/news/news1-3.webp'],
-          text: newsTrans[languege].news[0].content[2].text
-        }
-      ]
+      id: 1,
+      title: newsTrans[languege].news[0].translatedTitle,
+      slug: 'meat-moot-global-success',
+      image: '/news/news3-3.jpg'
     },
     {
-      id: 4,
+      id: 2,
       title: newsTrans[languege].news[1].translatedTitle,
-      content: [
-        {
-          title: newsTrans[languege].news[1].content[0].translatedTitle,
-          images: ['/news/news3-1.webp'],
-          text: newsTrans[languege].news[1].content[0].text
-        },
-        {
-          title: newsTrans[languege].news[1].content[1].translatedTitle,
-          images: ['/news/news3-1.png'],
-          text: newsTrans[languege].news[1].content[1].text
-        }
-      ]
+      slug: 'dubai-hills-opening',
+      image: '/news/news1-1.webp'
     },
     {
       id: 3,
       title: newsTrans[languege].news[2].translatedTitle,
-      content: [
-        {
-          title: newsTrans[languege].news[2].content[0].translatedTitle,
-          images: ['/news/news2-1.webp'],
-          text: newsTrans[languege].news[2].content[0].text
-        },
-        {
-          title: newsTrans[languege].news[2].content[1].translatedTitle,
-          images: ['/news/news2-2.webp'],
-          text: newsTrans[languege].news[2].content[1].text
-        },
-        {
-          title: newsTrans[languege].news[2].content[2].translatedTitle,
-          images: ['/news/news2-3.webp'],
-          text: newsTrans[languege].news[2].content[2].text
-        },
-      ]
+      slug: 'jbr-branch-opening',
+      image: '/news/news3-2.webp'
+    },
+    {
+      id: 4,
+      title: newsTrans[languege].news[3].translatedTitle,
+      slug: 'immersive-experience',
+      image: '/news/news2-1.webp'
+    },
+    {
+      id: 5,
+      title: newsTrans[languege].news[4].translatedTitle,
+      slug: 'ertugrul-cast-visit',
+      image: '/news/news3-5.jpg'
+    },
+    {
+      id: 6,
+      title: newsTrans[languege].news[5].translatedTitle,
+      slug: 'arab-stars-visit',
+      image: '/celeb1.webp'
+    },
+    {
+      id: 7,
+      title: newsTrans[languege].news[6].translatedTitle,
+      slug: 'dubai-grand-opening',
+      image: '/news/news6-5.jpg'
     }
   ];
 
-  const handleNewsClick = (item) => {
-    // Store the item in local storage
-    localStorage.setItem('selectedNews', JSON.stringify(item));
-    router.push('/single-news'); // Navigate to the single news page
+  const handleNewsClick = (slug) => {
+    router.push(`/news/${slug}`);
   };
 
   return (
@@ -107,10 +89,10 @@ const News = () => {
             className="bg-black-heavy text-white rounded-lg overflow-hidden shadow-lg"
           >
             <div
-              onClick={() => handleNewsClick(item)}
+              onClick={() => handleNewsClick(item.slug)}
               className="bg-cover bg-center h-64 transform transition-all hover:scale-105 cursor-pointer"
               style={{
-                backgroundImage: `url(${item.content[0].images[0]})`,
+                backgroundImage: `url(${item.image})`,
               }}
               title={item.title}
             ></div>
