@@ -90,7 +90,7 @@ const SmokingHistory = () => {
           viewport={{ once: false, amount: 0.4 }}
         >
           <img
-            src="/menu/menu-2.jpg"
+            src="/about.jpg"
             alt="Smoking History 4"
             className="w-full h-64 object-cover rounded-lg shadow-lg"
           />
