@@ -40,6 +40,12 @@ const Blogs = () => {
       title: blogsTrans[languege].blogs[4].translatedTitle,
       slug: 'smoking-history',
       image: '/blogs/blog5-1.jpg'
+    },
+    {
+      id: 6,
+      title: blogsTrans[languege].blogs[5].translatedTitle,
+      slug: 'beef-cuts-guide',
+      image: '/menu/beefBrisket.webp'
     }
   ];
 

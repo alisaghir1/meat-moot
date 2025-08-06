@@ -23,6 +23,10 @@ const blogsTrans = {
       {
         title: "The Art of Smoking Meat - History and Techniques",
         translatedTitle: "The Art of Smoking Meat - History and Techniques"
+      },
+      {
+        title: "Understanding the Different Cuts of Beef and What Makes Them Special",
+        translatedTitle: "Understanding the Different Cuts of Beef and What Makes Them Special"
       }
     ]
   },
@@ -49,6 +53,10 @@ const blogsTrans = {
       {
         title: "The Art of Smoking Meat - History and Techniques",
         translatedTitle: "فن تدخين اللحوم - التاريخ والتقنيات"
+      },
+      {
+        title: "Understanding the Different Cuts of Beef and What Makes Them Special",
+        translatedTitle: "فهم قطع اللحم البقري المختلفة وما يجعلها مميزة"
       }
     ]
   },
@@ -75,6 +83,10 @@ const blogsTrans = {
       {
         title: "The Art of Smoking Meat - History and Techniques",
         translatedTitle: "Искусство копчения мяса - история и техники"
+      },
+      {
+        title: "Understanding the Different Cuts of Beef and What Makes Them Special",
+        translatedTitle: "Понимание различных отрубов говядины и что делает их особенными"
       }
     ]
   }
