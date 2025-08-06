@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import { useAppContext } from '../../context';
-import specialOccasionsTrans from '../../translation/specialOccasionsTrans';
+import specialOccasionsTrans from '../../translation/blogs/specialOccasionsTrans';
 
 const SpecialOccasions = () => {
   const [languege] = useAppContext();

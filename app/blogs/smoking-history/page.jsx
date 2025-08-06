@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import { useAppContext } from '../../context';
-import smokingHistoryTrans from '../../translation/smokingHistoryTrans';
+import smokingHistoryTrans from '../../translation/blogs/smokingHistoryTrans';
 
 const SmokingHistory = () => {
   const [languege] = useAppContext();

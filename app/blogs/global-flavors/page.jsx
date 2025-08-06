@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import { useAppContext } from '../../context';
-import globalFlavorsTrans from '../../translation/globalFlavorsTrans';
+import globalFlavorsTrans from '../../translation/blogs/globalFlavorsTrans';
 
 const GlobalFlavors = () => {
   const [languege] = useAppContext();

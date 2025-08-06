@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import { useAppContext } from '../../context';
-import lambCutsGuideTrans from '../../translation/lambCutsGuideTrans';
+import lambCutsGuideTrans from '../../translation/blogs/lambCutsGuideTrans';
 
 const LambCutsGuide = () => {
   const [languege] = useAppContext();

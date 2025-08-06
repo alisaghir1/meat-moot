@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import { useRouter } from 'next/navigation';
 import { useAppContext } from '../context'; 
-import blogsTrans from '../translation/blogsMainTrans';
+import blogsTrans from '../translation/blogs/blogsMainTrans';
 
 const Blogs = () => {
   const router = useRouter();

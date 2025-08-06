@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import { useAppContext } from '../../context';
-import signatureLambDishesTrans from '../../translation/signatureLambDishesTrans';
+import signatureLambDishesTrans from '../../translation/blogs/signatureLambDishesTrans';
 
 const SignatureLambDishes = () => {
   const [languege] = useAppContext();
