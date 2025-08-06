@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import { useRouter } from 'next/navigation';
 import { useAppContext } from '../context'; // Ensure you have the language context imported
-import newsTrans from '../translation/newsTrans'; // Import the translation file
+import newsTrans from '../translation/news/newsTrans'; // Import the translation file
 
 const News = () => {
   const router = useRouter();

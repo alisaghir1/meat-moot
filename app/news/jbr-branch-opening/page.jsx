@@ -8,7 +8,7 @@ import { FaLongArrowAltDown } from "react-icons/fa";
 import Link from 'next/link';
 import { Button } from '@/app/components/ui/button';
 import { useAppContext } from '../../context';
-import jbrBranchOpeningTrans from '../../translation/jbrBranchOpeningTrans.js';
+import jbrBranchOpeningTrans from '../../translation/news/jbrBranchOpeningTrans.js';
 
 const newsImages = [
   { image: '/news/news3-1.webp' },

@@ -3,165 +3,48 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import { useRouter } from 'next/navigation';
-import { useAppContext } from '../context'; // Ensure you have the language context imported
-import blogsTrans from '../translation/blogTrans.js'; // Import the translation file
+import { useAppContext } from '../context'; 
+import blogsTrans from '../translation/blogsMainTrans';
 
 const Blogs = () => {
   const router = useRouter();
-  const [languege] = useAppContext(); // Get the selected language from the context
+  const [languege] = useAppContext(); 
 
   const blogs = [
     {
       id: 1,
-      title: blogsTrans[languege].blogs[0].translatedTitle, // Translated Title
-      content: [
-        {
-          title: blogsTrans[languege].blogs[0].content[0].translatedTitle,
-          images: ['/blogs/blog1-1.jpg'],
-          text: blogsTrans[languege].blogs[0].content[0].text
-        },
-        {
-          title: blogsTrans[languege].blogs[0].content[1].translatedTitle,
-          images: ['/blogs/blog1-2.jpg'],
-          text: blogsTrans[languege].blogs[0].content[1].text
-        },
-        {
-          title: blogsTrans[languege].blogs[0].content[2].translatedTitle,
-          images: ['/blogs/blog1-3.jpg'],
-          text: blogsTrans[languege].blogs[0].content[2].text
-        },
-        {
-          title: blogsTrans[languege].blogs[0].content[3].translatedTitle,
-          images: ['/blogs/blog1-4.jpg'],
-          text: blogsTrans[languege].blogs[0].content[3].text
-        }
-      ]
+      title: blogsTrans[languege].blogs[0].translatedTitle,
+      slug: 'global-flavors',
+      image: '/blogs/blog1-1.jpg'
     },
     {
       id: 2,
       title: blogsTrans[languege].blogs[1].translatedTitle,
-      content: [
-        {
-          title: blogsTrans[languege].blogs[1].content[0].translatedTitle,
-          images: ['/blogs/blog2-1.jpg'],
-          text: blogsTrans[languege].blogs[1].content[0].text
-        },
-        {
-          title: blogsTrans[languege].blogs[1].content[1].translatedTitle,
-          images: ['/blogs/blog2-2.jpg'],
-          text: blogsTrans[languege].blogs[1].content[1].text
-        },
-        {
-          title: blogsTrans[languege].blogs[1].content[2].translatedTitle,
-          images: ['/blogs/blog2-3.jpg'],
-          text: blogsTrans[languege].blogs[1].content[2].text
-        },
-        {
-          title: blogsTrans[languege].blogs[1].content[3].translatedTitle,
-          images: ['/blogs/blog2-4.jpg'],
-          text: blogsTrans[languege].blogs[1].content[3].text
-        }
-      ]
+      slug: 'signature-lamb-dishes',
+      image: '/blogs/blog2-1.jpg'
     },
     {
       id: 3,
       title: blogsTrans[languege].blogs[2].translatedTitle,
-      content: [
-        {
-          title: blogsTrans[languege].blogs[2].content[0].translatedTitle,
-          images: ['/menu/lambShanks.webp'],
-          text: blogsTrans[languege].blogs[2].content[0].text
-        },
-        {
-          title: blogsTrans[languege].blogs[2].content[1].translatedTitle,
-          images: ['/menu/lambNeck.webp'],
-          text: blogsTrans[languege].blogs[2].content[1].text
-        },
-        {
-          title: blogsTrans[languege].blogs[2].content[2].translatedTitle,
-          images: ['/menu/lambShoulder.webp'],
-          text: blogsTrans[languege].blogs[2].content[2].text
-        },
-        {
-          title: blogsTrans[languege].blogs[2].content[3].translatedTitle,
-          images: ['/menu/lambRibs.webp'],
-          text: blogsTrans[languege].blogs[2].content[3].text
-        },
-      ]
+      slug: 'lamb-cuts-guide',
+      image: '/blogs/blog3-1.jpg'
     },
     {
       id: 4,
       title: blogsTrans[languege].blogs[3].translatedTitle,
-      content: [
-        {
-          title: blogsTrans[languege].blogs[3].content[0].translatedTitle,
-          images: ['/blogs/blog4-1.jpg'],
-          text: blogsTrans[languege].blogs[3].content[0].text
-        },
-        {
-          title: blogsTrans[languege].blogs[3].content[1].translatedTitle,
-          images: ['/blogs/blog4-2.jpg'],
-          text: blogsTrans[languege].blogs[3].content[1].text
-        },
-        {
-          title: blogsTrans[languege].blogs[3].content[2].translatedTitle,
-          images: ['/blogs/blog4-3.jpg'],
-          text: blogsTrans[languege].blogs[3].content[2].text
-        },
-        {
-          title: blogsTrans[languege].blogs[3].content[3].translatedTitle,
-          images: ['/blogs/blog3-1.jpg'],
-          text: blogsTrans[languege].blogs[3].content[3].text
-        },
-        {
-          title: blogsTrans[languege].blogs[3].content[4].translatedTitle,
-          images: ['/blogs/blog1-2.jpg'],
-          text: blogsTrans[languege].blogs[3].content[4].text
-        },
-      ]
+      slug: 'special-occasions',
+      image: '/blogs/blog4-1.jpg'
     },
     {
       id: 5,
       title: blogsTrans[languege].blogs[4].translatedTitle,
-      content: [
-        {
-          title: blogsTrans[languege].blogs[4].content[0].translatedTitle,
-          images: ['/blogs/blog5-1.jpg'],
-          text: blogsTrans[languege].blogs[4].content[0].text
-        },
-        {
-          title: blogsTrans[languege].blogs[4].content[1].translatedTitle,
-          images: ['/blogs/blog5-2.jpg'],
-          text: blogsTrans[languege].blogs[4].content[1].text
-        },
-        {
-          title: blogsTrans[languege].blogs[4].content[2].translatedTitle,
-          images: ['/blogs/blog5-3.jpg'],
-          text: blogsTrans[languege].blogs[4].content[2].text
-        },
-        {
-          title: blogsTrans[languege].blogs[4].content[3].translatedTitle,
-          images: ['/blogs/blog2-4.jpg'],
-          text: blogsTrans[languege].blogs[4].content[3].text
-        },
-        {
-          title: blogsTrans[languege].blogs[4].content[4].translatedTitle,
-          images: ['/blogs/blog1-1.jpg'],
-          text: blogsTrans[languege].blogs[4].content[4].text
-        },
-        {
-          title: blogsTrans[languege].blogs[4].content[5].translatedTitle,
-          images: ['/blogs/blog1-4.jpg'],
-          text: blogsTrans[languege].blogs[4].content[5].text
-        },
-      ]
+      slug: 'smoking-history',
+      image: '/blogs/blog5-1.jpg'
     }
   ];
 
-  const handleNewsClick = (item) => {
-    // Store the item in local storage
-    localStorage.setItem('selectedNews', JSON.stringify(item));
-    router.push('/single-blog'); // Navigate to the single news page
+  const handleBlogClick = (slug) => {
+    router.push(`/blogs/${slug}`);
   };
 
   return (
@@ -182,7 +65,7 @@ const Blogs = () => {
         </p>
       </motion.div>
 
-      {/* News Grid Layout */}
+      {/* Blogs Grid Layout */}
       <div className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {blogs.map((item) => (
           <motion.div
@@ -194,10 +77,10 @@ const Blogs = () => {
             className="bg-black-heavy text-white rounded-lg overflow-hidden shadow-lg"
           >
             <div
-              onClick={() => handleNewsClick(item)}
+              onClick={() => handleBlogClick(item.slug)}
               className="bg-cover bg-center h-64 transform transition-all hover:scale-105 cursor-pointer"
               style={{
-                backgroundImage: `url(${item.content[0].images[0]})`,
+                backgroundImage: `url(${item.image})`,
               }}
               title={item.title}
             ></div>

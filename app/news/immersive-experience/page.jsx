@@ -8,7 +8,7 @@ import { FaLongArrowAltDown } from "react-icons/fa";
 import Link from 'next/link';
 import { Button } from '@/app/components/ui/button';
 import { useAppContext } from '../../context';
-import immersiveExperienceTrans from '../../translation/immersiveExperienceTrans.js';
+import immersiveExperienceTrans from '../../translation/news/immersiveExperienceTrans.js';
 
 const newsImages = [
   { image: '/news/news2-1.webp' },

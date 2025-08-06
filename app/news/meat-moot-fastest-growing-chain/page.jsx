@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
 import { useAppContext } from '../../context';
-import newsTrans from '../../translation/newsTrans';
+import newsTrans from '../../translation/news/newsTrans';
 import Image from 'next/image';
 
 const MeatMootFastestGrowingChain = () => {

@@ -8,7 +8,7 @@ import { FaLongArrowAltDown } from "react-icons/fa";
 import Link from 'next/link';
 import { Button } from '@/app/components/ui/button';
 import { useAppContext } from '../../context';
-import meatMootGlobalSuccessTrans from '../../translation/meatMootGlobalSuccessTrans.js';
+import meatMootGlobalSuccessTrans from '../../translation/news/meatMootGlobalSuccessTrans.js';
 
 const newsImages = [
   { image: '/news/news3-1.png' },

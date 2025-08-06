@@ -7,7 +7,7 @@ import { FaLongArrowAltDown } from "react-icons/fa";
 import Link from 'next/link';
 import { Button } from '@/app/components/ui/button';
 import { useAppContext } from '../../context';
-import ertugrulCastTrans from '../../translation/ertugrulCastTrans';
+import ertugrulCastTrans from '../../translation/news/ertugrulCastTrans';
 
 const ErtugrulCastVisit = () => {
   const [languege] = useAppContext();
