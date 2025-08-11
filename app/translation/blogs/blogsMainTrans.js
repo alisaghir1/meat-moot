@@ -28,6 +28,22 @@ const blogsTrans = {
         title: "Understanding the Different Cuts of Beef and What Makes Them Special",
         translatedTitle: "Understanding the Different Cuts of Beef and What Makes Them Special"
       }
+      ,{
+        title: "Seasonal Menu Specials You’ll Want to Try This Summer/Fall/Winter/Spring",
+        translatedTitle: "Seasonal Menu Specials You’ll Want to Try This Summer/Fall/Winter/Spring"
+      }
+      ,{
+        title: "Our Secret Sauces: The Flavor Enhancers You Can’t Miss",
+        translatedTitle: "Our Secret Sauces: The Flavor Enhancers You Can’t Miss"
+      }
+      ,{
+        title: "Meat Myths Busted: Debunking Popular Misconceptions",
+        translatedTitle: "Meat Myths Busted: Debunking Popular Misconceptions"
+      }
+      ,{
+        title: "Food and Friendship: The Best Dishes to Share at Meat Moot",
+        translatedTitle: "Food and Friendship: The Best Dishes to Share at Meat Moot"
+      }
     ]
   },
   ar: {
@@ -57,6 +73,22 @@ const blogsTrans = {
       {
         title: "Understanding the Different Cuts of Beef and What Makes Them Special",
         translatedTitle: "فهم قطع اللحم البقري المختلفة وما يجعلها مميزة"
+      },
+      ,{
+        title: "Seasonal Menu Specials You’ll Want to Try This Summer/Fall/Winter/Spring",
+        translatedTitle: "العروض الموسمية الخاصة التي سترغب بتجربتها هذا الصيف/الخريف/الشتاء/الربيع"
+      }
+      ,{
+        title: "Our Secret Sauces: The Flavor Enhancers You Can’t Miss",
+        translatedTitle: "صلصاتنا السرية: معززات النكهة التي لا يمكنك تفويتها"
+      }
+      ,{
+        title: "Meat Myths Busted: Debunking Popular Misconceptions",
+        translatedTitle: "خرافات اللحوم: تفنيد المعتقدات الشائعة"
+      }
+      ,{
+        title: "Food and Friendship: The Best Dishes to Share at Meat Moot",
+        translatedTitle: "الطعام والصداقة: أفضل الأطباق للمشاركة في ميت موت"
       }
     ]
   },
@@ -87,6 +119,22 @@ const blogsTrans = {
       {
         title: "Understanding the Different Cuts of Beef and What Makes Them Special",
         translatedTitle: "Понимание различных отрубов говядины и что делает их особенными"
+      }
+      ,{
+        title: "Seasonal Menu Specials You’ll Want to Try This Summer/Fall/Winter/Spring",
+        translatedTitle: "Сезонные специальные предложения меню на лето/осень/зиму/весну"
+      }
+      ,{
+        title: "Our Secret Sauces: The Flavor Enhancers You Can’t Miss",
+        translatedTitle: "Наши фирменные соусы: усилители вкуса, которые нельзя пропустить"
+      }
+      ,{
+        title: "Meat Myths Busted: Debunking Popular Misconceptions",
+        translatedTitle: "Мифы о мясе: разоблачение популярных заблуждений"
+      }
+      ,{
+        title: "Food and Friendship: The Best Dishes to Share at Meat Moot",
+        translatedTitle: "Еда и дружба: лучшие блюда для совместного заказа в Meat Moot"
       }
     ]
   }

@@ -3,7 +3,6 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../public/logo.svg";
-import { RiTwitterXLine } from "react-icons/ri";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { TbBrandTripadvisor } from "react-icons/tb";
 import { useAppContext } from "../context"; // Adjust path

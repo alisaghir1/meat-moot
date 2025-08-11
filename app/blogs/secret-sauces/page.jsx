@@ -1,16 +1,12 @@
 "use client";
 import React, { useMemo } from 'react';
-import Image from 'next/image';
 import { useAppContext } from '../../context';
-import beefCutsGuideTrans from '../../translation/blogs/beefCutsGuideTrans';
+import secretSaucesTrans from '../../translation/blogs/secretSaucesTrans';
 
-// Optional: export metadata later using beefCutsGuideTrans.en.meta
-
-export default function Page() {
+const SecretSauces = () => {
   const [languege] = useAppContext();
-  const data = beefCutsGuideTrans[languege] || beefCutsGuideTrans.en;
+  const data = secretSaucesTrans[languege] || secretSaucesTrans.en;
 
-  // Group bullet paragraphs into lists if future content uses • markers
   const blocks = useMemo(() => {
     const src = data.content || [];
     const out = [];
@@ -42,14 +38,11 @@ export default function Page() {
         <div className="h-1 w-24 bg-orange rounded-full" />
       </div>
 
-      <div className="mb-12 relative w-full h-80 md:h-96 rounded-xl overflow-hidden border border-white/10 shadow-lg">
-        <Image
-          src="/blogs/blog1-3.jpg"
+      <div className="mb-12">
+        <img
+          src="/blogs/blog2-4.jpg"
           alt={data.title}
-          fill
-          priority
-          sizes="(max-width:768px) 100vw, (max-width:1200px) 100vw, 1200px"
-          className="object-cover"
+          className="w-full h-80 md:h-96 object-cover rounded-xl shadow-lg border border-white/10"
         />
       </div>
 
@@ -67,7 +60,7 @@ export default function Page() {
           }
           if (item.type === 'paragraph') {
             return (
-              <p key={index} className="mb-6 text-[18px] md:text-[20px] leading-8 text-white whitespace-pre-line">
+              <p key={index} className="mb-6 text-[18px] md:text-[20px] leading-8 text-white">
                 {item.text}
               </p>
             );
@@ -86,22 +79,30 @@ export default function Page() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
-        {[
-          { src: '/blogs/blog2-1.jpg', alt: 'Cut 1' },
-          { src: '/blogs/blog3-1.jpg', alt: 'Cut 2' },
-          { src: '/blogs/blog4-1.jpg', alt: 'Cut 3' }
-        ].map((img, i) => (
-          <div key={i} className="relative w-full h-60 md:h-64 rounded-lg overflow-hidden border border-white/10 shadow-lg">
-            <Image
-              src={img.src}
-              alt={img.alt}
-              fill
-              sizes="(max-width:768px) 100vw, (max-width:1200px) 33vw, 400px"
-              className="object-cover"
-            />
-          </div>
-        ))}
+        <div>
+          <img
+            src="/blogs/blog3-1.jpg"
+            alt="Sauce 1"
+            className="w-full h-60 md:h-64 object-cover rounded-lg shadow-lg border border-white/10"
+          />
+        </div>
+        <div>
+          <img
+            src="/blogs/blog4-1.jpg"
+            alt="Sauce 2"
+            className="w-full h-60 md:h-64 object-cover rounded-lg shadow-lg border border-white/10"
+          />
+        </div>
+        <div>
+          <img
+            src="/blogs/blog5-1.jpg"
+            alt="Sauce 3"
+            className="w-full h-60 md:h-64 object-cover rounded-lg shadow-lg border border-white/10"
+          />
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default SecretSauces;

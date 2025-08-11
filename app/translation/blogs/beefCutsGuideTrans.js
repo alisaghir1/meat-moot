@@ -2,161 +2,272 @@
 const beefCutsGuideTrans = {
   en: {
     title: "Understanding the Different Cuts of Beef and What Makes Them Special",
+    meta: {
+      titleTag: "Beef Cuts Explained: What Makes Each Cut Special",
+      description: "Explore the different beef cuts, their best uses, flavor profiles, and cooking methods in this comprehensive, easy-to-understand guide."
+    },
     content: [
-      {
-        type: 'paragraph',
-        text: "Understanding beef cuts is essential for both home cooks and culinary professionals. Different parts of the cow produce meat with distinct textures, levels of marbling, and cooking needs. Selecting the right cut can significantly influence the flavor, tenderness, and overall outcome of a dish."
-      },
-      {
-        type: 'paragraph',
-        text: "Each section of the cow is suited to specific preparation methods due to how muscles are used during the animal's life. Heavily used areas, like the shoulder or legs, tend to be tougher and benefit from slow cooking. In contrast, muscles that experience less movement, such as the loin or rib section, yield tender cuts that work well with quick cooking techniques."
-      },
-      {
-        type: 'paragraph',
-        text: "This guide covers the primary beef sections and highlights what makes each one unique. From grilling favorites to braising staples, you'll learn how to make the most of each cut."
-      },
-      {
-        type: 'heading',
-        text: "Chuck – Flavorful and Affordable"
-      },
-      {
-        type: 'paragraph',
-        text: "Chuck roast comes from the shoulder area and contains ample connective tissue. When cooked low and slow, the meat becomes moist and tender. It's a go-to for pot roast, stews, and shredded beef dishes. Chuck steak, a thinner slice from the same area, carries rich flavor and benefits from marination."
-      },
-      {
-        type: 'heading',
-        text: "Rib – Rich in Marbling and Tenderness"
-      },
-      {
-        type: 'paragraph',
-        text: "Known for its marbling, ribeye is among the most tender and juicy steaks. It performs well on the grill or in a cast-iron skillet and delivers a bold, beefy flavor. Prime rib includes multiple ribeye steaks and is usually roasted whole, often served during holidays."
-      },
-      {
-        type: 'heading',
-        text: "Loin – Tender and Mild"
-      },
-      {
-        type: 'paragraph',
-        text: "Located beneath the ribs, tenderloin offers the softest texture. Filet mignon, the most well-known tenderloin steak, is often cooked quickly over high heat. Strip steak features a balance of tenderness and flavor, while T-bone and Porterhouse include portions of both tenderloin and strip steak."
-      },
-      {
-        type: 'heading',
-        text: "Specialty Cuts and Cooking Methods"
-      },
-      {
-        type: 'paragraph',
-        text: "Brisket is full of flavor but needs time - when cooked slowly over indirect heat, it becomes tender and flavorful. Short ribs excel when braised and become deeply savory when cooked over several hours. Each cut has characteristics suited to specific dishes and preparation styles."
-      },
-      {
-        type: 'paragraph',
-        text: "Looking to experience these cuts without the cooking? Visit Meat Moot, where smoked meat is more than a meal—it's a method steeped in tradition. From tender brisket to rich short ribs, each cut is slow-cooked to smoky perfection. Whether you're new to smoked beef or a lifelong fan, Meat Moot serves the depth of flavor that makes every bite memorable."
-      }
+  { type: 'paragraph', text: "Understanding beef cuts is essential for both home cooks and culinary professionals. Different parts of the cow produce meat with distinct textures, levels of marbling, and cooking needs. Selecting the right cut can significantly influence the flavor, tenderness, and overall outcome of a dish." },
+  { type: 'paragraph', text: "Each section of the cow is suited to specific preparation methods due to how muscles are used during the animal's life. Heavily used areas, like the shoulder or legs, tend to be tougher and benefit from slow cooking. In contrast, muscles that experience less movement, such as the loin or rib section, yield tender cuts that work well with quick cooking techniques." },
+  { type: 'paragraph', text: "This guide covers the primary beef sections and highlights what makes each one unique. From grilling favorites to braising staples, you'll learn how to make the most of each cut." },
+  { type: 'heading', text: '1- Chuck – Flavorful and Affordable' },
+  { type: 'heading', text: 'Chuck Roast' },
+  { type: 'paragraph', text: 'Chuck roast comes from the shoulder area and contains ample connective tissue. When cooked low and slow, the meat becomes moist and tender. It’s a go-to for pot roast, stews, and shredded beef dishes.' },
+  { type: 'heading', text: 'Chuck Steak' },
+  { type: 'paragraph', text: 'A thinner slice from the same area, chuck steak carries rich flavor. It benefits from marination and is often grilled or pan-fried, though care is needed to avoid toughness.' },
+  { type: 'heading', text: 'Shoulder Clod' },
+  { type: 'paragraph', text: 'Slightly leaner than chuck roast, this cut is often used in ground beef blends. It can also be slow-cooked for hearty, rustic dishes.' },
+  { type: 'heading', text: '2- Rib – Rich in Marbling and Tenderness' },
+  { type: 'heading', text: 'Ribeye' },
+  { type: 'paragraph', text: 'Known for its marbling, ribeye is among the most tender and juicy steaks. It performs well on the grill or in a cast-iron skillet and delivers a bold, beefy flavor.' },
+  { type: 'heading', text: 'Prime Rib' },
+  { type: 'paragraph', text: 'This cut includes multiple ribeye steaks and is usually roasted whole. Often served during holidays, it is seasoned simply and roasted to medium rare to highlight its rich taste.' },
+  { type: 'heading', text: 'Back Ribs' },
+  { type: 'paragraph', text: 'These come from the upper part of the ribcage. Though they have less meat than short ribs, they are flavorful and ideal for grilling or oven roasting with barbecue sauce.' },
+  { type: 'heading', text: '3- Loin – Tender and Mild' },
+  { type: 'heading', text: 'Tenderloin' },
+  { type: 'paragraph', text: 'Located beneath the ribs, this cut offers the softest texture. Filet mignon, the most well-known tenderloin steak, is often cooked quickly over high heat. Because it’s lean, it requires attention to avoid dryness.' },
+  { type: 'heading', text: 'Strip Steak (New York Strip)' },
+  { type: 'paragraph', text: 'Cut from the short loin, this steak features a balance of tenderness and flavor. It’s commonly grilled or pan-seared and offers consistent results.' },
+  { type: 'heading', text: 'T-Bone and Porterhouse' },
+  { type: 'paragraph', text: 'These steaks include portions of both the tenderloin and strip steak, separated by a T-shaped bone. Porterhouse has a larger tenderloin section than T-bone. Both are well-suited to grilling and benefit from simple seasoning.' },
+  { type: 'heading', text: '4- Sirloin – Lean and Versatile' },
+  { type: 'heading', text: 'Top Sirloin' },
+  { type: 'paragraph', text: 'Less tender than the loin cuts, top sirloin still delivers good flavor at a reasonable cost. It’s a favorite for grilling and often used in kabobs and stir-fry dishes.' },
+  { type: 'heading', text: 'Bottom Sirloin' },
+  { type: 'paragraph', text: 'This section contains the tri-tip, a triangular cut popular in California. It is excellent for roasting or grilling and performs best when sliced thin against the grain.' },
+  { type: 'heading', text: '5- Round – Economical and Lean' },
+  { type: 'heading', text: 'Eye of Round' },
+  { type: 'paragraph', text: 'Lean and uniform in shape, this cut is often roasted whole. Though not naturally tender, it can be improved with marinades or slow roasting techniques.' },
+  { type: 'heading', text: 'Top Round' },
+  { type: 'paragraph', text: 'Used frequently in roast beef preparations, top round holds up well to slow cooking. It is also sliced thin for sandwiches.' },
+  { type: 'heading', text: 'Bottom Round' },
+  { type: 'paragraph', text: 'Slightly tougher than top round, this cut works well for braising. It\'s a common ingredient in stews and shredded beef recipes.' },
+  { type: 'heading', text: '6- Brisket – Full of Flavor, Needs Time' },
+  { type: 'heading', text: 'Flat Cut' },
+  { type: 'paragraph', text: 'The flat portion of the brisket is more uniform and easier to slice. This is the cut often used in classic brisket recipes and traditional Jewish dishes.' },
+  { type: 'heading', text: 'Point Cut' },
+  { type: 'paragraph', text: 'Thicker and fattier, the point cut is favored for barbecue. When cooked slowly over indirect heat, it becomes tender and flavorful.' },
+  { type: 'heading', text: '7- Plate – Rich Cuts for Braising and Grilling' },
+  { type: 'heading', text: 'Skirt Steak' },
+  { type: 'paragraph', text: 'Cut from the diaphragm area, skirt steak has strong grain and rich taste. It’s ideal for fajitas and stir-fry, benefiting from brief marination and quick cooking.' },
+  { type: 'heading', text: 'Hanger Steak' },
+  { type: 'paragraph', text: 'Often called the “butcher’s steak” because it used to be kept by the butcher, this cut is prized for flavor. It’s best cooked medium rare and sliced thin.' },
+  { type: 'heading', text: 'Short Ribs' },
+  { type: 'paragraph', text: 'These meaty ribs are taken from the lower rib section and excel when braised. They become deeply savory when cooked over several hours.' },
+  { type: 'heading', text: '8- Flank – Thin, Flavorful, and Lean' },
+  { type: 'heading', text: 'Flank Steak' },
+  { type: 'paragraph', text: 'Taken from the abdominal muscles, this cut is lean and fibrous. It\'s best cooked quickly over high heat and sliced against the grain to improve tenderness.' },
+  { type: 'heading', text: '9- Shank – Best for Broth and Stews' },
+  { type: 'heading', text: 'Beef Shank' },
+  { type: 'paragraph', text: 'Found on the legs, the shank is dense with collagen. It requires long cooking times and is commonly used in soups and bone broths due to its ability to yield rich flavor.' },
+  { type: 'heading', text: '10- Specialty Cuts – Unique Uses and Traditions' },
+  { type: 'heading', text: 'Oxtail' },
+  { type: 'paragraph', text: 'Despite the name, oxtail refers to the tail of the cow. It’s gelatinous and rich, commonly used in slow-simmered stews and soups.' },
+  { type: 'heading', text: 'Beef Cheeks' },
+  { type: 'paragraph', text: 'These cuts contain a great deal of connective tissue. When braised, the meat becomes soft and flavorful, often used in gourmet preparations.' },
+  { type: 'heading', text: 'Tongue' },
+  { type: 'paragraph', text: 'Popular in many cultures, beef tongue becomes tender after simmering. It’s used in tacos, sandwiches, and cold cuts.' },
+  { type: 'heading', text: '11- Cooking Methods by Cut Type' },
+  { type: 'heading', text: 'Grilling Cuts' },
+  { type: 'paragraph', text: 'Steaks like ribeye, strip, skirt, and tenderloin work well over direct heat. These cuts need only salt, pepper, and quick searing.' },
+  { type: 'heading', text: 'Roasting Cuts' },
+  { type: 'paragraph', text: 'Cuts such as prime rib, sirloin tip, and tenderloin roast beautifully in the oven. Temperature control is key to preserving moisture.' },
+  { type: 'heading', text: 'Braising Cuts' },
+  { type: 'paragraph', text: 'Brisket, short ribs, and shanks excel with moist heat over long durations. This method softens connective tissue and draws out deep flavors.' },
+  { type: 'heading', text: 'Stir-Fry and Quick Cook' },
+  { type: 'paragraph', text: 'Thin, lean cuts like flank, skirt, or sirloin tip are ideal for fast preparations. Cutting across the grain improves chewability.' },
+  { type: 'heading', text: '12- Buying Tips and Storage' },
+  { type: 'heading', text: 'Choosing the Right Cut' },
+  { type: 'paragraph', text: 'The choice depends on cooking method, desired flavor, and budget. Cuts from the loin and rib offer tenderness; chuck and round provide deeper taste when slow-cooked.' },
+  { type: 'heading', text: 'Storing Beef' },
+  { type: 'paragraph', text: 'Beef should be kept cold and used within days of purchase unless frozen. Vacuum-sealed packages can extend shelf life. Cuts stored in the freezer should be used within 6 to 12 months for best quality.' },
+  { type: 'heading', text: 'Conclusion – Know Your Beef' },
+  { type: 'paragraph', text: 'Selecting the right beef cut adds value to meals, improves results, and expands cooking skills. Each cut has characteristics suited to specific dishes and preparation styles. From tender steaks to slow-cooked roasts, understanding beef structure makes the kitchen more predictable and satisfying.' },
+  { type: 'heading', text: 'Contact Us' },
+  { type: 'paragraph', text: 'Whether it\'s a new grilling steak or a rich braising cut, knowing what makes it special gives your cooking a deeper sense of purpose. Save this guide and experiment with confidence in your next dish!' },
+  { type: 'paragraph', text: 'Looking to experience these cuts without the cooking? Visit Meat Moot, where smoked meat is more than a meal—\nit\'s a method steeped in tradition. From tender brisket to rich short ribs, each cut is slow-cooked to smoky perfection. Whether you\'re new to smoked beef or a lifelong fan, Meat Moot serves the depth of flavor that makes every bite memorable.' },
+  { type: 'paragraph', text: 'Find your nearest Meat Moot location and taste what real smoked meat should be.' }
     ]
   },
   ar: {
     title: "فهم قطع اللحم البقري المختلفة وما يجعلها مميزة",
+    meta: {
+      titleTag: "دليل قطع لحم البقر: ما يميز كل قطعة",
+      description: "استكشف قطع لحم البقر المختلفة، استخداماتها الأفضل، النكهات وطرق الطهي في دليل شامل سهل الفهم."
+    },
     content: [
-      {
-        type: 'paragraph',
-        text: "فهم قطع اللحم البقري أمر ضروري لكل من الطهاة المنزليين والمحترفين. أجزاء مختلفة من البقرة تنتج لحوماً بقوام مختلف ومستويات تعرق ومتطلبات طبخ متنوعة. اختيار القطعة المناسبة يمكن أن يؤثر بشكل كبير على النكهة والطراوة والنتيجة الإجمالية للطبق."
-      },
-      {
-        type: 'paragraph',
-        text: "كل قسم من البقرة مناسب لطرق تحضير محددة بسبب كيفية استخدام العضلات خلال حياة الحيوان. المناطق المستخدمة بكثرة، مثل الكتف أو الأرجل، تميل إلى أن تكون أقسى وتستفيد من الطبخ البطيء. في المقابل، العضلات التي تواجه حركة أقل، مثل قسم المتن أو الضلوع، تنتج قطعاً طرية تعمل بشكل جيد مع تقنيات الطبخ السريع."
-      },
-      {
-        type: 'paragraph',
-        text: "هذا الدليل يغطي أقسام اللحم البقري الأساسية ويسلط الضوء على ما يجعل كل واحد منها فريداً. من مفضلات الشوي إلى أساسيات الطبخ البطيء، ستتعلم كيفية الاستفادة القصوى من كل قطعة."
-      },
-      {
-        type: 'heading',
-        text: "التشاك - لذيذ وبأسعار معقولة"
-      },
-      {
-        type: 'paragraph',
-        text: "روست التشاك يأتي من منطقة الكتف ويحتوي على نسيج ضام كبير. عند طبخه ببطء وعلى نار هادئة، يصبح اللحم رطباً وطرياً. إنه الخيار الأمثل لروست القدر والحساء وأطباق اللحم المقطع. ستيك التشاك، شريحة أرق من نفس المنطقة، يحمل نكهة غنية ويستفيد من التتبيل."
-      },
-      {
-        type: 'heading',
-        text: "الضلوع - غنية بالتعرق والطراوة"
-      },
-      {
-        type: 'paragraph',
-        text: "معروف بتعرقه، الريب آي من بين أكثر الستيكات طراوة وعصارة. يؤدي بشكل جيد على الشواية أو في مقلاة من الحديد الزهر ويقدم نكهة لحم جريئة. البرايم ريب يشمل عدة ستيكات ريب آي وعادة ما يُحمص كاملاً، وغالباً ما يُقدم خلال العطلات."
-      },
-      {
-        type: 'heading',
-        text: "المتن - طري ومعتدل"
-      },
-      {
-        type: 'paragraph',
-        text: "يقع تحت الضلوع، التندرلوين يوفر أنعم قوام. فيليه مينيون، أشهر ستيك تندرلوين، غالباً ما يُطبخ بسرعة على نار عالية. ستيك الستريب يتميز بتوازن بين الطراوة والنكهة، بينما تي-بون وبورترهاوس يشملان أجزاءً من كل من التندرلوين وستيك الستريب."
-      },
-      {
-        type: 'heading',
-        text: "القطع المتخصصة وطرق الطبخ"
-      },
-      {
-        type: 'paragraph',
-        text: "البرسكت مليء بالنكهة لكنه يحتاج وقتاً - عند طبخه ببطء على نار غير مباشرة، يصبح طرياً ولذيذاً. الضلوع القصيرة تتفوق عند الطبخ البطيء وتصبح ذات طعم عميق عند طبخها لعدة ساعات. كل قطعة لها خصائص مناسبة لأطباق وأساليب تحضير محددة."
-      },
-      {
-        type: 'paragraph',
-        text: "تريد تجربة هذه القطع دون الطبخ؟ قم بزيارة ميت موت، حيث اللحم المدخن أكثر من مجرد وجبة - إنها طريقة متجذرة في التقليد. من البريسكت الطري إلى الضلوع القصيرة الغنية، كل قطعة تُطبخ ببطء إلى الكمال المدخن. سواء كنت جديداً على اللحم البقري المدخن أو محباً مدى الحياة، ميت موت يقدم عمق النكهة الذي يجعل كل قضمة لا تُنسى."
-      }
+      { type: 'paragraph', text: "فهم قطع اللحم البقري ضروري للطهاة المنزليين والمحترفين. أجزاء الجسم المختلفة تمنح لحوماً بقوامات وتعرق (دهن داخلي) وطرق طهي مختلفة. اختيار القطعة الصحيحة يؤثر في النكهة والطراوة والنتيجة النهائية." },
+      { type: 'paragraph', text: "كل منطقة تناسب أسلوب تحضير معين بناءً على نشاط العضلة خلال حياة الحيوان. المناطق كثيرة الحركة مثل الكتف والساق أكثر قساوة وتستفيد من الطبخ البطيء. المناطق الأقل حركة مثل المتن والضلوع أطرى وتناسب الطهي السريع بحرارة عالية." },
+      { type: 'paragraph', text: "هذا الدليل يستعرض الأقسام الرئيسية ويبرز ما يجعل كل جزء مميزاً. من قطع الشوي السريعة إلى القطع التي تزدهر مع الطهي الطويل، ستعرف كيف تستفيد من كل واحدة." },
+      { type: 'heading', text: '1- التشاك – نكهة وسعر مناسب' },
+      { type: 'heading', text: 'روست التشاك' },
+      { type: 'paragraph', text: 'يأتي من منطقة الكتف ويحتوي نسيجاً ضاماً وفيراً. الطبخ البطيء الرطب يحوله إلى لحم طري وعصيري مثالي للروست، اليخنات، واللحم المفتت.' },
+      { type: 'heading', text: 'ستيك التشاك' },
+      { type: 'paragraph', text: 'شريحة أنحف من نفس المنطقة بنكهات عميقة. يستفيد من التتبيل وقد يُشوى أو يُحمر في مقلاة، مع ضرورة عدم المبالغة حتى لا يصبح قاسياً.' },
+      { type: 'heading', text: 'الكتف (شولدر كلود)' },
+      { type: 'paragraph', text: 'أقل دُهناً قليلاً من الروست ويُستخدم كثيراً في خلطات اللحم المفروم. كما يمكن طهيه ببطء لأطباق ريفية دسمة.' },
+      { type: 'heading', text: '2- الضلع – مَرْمَلة وطراوة' },
+      { type: 'heading', text: 'ريب آي' },
+      { type: 'paragraph', text: 'ستيك غني بالمَرْمَلة (الدهون الداخلية) يمنحه عصارة وطراوة ونكهة لحم مكثفة. ممتاز على الشواية أو مقلاة الحديد.' },
+      { type: 'heading', text: 'البرايم ريب' },
+      { type: 'paragraph', text: 'قطعة كبيرة تضم عدة شرائح ريب آي. تُحمص كاملة غالباً في المناسبات وتُتبل ببساطة لإبراز النكهة.' },
+      { type: 'heading', text: 'ضلوع الظهر' },
+      { type: 'paragraph', text: 'أعلى القفص الصدري. لحمها أقل من الضلوع القصيرة لكنها لذيذة ومناسبة للشوي أو التحميص مع صلصة باربكيو.' },
+      { type: 'heading', text: '3- المتن – طراوة وقوام ناعم' },
+      { type: 'heading', text: 'التندرلوين' },
+      { type: 'paragraph', text: 'أسفل الضلوع بقوام بالغ النعومة. فيليه مينيون يُطهى سريعاً بحرارة عالية ويحتاج مراقبة لأنه قليل الدهن.' },
+      { type: 'heading', text: 'ستيك الستريب (نيويورك ستريب)' },
+      { type: 'paragraph', text: 'من اللوين القصير؛ يوازن بين الطراوة والنكهة ويُشوى أو يُحمر بسهولة بنتائج متناسقة.' },
+      { type: 'heading', text: 'تي بون وبورترهاوس' },
+      { type: 'paragraph', text: 'يشملان جزءاً من التندرلوين والستريب يفصل بينهما عظم T. البورترهاوس يحتوي قِسماً أكبر من المتن. يتبلان ببساطة ويُشويان.' },
+      { type: 'heading', text: '4- السيرلوين – قليل الدهن ومتعدد الاستخدام' },
+      { type: 'heading', text: 'توب سيرلوين' },
+      { type: 'paragraph', text: 'أقل طراوة من قطع المتن، لكن نكهته جيدة وسعره معقول، شائع في الشوي والأسياخ والقلي السريع.' },
+      { type: 'heading', text: 'السيرلوين السفلي (التراي–تيب)' },
+      { type: 'paragraph', text: 'يضم قطعة التراي–تيب المثلثة الشهيرة خصوصاً في كاليفورنيا. ممتازة للتحميص أو الشوي وتُقطع عكس اتجاه الألياف.' },
+      { type: 'heading', text: '5- الردف (الراوند) – اقتصادي قليل الدهن' },
+      { type: 'heading', text: 'آي أوف راوند' },
+      { type: 'paragraph', text: 'أسطواني قليل الدهن يُحمص كاملاً غالباً. ليس طرياً بطبيعته لكن يُحسن بالتتبيل والطبخ البطيء.' },
+      { type: 'heading', text: 'توب راوند' },
+      { type: 'paragraph', text: 'يُستخدم في روست بيف الشرائح ويُطهى ببطء ثم يُقطع رفيعاً للسندويشات.' },
+      { type: 'heading', text: 'بوتوم راوند' },
+      { type: 'paragraph', text: 'أقسى قليلاً ويُلائم الطهي الرطب (اليخنات واللحم المفتت).' },
+      { type: 'heading', text: '6- الصدر (بريسكيت) – نكهة عميقة وزمن طويل' },
+      { type: 'heading', text: 'الجزء المسطح' },
+      { type: 'paragraph', text: 'موحد الشكل وسهل التقطيع ويُستخدم في وصفات البريسكيت التقليدية.' },
+      { type: 'heading', text: 'الجزء السميك (بوينت)' },
+      { type: 'paragraph', text: 'أكثر دُهناً وسُمكاً مفضل للباربكيو، يذوب الدهن أثناء الطهي البطيء.' },
+      { type: 'heading', text: '7- الصفيحة (البلات) – قطع غنية للشوي والطبخ البطيء' },
+      { type: 'heading', text: 'سكيرت ستيك' },
+      { type: 'paragraph', text: 'من منطقة الحجاب الحاجز بألياف ظاهرة ونكهة قوية؛ مثالي للفاهيتا والقلي السريع بعد تتبيل قصير.' },
+      { type: 'heading', text: 'هانجر ستيك' },
+      { type: 'paragraph', text: 'يسمى أحياناً "ستيك الجزار" لنكهته المميزة. يُطهى متوسط نضج ويُقطع رفيعاً.' },
+      { type: 'heading', text: 'الضلوع القصيرة' },
+      { type: 'paragraph', text: 'ممتازة للطهي البطيء الرطب؛ تتحول إلى قوام طري ونكهة كثيفة.' },
+      { type: 'heading', text: '8- الفلانك – رفيع ونكهته واضحة' },
+      { type: 'heading', text: 'فلانك ستيك' },
+      { type: 'paragraph', text: 'من عضلات البطن؛ قليل الدهن ليفي. يُطهى سريعاً بحرارة عالية ثم يُقطع عكس الألياف.' },
+      { type: 'heading', text: '9- الساق (شين/شانك) – للشوربات والمرق' },
+      { type: 'heading', text: 'شانك اللحم' },
+      { type: 'paragraph', text: 'غني بالكولاجين يحتاج طبخاً طويلاً ليعطي قواماً جيلاتينياً ومَرَقاً غنياً.' },
+      { type: 'heading', text: '10- قطع خاصة – استخدامات تقليدية مميزة' },
+      { type: 'heading', text: 'ذيل البقر (أوكس تيل)' },
+      { type: 'paragraph', text: 'ممتلئ بالجيلاتين؛ مثالي للحساء واليخنات الطويلة.' },
+      { type: 'heading', text: 'الخدود' },
+      { type: 'paragraph', text: 'نسيج ضام وفير يصبح طرياً للغاية عند الطهي البطيء؛ حاضر في أطباق مطبخ راقٍ.' },
+      { type: 'heading', text: 'اللسان' },
+      { type: 'paragraph', text: 'يُسلق أو يُطهى ببطء حتى الطراوة ثم يُستعمل في سندويشات وتاكو وأطباق باردة.' },
+      { type: 'heading', text: '11- طرق الطهي حسب نوع القطعة' },
+      { type: 'heading', text: 'قطع الشوي المباشر' },
+      { type: 'paragraph', text: 'مثل الريب آي، الستريب، السكيرت، التندرلوين؛ ملح وفلفل وحرارة عالية كافية.' },
+      { type: 'heading', text: 'قطع التحميص' },
+      { type: 'paragraph', text: 'البرايم ريب، طرف السيرلوين، التندرلوين—تحكم بدرجة الحرارة يحافظ على العصارة.' },
+      { type: 'heading', text: 'قطع الطهي البطيء/الطهو الرطب' },
+      { type: 'paragraph', text: 'البريسكيت، الضلوع القصيرة، الشانك—الوقت والرطوبة يكسران الكولاجين.' },
+      { type: 'heading', text: 'القلي السريع والتحريك' },
+      { type: 'paragraph', text: 'القطع الرفيعة قليلة الدهن كالفلانك والسكيرت وبعض السيرلوين تُطهى بسرعة مع تقطيع عكس الألياف.' },
+      { type: 'heading', text: '12- الشراء والتخزين' },
+      { type: 'heading', text: 'اختيار القطعة' },
+      { type: 'paragraph', text: 'حدد أسلوب الطهي والميزانية والنكهة المطلوبة. اللوين والضلع يمنحان طراوة؛ التشاك والراوند يمنحان نكهة عميقة مع الطبخ البطيء.' },
+      { type: 'heading', text: 'تخزين اللحم' },
+      { type: 'paragraph', text: 'يُحفظ مبرداً ويُستخدم خلال أيام أو يُجمد. التفريغ الهوائي يطيل العمر. الأفضل استهلاك المجمد خلال 6–12 شهراً.' },
+      { type: 'heading', text: 'خاتمة – اعرف لحمك' },
+      { type: 'paragraph', text: 'اختيار القطعة الملائمة يرفع جودة الطبخ ويقلل الهدر ويمنحك ثقة. فهم البنية يفسر لماذا تنجح طرق مع قطع وتفشل مع أخرى.' },
+      { type: 'heading', text: 'تواصل معنا' },
+      { type: 'paragraph', text: 'سواء كنت تشوي ستيكاً جديداً أو تطهو برويسكت بطيء، معرفة خصائص كل قطعة تمنحك توجهاً. احتفظ بهذا الدليل وجرّب بثقة!' },
+      { type: 'paragraph', text: 'هل تود التذوق دون عناء الطهي؟ زر ميت موت حيث التدخين تقليد وطعم متجذر. من البريسكيت الطري إلى الضلوع القصيرة الغنية—طبخ بطيء يمنح نكهة لا تُنسى.' },
+      { type: 'paragraph', text: 'اعثر على أقرب فرع وتذوق المعنى الحقيقي للحوم المدخنة.' }
     ]
   },
   ru: {
     title: "Понимание различных отрубов говядины и что делает их особенными",
+    meta: {
+      titleTag: "Отрубы говядины: особенность каждого",
+      description: "Узнайте об основных отрубах говядины, их лучшем применении, вкусе и способах приготовления в понятном полном руководстве."
+    },
     content: [
-      {
-        type: 'paragraph',
-        text: "Понимание отрубов говядины необходимо как для домашних поваров, так и для кулинарных профессионалов. Различные части коровы производят мясо с различными текстурами, уровнями мраморности и потребностями в приготовлении. Выбор правильного отруба может значительно повлиять на вкус, нежность и общий результат блюда."
-      },
-      {
-        type: 'paragraph',
-        text: "Каждая секция коровы подходит для определенных методов приготовления из-за того, как мышцы используются в течение жизни животного. Интенсивно используемые области, такие как плечо или ноги, как правило, более жесткие и выигрывают от медленного приготовления. В отличие от этого, мышцы, которые испытывают меньше движения, такие как филейная часть или ребра, дают нежные отрубы, которые хорошо работают с быстрыми техниками приготовления."
-      },
-      {
-        type: 'paragraph',
-        text: "Это руководство охватывает основные секции говядины и подчеркивает, что делает каждую из них уникальной. От фаворитов гриля до основ тушения, вы узнаете, как максимально использовать каждый отруб."
-      },
-      {
-        type: 'heading',
-        text: "Чак - ароматный и доступный"
-      },
-      {
-        type: 'paragraph',
-        text: "Жаркое чак происходит из области плеча и содержит обильную соединительную ткань. При медленном приготовлении мясо становится влажным и нежным. Это основа для жаркого в горшке, рагу и измельченных блюд из говядины. Стейк чак, более тонкий ломтик из той же области, несет богатый вкус и выигрывает от маринования."
-      },
-      {
-        type: 'heading',
-        text: "Ребра - богатые мраморностью и нежностью"
-      },
-      {
-        type: 'paragraph',
-        text: "Известный своей мраморностью, рибай среди самых нежных и сочных стейков. Он хорошо работает на гриле или в чугунной сковороде и обеспечивает смелый, говяжий вкус. Прайм риб включает несколько стейков рибай и обычно жарится целиком, часто подается во время праздников."
-      },
-      {
-        type: 'heading',
-        text: "Филейная часть - нежная и мягкая"
-      },
-      {
-        type: 'paragraph',
-        text: "Расположенная под ребрами, вырезка предлагает самую мягкую текстуру. Филе миньон, самый известный стейк из вырезки, часто готовится быстро на сильном огне. Стрип стейк отличается балансом нежности и вкуса, в то время как Т-бон и Портерхаус включают части как вырезки, так и стрип стейка."
-      },
-      {
-        type: 'heading',
-        text: "Специальные отрубы и методы приготовления"
-      },
-      {
-        type: 'paragraph',
-        text: "Брискет полон вкуса, но нуждается во времени - при медленном приготовлении на непрямом огне он становится нежным и ароматным. Короткие ребра превосходны при тушении и становятся глубоко пикантными при приготовлении в течение нескольких часов. Каждый отруб имеет характеристики, подходящие для конкретных блюд и стилей приготовления."
-      },
-      {
-        type: 'paragraph',
-        text: "Хотите попробовать эти отрубы без приготовления? Посетите Meat Moot, где копченое мясо больше, чем еда - это метод, укорененный в традиции. От нежного брискета до богатых коротких ребер, каждый отруб медленно готовится до копченого совершенства. Независимо от того, новичок ли вы в копченой говядине или пожизненный фанат, Meat Moot подает глубину вкуса, которая делает каждый кусочек запоминающимся."
-      }
+      { type: 'paragraph', text: 'Понимание отрубов важно и для домашних поваров, и для профессионалов. Разные части дают мясо с особой текстурой, мраморностью и требованиями к теплу. Правильный выбор влияет на вкус и нежность.' },
+      { type: 'paragraph', text: 'Каждая мышца подходит своему методу. Часто работающие зоны (плечо, ноги) плотнее и любят долгий влажный нагрев. Менее задействованные (поясничная часть, ребра) нежнее и подходят для быстрого приготовления.' },
+      { type: 'paragraph', text: 'Это руководство раскрывает основные секции: что в них ценного и как извлечь максимум – от стейков для гриля до отрубов для томления.' },
+      { type: 'heading', text: '1- Чак – ароматный и доступный' },
+      { type: 'heading', text: 'Чак жаркое' },
+      { type: 'paragraph', text: 'Идёт из плечевой части, богато соединительной тканью. При медленном тушении становится сочным и мягким – основа для рагу, pulled beef и домашних жарких.' },
+      { type: 'heading', text: 'Стейк чак' },
+      { type: 'paragraph', text: 'Более тонкий ломтик той же зоны с насыщенным вкусом. Выигрывает от маринада и быстрого обжаривания, важно не пересушить.' },
+      { type: 'heading', text: 'Плечевой клауд (Shoulder Clod)' },
+      { type: 'paragraph', text: 'Чуть постнее жаркого; часто идёт в фарш или медленное тушение для сытных блюд.' },
+      { type: 'heading', text: '2- Рёберная часть – мраморность и сочность' },
+      { type: 'heading', text: 'Рибай' },
+      { type: 'paragraph', text: 'Один из самых сочных стейков благодаря мраморности. Отличен на гриле или в чугунной сковороде с выраженным говяжьим вкусом.' },
+      { type: 'heading', text: 'Прайм риб' },
+      { type: 'paragraph', text: 'Целый рёберный кусок, включающий несколько рибай-стейков. Запекается крупным куском к праздникам, приправляется минимально.' },
+      { type: 'heading', text: 'Верхние рёбра (Back Ribs)' },
+      { type: 'paragraph', text: 'С верхней части клетки; мяса меньше, чем на short ribs, но вкус яркий. Хороши для гриля и запекания с соусом BBQ.' },
+      { type: 'heading', text: '3- Поясничная часть – нежность и мягкий вкус' },
+      { type: 'heading', text: 'Вырезка (Tenderloin)' },
+      { type: 'paragraph', text: 'Наиболее мягкая мышца. Филе миньон готовится быстро на сильном жаре; низкая жирность требует контроля.' },
+      { type: 'heading', text: 'Стриплойн (New York Strip)' },
+      { type: 'paragraph', text: 'Баланс вкуса и нежности, стабильно готовится на сковороде или гриле.' },
+      { type: 'heading', text: 'Ти-бон и Портерхаус' },
+      { type: 'paragraph', text: 'Комбинация вырезки и стриплойна через Т-образную кость. У Портерхауса больше доля вырезки. Любят простое приправление.' },
+      { type: 'heading', text: '4- Сирлоин – постный и универсальный' },
+      { type: 'heading', text: 'Топ-сирлоин' },
+      { type: 'paragraph', text: 'Не столь мягок, как поясничные стейки, но вкусный и доступный. Хорош для гриля, шашлычков, стир-фрая.' },
+      { type: 'heading', text: 'Нижний сирлоин (Tri-Tip)' },
+      { type: 'paragraph', text: 'Треугольный отруб популярен в Калифорнии. Жарят или запекают и режут тонко поперёк волокон.' },
+      { type: 'heading', text: '5- Раунд – экономичный постный' },
+      { type: 'heading', text: 'Ай оф раунд' },
+      { type: 'paragraph', text: 'Ровный цилиндр постного мяса. Не особо нежный, выигрывает от маринада или медленного запекания.' },
+      { type: 'heading', text: 'Топ раунд' },
+      { type: 'paragraph', text: 'Часто используется для roast beef; хорошо переносит длинное медленное приготовление и тонкую нарезку.' },
+      { type: 'heading', text: 'Боттом раунд' },
+      { type: 'paragraph', text: 'Более жёсткий; подходит для тушения и нарезки волокнами после длительного нагрева.' },
+      { type: 'heading', text: '6- Грудинка (Brisket) – богатый вкус и долгое время' },
+      { type: 'heading', text: 'Плоская часть (Flat)' },
+      { type: 'paragraph', text: 'Более ровная форма, легко нарезать. Используется в классических рецептах грудинки.' },
+      { type: 'heading', text: 'Толстая часть (Point)' },
+      { type: 'paragraph', text: 'Жирнее и сочнее – фаворит для BBQ. При медленном копчении жир плавится, добавляя вкус.' },
+      { type: 'heading', text: '7- Пластина (Plate) – насыщенные отрубы' },
+      { type: 'heading', text: 'Скёрт стейк' },
+      { type: 'paragraph', text: 'Диафрагмальная мышца с выраженным волокном и ярким вкусом. Короткий маринад + высокая температура.' },
+      { type: 'heading', text: 'Хангер стейк' },
+      { type: 'paragraph', text: '"Стейк мясника" – насыщенный, лучше готовить до medium rare и резать тонко.' },
+      { type: 'heading', text: 'Шорт рибс' },
+      { type: 'paragraph', text: 'Нижняя часть рёбер; раскрывается при длительном тушении – глубокий умами.' },
+      { type: 'heading', text: '8- Фланк – тонкий и выраженный по вкусу' },
+      { type: 'heading', text: 'Фланк стейк' },
+      { type: 'paragraph', text: 'Абдоминальная мышца – постная и волокнистая. Быстрая жарка и обязательно нарезка поперёк волокон.' },
+      { type: 'heading', text: '9- Голяшки (Shank) – для бульонов и рагу' },
+      { type: 'heading', text: 'Говяжья голяшка' },
+      { type: 'paragraph', text: 'Много коллагена; долгий нагрев превращает в желеобразную мягкость и насыщенный бульон.' },
+      { type: 'heading', text: '10- Специальные отрубы – традиции и уникальность' },
+      { type: 'heading', text: 'Хвост (Oxtail)' },
+      { type: 'paragraph', text: 'Желатиновый отруб для долгих супов и тушения.' },
+      { type: 'heading', text: 'Щёки' },
+      { type: 'paragraph', text: 'Много соединительной ткани; при медленном тушении становятся бархатными и ароматными.' },
+      { type: 'heading', text: 'Язык' },
+      { type: 'paragraph', text: 'После томления становится мягким; используется в тако, сэндвичах, холодных закусках.' },
+      { type: 'heading', text: '11- Методы по типу отруба' },
+      { type: 'heading', text: 'Для гриля' },
+      { type: 'paragraph', text: 'Рибай, стрип, скёрт, вырезка – достаточно соли, перца и сильного жара.' },
+      { type: 'heading', text: 'Для запекания' },
+      { type: 'paragraph', text: 'Прайм риб, сирлоин тип, вырезка – контроль температуры удерживает соки.' },
+      { type: 'heading', text: 'Для тушения' },
+      { type: 'paragraph', text: 'Брискет, шорт рибс, голяшки – влажное тепло расплавляет коллаген.' },
+      { type: 'heading', text: 'Быстрое приготовление / стир-фрай' },
+      { type: 'paragraph', text: 'Фланк, скёрт, постные части сирлойна – высокая температура и быстрая нарезка поперёк волокон.' },
+      { type: 'heading', text: '12- Покупка и хранение' },
+      { type: 'heading', text: 'Выбор' },
+      { type: 'paragraph', text: 'Метод готовки, бюджет и желаемая текстура определяют выбор. Поясничные/рёберные – нежность; чак/раунд – вкус при долгом нагреве.' },
+      { type: 'heading', text: 'Хранение' },
+      { type: 'paragraph', text: 'Держите охлаждённым, используйте за несколько дней или заморозьте. Вакуум увеличивает срок. Лучшее качество до 6–12 месяцев в морозилке.' },
+      { type: 'heading', text: 'Заключение – знайте свою говядину' },
+      { type: 'paragraph', text: 'Правильный отруб повышает качество блюд и уверенность. Понимание структуры объясняет успех или неудачу методов.' },
+      { type: 'heading', text: 'Свяжитесь с нами' },
+      { type: 'paragraph', text: 'Новый стейк для гриля или грудинка для медленного копчения – знание особенностей делает готовку осознанной. Сохраните руководство!' },
+      { type: 'paragraph', text: 'Хотите вкус без хлопот? Meat Moot коптит медленно до совершенства – грудинка, короткие рёбра и другие с глубиной вкуса.' },
+      { type: 'paragraph', text: 'Найдите ближайший Meat Moot и откройте настоящий вкус копчёного мяса.' }
     ]
   }
 };
