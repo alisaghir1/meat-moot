@@ -2,12 +2,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/variants';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useAppContext } from '../context'; // Ensure you have the language context imported
 import newsTrans from '../translation/news/newsTrans'; // Import the translation file
 
 const News = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [languege] = useAppContext(); // Get the selected language from the context
 
   const news = [
@@ -59,6 +60,24 @@ const News = () => {
     router.push(`/news/${slug}`);
   };
 
+  // Pagination and ordering (newest first like blogs)
+  const pageSize = 8;
+  const filtered = news.filter(Boolean);
+  const ordered = filtered.slice().reverse();
+  const totalPages = Math.max(1, Math.ceil(ordered.length / pageSize));
+  let currentPage = parseInt(searchParams.get('page') || '1', 10);
+  if (isNaN(currentPage) || currentPage < 1) currentPage = 1;
+  if (currentPage > totalPages) currentPage = totalPages;
+  const startIndex = (currentPage - 1) * pageSize;
+  const visibleNews = ordered.slice(startIndex, startIndex + pageSize);
+
+  const goToPage = (p) => {
+    if (p < 1 || p > totalPages) return;
+    const qp = new URLSearchParams(Array.from(searchParams.entries()));
+    qp.set('page', String(p));
+    router.push(`/news?${qp.toString()}`);
+  };
+
   return (
     <div className="max-w-screen-2xl mx-auto p-5 sm:p-10 md:p-16 relative mt-32">
       {/* Header Section */}
@@ -79,7 +98,7 @@ const News = () => {
 
       {/* News Grid Layout */}
       <div className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        {news.map((item) => (
+        {visibleNews.map((item) => (
           <motion.div
             variants={fadeIn('left', 0.6)}
             initial='hidden'
@@ -104,6 +123,37 @@ const News = () => {
           </motion.div>
         ))}
       </div>
+
+      {totalPages > 1 && (
+        <div className="flex flex-wrap items-center justify-center gap-3 mt-12">
+          <button
+            onClick={() => goToPage(currentPage - 1)}
+            disabled={currentPage === 1}
+            className={`px-4 py-2 rounded border text-sm transition ${currentPage === 1 ? 'opacity-40 cursor-not-allowed border-white/20 text-white/50' : 'hover:bg-orange hover:text-black border-white/40 text-white'}`}
+            aria-label="Previous page"
+          >
+            ◀
+          </button>
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
+            <button
+              key={p}
+              onClick={() => goToPage(p)}
+              className={`w-10 h-10 rounded-full text-sm font-medium transition border ${p === currentPage ? 'bg-orange text-black border-orange' : 'border-white/30 text-white hover:bg-white/10'}`}
+              aria-current={p === currentPage ? 'page' : undefined}
+            >
+              {p}
+            </button>
+          ))}
+          <button
+            onClick={() => goToPage(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className={`px-4 py-2 rounded border text-sm transition ${currentPage === totalPages ? 'opacity-40 cursor-not-allowed border-white/20 text-white/50' : 'hover:bg-orange hover:text-black border-white/40 text-white'}`}
+            aria-label="Next page"
+          >
+            ▶
+          </button>
+        </div>
+      )}
     </div>
   );
 };

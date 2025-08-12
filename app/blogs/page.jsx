@@ -52,13 +52,13 @@ const Blogs = () => {
       id: 7,
       title: blogsTrans[languege].blogs[6].translatedTitle,
       slug: 'seasonal-menu-specials',
-      image: '/blogs/blog1-2.jpg'
+      image: '/menu/meat1.webp'
     }
     ,{
       id: 8,
       title: blogsTrans[languege].blogs[7].translatedTitle,
       slug: 'secret-sauces',
-      image: '/blogs/blog2-3.jpg'
+      image: '/menu/beefRibs.webp'
     }
     ,{
       id: 9,
@@ -81,12 +81,13 @@ const Blogs = () => {
   // Pagination logic
   const pageSize = 8;
   const filtered = blogs.filter(Boolean);
-  const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
+  const ordered = filtered.slice().reverse(); // newest first
+  const totalPages = Math.max(1, Math.ceil(ordered.length / pageSize));
   let currentPage = parseInt(searchParams.get('page') || '1', 10);
   if (isNaN(currentPage) || currentPage < 1) currentPage = 1;
   if (currentPage > totalPages) currentPage = totalPages;
   const startIndex = (currentPage - 1) * pageSize;
-  const visibleBlogs = filtered.slice(startIndex, startIndex + pageSize);
+  const visibleBlogs = ordered.slice(startIndex, startIndex + pageSize);
 
   const goToPage = (p) => {
     if (p < 1 || p > totalPages) return;
