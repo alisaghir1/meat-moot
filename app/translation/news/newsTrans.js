@@ -1,12 +1,12 @@
-// newsTrans.js - Only for main news listing page
+﻿// newsTrans.js - Only for main news listing page
 const newsTrans = {
   en: {
     headerTitle: "Latest News and Updates",
     headerDescription: "Keep up with the world around you by reading the most current and breaking news stories. Our news section covers global events, tech trends, and much more.",
     news: [
       {
-        title: "Meat Moot — The World's Fastest-Growing Restaurant Chain",
-        translatedTitle: "Meat Moot — The World's Fastest-Growing Restaurant Chain"
+        title: "Meat Moot  The World's Fastest-Growing Restaurant Chain",
+        translatedTitle: "Meat Moot  The World's Fastest-Growing Restaurant Chain"
       },
       {
         title: "Meat Moot's Latest Branch Sizzles in Dubai Hills",
@@ -31,16 +31,20 @@ const newsTrans = {
       {
         title: "Meat Moot - Renowned Smoked Meat Restaurant Expands to Dubai, Celebrates Grand Opening",
         translatedTitle: "Meat Moot - Renowned Smoked Meat Restaurant Expands to Dubai, Celebrates Grand Opening"
+      },
+      {
+        title: "Meat Moot Celebrates Grand Opening of Al Ain Branch",
+        translatedTitle: "Meat Moot Celebrates Grand Opening of Al Ain Branch"
       }
     ]
   },
   ar: {
     headerTitle: "آخر الأخبار والتحديثات",
-    headerDescription: "تابعوا أحدث الأخبار والقصص العاجلة من حولكم. قسم الأخبار لدينا يغطي الأحداث العالمية، واتجاهات التكنولوجيا، والكثير غيرها.",
+    headerDescription: "تابعوا أحدث الأخبار والقصص العاجلة من حولكم. قسم الأخبار لدينا يغطي الأحداث العالمية واتجاهات التكنولوجيا والكثير غيرها.",
     news: [
       {
-        title: "Meat Moot — The World's Fastest-Growing Restaurant Chain",
-        translatedTitle: "ميت موت — سلسلة المطاعم الأسرع نمواً في العالم"
+        title: "Meat Moot  The World's Fastest-Growing Restaurant Chain",
+        translatedTitle: "ميت موت  سلسلة المطاعم الأسرع نموا في العالم"
       },
       {
         title: "Meat Moot's Latest Branch Sizzles in Dubai Hills",
@@ -48,7 +52,7 @@ const newsTrans = {
       },
       {
         title: "Meat Moot Opens New Branch in JBR, Dubai",
-        translatedTitle: "ميت موت يفتح فرعاً جديداً في جي بي آر، دبي"
+        translatedTitle: "ميت موت يفتح فرعا جديدا في جي بي آر دبي"
       },
       {
         title: "An Immersive Experience",
@@ -65,6 +69,10 @@ const newsTrans = {
       {
         title: "Meat Moot - Renowned Smoked Meat Restaurant Expands to Dubai, Celebrates Grand Opening",
         translatedTitle: "ميت موت - مطعم اللحوم المدخنة الشهير يتوسع إلى دبي ويحتفل بالافتتاح الكبير"
+      },
+      {
+        title: "Meat Moot Celebrates Grand Opening of Al Ain Branch",
+        translatedTitle: "ميت موت يحتفل بالافتتاح الكبير لفرع العين"
       }
     ]
   },
@@ -73,8 +81,8 @@ const newsTrans = {
     headerDescription: "Оставайтесь в курсе событий, читая самые актуальные и важные новости. Наш раздел новостей охватывает мировые события, технологические тенденции и многое другое.",
     news: [
       {
-        title: "Meat Moot — The World's Fastest-Growing Restaurant Chain",
-        translatedTitle: "Мит Мут — самая быстрорастущая сеть ресторанов в мире"
+        title: "Meat Moot  The World's Fastest-Growing Restaurant Chain",
+        translatedTitle: "Мит Мут  самая быстрорастущая сеть ресторанов в мире"
       },
       {
         title: "Meat Moot's Latest Branch Sizzles in Dubai Hills",
@@ -90,7 +98,7 @@ const newsTrans = {
       },
       {
         title: "Ertugrul Cast Visiting Meat Moot Restaurant",
-        translatedTitle: "Актёры сериала «Воскрешение Эртугрул» посещают ресторан Мит Мут"
+        translatedTitle: "Актёры сериала Воскрешение Эртугрул посещают ресторан Мит Мут"
       },
       {
         title: "Arab Stars Visit Meat Moot Restaurant",
@@ -99,6 +107,10 @@ const newsTrans = {
       {
         title: "Meat Moot - Renowned Smoked Meat Restaurant Expands to Dubai, Celebrates Grand Opening",
         translatedTitle: "Мит Мут - Известный ресторан копчёного мяса расширяется в Дубай, празднует торжественное открытие"
+      },
+      {
+        title: "Meat Moot Celebrates Grand Opening of Al Ain Branch",
+        translatedTitle: "Мит Мут празднует торжественное открытие филиала в Аль-Айне"
       }
     ]
   }

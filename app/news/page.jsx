@@ -53,6 +53,15 @@ const News = () => {
       title: newsTrans[languege].news[6].translatedTitle,
       slug: 'dubai-grand-opening',
       image: '/news/news6-5.jpg'
+    },
+    {
+      id: 8,
+      title: newsTrans[languege] && newsTrans[languege].news[7] ? newsTrans[languege].news[7].translatedTitle : 
+            (languege === 'ar' ? 'ميت موت يحتفل بالافتتاح الكبير لفرع العين' : 
+             languege === 'ru' ? 'Мит Мут празднует торжественное открытие филиала в Аль-Айне' : 
+             'Meat Moot Celebrates Grand Opening of Al Ain Branch'),
+      slug: 'al-ain-grand-opening',
+      image: '/news/news7-1.jpg'
     }
   ];
 
