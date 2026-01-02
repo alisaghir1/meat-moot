@@ -35,6 +35,10 @@ const newsTrans = {
       {
         title: "Meat Moot Celebrates Grand Opening of Al Ain Branch",
         translatedTitle: "Meat Moot Celebrates Grand Opening of Al Ain Branch"
+      },
+      {
+        title: "A Sizzling Start to 2026: Happy New Year from Meat Moot!",
+        translatedTitle: "A Sizzling Start to 2026: Happy New Year from Meat Moot!"
       }
     ]
   },
@@ -73,6 +77,10 @@ const newsTrans = {
       {
         title: "Meat Moot Celebrates Grand Opening of Al Ain Branch",
         translatedTitle: "ميت موت يحتفل بالافتتاح الكبير لفرع العين"
+      },
+      {
+        title: "A Sizzling Start to 2026: Happy New Year from Meat Moot!",
+        translatedTitle: "بداية مميزة لعام 2026: سنة جديدة سعيدة من ميت موت!"
       }
     ]
   },
@@ -111,6 +119,10 @@ const newsTrans = {
       {
         title: "Meat Moot Celebrates Grand Opening of Al Ain Branch",
         translatedTitle: "Мит Мут празднует торжественное открытие филиала в Аль-Айне"
+      },
+      {
+        title: "A Sizzling Start to 2026: Happy New Year from Meat Moot!",
+        translatedTitle: "Яркое начало 2026 года: С Новым Годом от Мит Мут!"
       }
     ]
   }

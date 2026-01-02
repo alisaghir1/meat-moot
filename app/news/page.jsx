@@ -62,6 +62,15 @@ const News = () => {
              'Meat Moot Celebrates Grand Opening of Al Ain Branch'),
       slug: 'al-ain-grand-opening',
       image: '/news/news7-1.jpg'
+    },
+    {
+      id: 9,
+      title: newsTrans[languege] && newsTrans[languege].news[8] ? newsTrans[languege].news[8].translatedTitle : 
+            (languege === 'ar' ? 'بداية مميزة لعام 2026: سنة جديدة سعيدة من ميت موت!' : 
+             languege === 'ru' ? 'Яркое начало 2026 года: С Новым Годом от Мит Мут!' : 
+             'A Sizzling Start to 2026: Happy New Year from Meat Moot!'),
+      slug: 'happy-new-year-2026',
+      image: '/news/interior-design-dubai-2026.jpg'
     }
   ];
 
