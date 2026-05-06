@@ -22,31 +22,48 @@ export async function generateMetadata() {
   const cookieStore = await cookies();
   const language = cookieStore.get("language")?.value || "en";
 
-  const metadata = {
-    title:
-      language === "ar"
-        ? "میت موت | أفضل لحوم مدخنة في الإمارات | تجربة طعام لا مثيل لها في دبي وأبوظبي"
-        : language === "ru"
-        ? "Мит Мут | Лучшая копченая мясо в ОАЭ | Уникальный опыт для гурманов в Дубае и Абу-Даби"
-        : "Meat Moot | Best Smoked Meat in UAE | An Unmatched Dining Experience in Dubai & Abu Dhabi",
-    description:
-      language === "ar"
-        ? "مرحبًا بكم في ميت موت، حيث يلتقي الطعام بالكمال! نقدم أفضل اللحوم المدخنة في الإمارات، مصنوعة من أفضل القطع والمطهوة ببطء حتى الكمال المدخن والطري. سواء كنت في دبي أو أبوظبي، نقدم لك تجربة طعام لا مثيل لها مع مجموعة واسعة من الأطباق المدخنة التي تناسب كل الأذواق."
-        : language === "ru"
-        ? "Добро пожаловать в Мит Мут, где еда встречает совершенство! Мы предлагаем лучшее копченое мясо в ОАЭ, приготовленное из высококачественных кусков и медленно готовое до копченой, нежной идеальности. Независимо от того, находитесь ли вы в Дубае или Абу-Даби, мы предлагаем уникальный опыт с богатым выбором копченых блюд для настоящих гурманов."
-        : "Welcome to Meat Moot, where food meets perfection! We offer the best smoked meat in the UAE, crafted from premium cuts and slow-cooked to smoky, tender perfection. Whether you're in Dubai or Abu Dhabi, we provide an unmatched dining experience with a wide selection of smoked dishes catering to every taste.",
-    keywords:
-      language === "ar"
-        ? "میت موت, لحوم مدخنة, أفضل لحوم مدخنة, دبي, أبوظبي, تجربة طعام, لحوم شهية, مطاعم في الإمارات"
-        : language === "ru"
-        ? "Мит Мут, копченое мясо, лучшая копченая мясо, Дубай, Абу-Даби, кулинарный опыт, лучшие рестораны ОАЭ"
-        : "Meat Moot, smoked meat, best smoked meat, Dubai, Abu Dhabi, dining experience, delicious meat, best restaurants UAE",
-    icons: {
-      icon: "/logo.svg",
-    },
-  };
+  const title =
+    language === "ar"
+      ? "میت موت | أفضل لحوم مدخنة في الإمارات | تجربة طعام لا مثيل لها في دبي وأبوظبي"
+      : language === "ru"
+      ? "Мит Мут | Лучшая копченая мясо в ОАЭ | Уникальный опыт для гурманов в Дубае и Абу-Даби"
+      : "Meat Moot | Best Smoked Meat in UAE | An Unmatched Dining Experience in Dubai & Abu Dhabi";
 
-  return metadata;
+  const description =
+    language === "ar"
+      ? "مرحبًا بكم في ميت موت، حيث يلتقي الطعام بالكمال! نقدم أفضل اللحوم المدخنة في الإمارات، مصنوعة من أفضل القطع والمطهوة ببطء حتى الكمال المدخن والطري. سواء كنت في دبي أو أبوظبي، نقدم لك تجربة طعام لا مثيل لها مع مجموعة واسعة من الأطباق المدخنة التي تناسب كل الأذواق."
+      : language === "ru"
+      ? "Добро пожаловать в Мит Мут, где еда встречает совершенство! Мы предлагаем лучшее копченое мясо в ОАЭ, приготовленное из высококачественных кусков и медленно готовое до копченой, нежной идеальности. Независимо от того, находитесь ли вы в Дубае или Абу-Даби, мы предлагаем уникальный опыт с богатым выбором копченых блюд для настоящих гурманов."
+      : "Welcome to Meat Moot, where food meets perfection! We offer the best smoked meat in the UAE, crafted from premium cuts and slow-cooked to smoky, tender perfection. Whether you're in Dubai or Abu Dhabi, we provide an unmatched dining experience with a wide selection of smoked dishes catering to every taste.";
+
+  const keywords =
+    language === "ar"
+      ? "میت موت, لحوم مدخنة, أفضل لحوم مدخنة, دبي, أبوظبي, تجربة طعام, لحوم شهية, مطاعم في الإمارات"
+      : language === "ru"
+      ? "Мит Мут, копченое мясо, лучшая копченая мясо, Дубай, Абу-Даби, кулинарный опыт, лучшие рестораны ОАЭ"
+      : "Meat Moot, smoked meat, best smoked meat, Dubai, Abu Dhabi, dining experience, delicious meat, best restaurants UAE";
+
+  return {
+    metadataBase: new URL("https://meatmoot.ae"),
+    title,
+    description,
+    keywords,
+    alternates: { canonical: "/" },
+    openGraph: {
+      title,
+      description,
+      url: "https://meatmoot.ae",
+      siteName: "Meat Moot",
+      type: "website",
+      locale: language === "ar" ? "ar_AE" : language === "ru" ? "ru_RU" : "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+    icons: { icon: "/logo.svg" },
+  };
 }
 
 export default async function RootLayout({ children }) {
