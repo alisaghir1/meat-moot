@@ -1,179 +1,248 @@
-'use client';
-import React from 'react';
-import { motion } from 'framer-motion';
-import { fadeIn } from '@/variants';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useAppContext } from '../context'; 
-import blogsTrans from '../translation/blogs/blogsMainTrans';
+import Link from 'next/link'
+import Image from 'next/image'
+import { createAdminClient } from '@/lib/supabase/admin'
+import { getLocale } from '@/lib/locale'
+import { pickLocaleField } from '@/lib/pickLocaleField'
 
-const Blogs = () => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const [languege] = useAppContext(); 
+export const revalidate = 60
 
-  const blogs = [
-    {
-      id: 1,
-      title: blogsTrans[languege].blogs[0].translatedTitle,
-      slug: 'global-flavors',
-      image: '/blogs/blog1-1.jpg'
-    },
-    {
-      id: 2,
-      title: blogsTrans[languege].blogs[1].translatedTitle,
-      slug: 'signature-lamb-dishes',
-      image: '/blogs/blog2-1.jpg'
-    },
-    {
-      id: 3,
-      title: blogsTrans[languege].blogs[2].translatedTitle,
-      slug: 'lamb-cuts-guide',
-      image: '/blogs/blog3-1.jpg'
-    },
-    {
-      id: 4,
-      title: blogsTrans[languege].blogs[3].translatedTitle,
-      slug: 'special-occasions',
-      image: '/blogs/blog4-1.jpg'
-    },
-    {
-      id: 5,
-      title: blogsTrans[languege].blogs[4].translatedTitle,
-      slug: 'smoking-history',
-      image: '/blogs/blog5-1.jpg'
-    },
-    {
-      id: 6,
-      title: blogsTrans[languege].blogs[5].translatedTitle,
-      slug: 'beef-cuts-guide',
-      image: '/blogs/blog1-3.jpg'
-    },
-    {
-      id: 7,
-      title: blogsTrans[languege].blogs[6].translatedTitle,
-      slug: 'seasonal-menu-specials',
-      image: '/menu/meat1.webp'
+async function fetchBlogs() {
+  const supabase = createAdminClient()
+  const { data } = await supabase
+    .from('blogs')
+    .select('id, slug, title, title_ar, title_ru, excerpt, excerpt_ar, excerpt_ru, cover_image, date, tags, tags_ar, tags_ru')
+    .eq('published', true)
+    .order('date', { ascending: false })
+  return data || []
+}
+
+function formatDate(iso, locale) {
+  if (!iso) return ''
+  try {
+    const lang = locale === 'ar' ? 'ar-AE' : locale === 'ru' ? 'ru-RU' : 'en-US'
+    return new Intl.DateTimeFormat(lang, {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }).format(new Date(iso))
+  } catch {
+    return ''
+  }
+}
+
+function normalizeTags(raw) {
+  if (!raw) return []
+  if (Array.isArray(raw)) return raw.filter(Boolean)
+  if (typeof raw === 'string') {
+    const s = raw.trim()
+    if (s.startsWith('[')) {
+      try { const a = JSON.parse(s); return Array.isArray(a) ? a : [] } catch {}
     }
-    ,{
-      id: 8,
-      title: blogsTrans[languege].blogs[7].translatedTitle,
-      slug: 'secret-sauces',
-      image: '/menu/beefRibs.webp'
+    if (s.startsWith('{') && s.endsWith('}')) {
+      return s.slice(1, -1).split(',').map((x) => x.replace(/^"|"$/g, '').trim()).filter(Boolean)
     }
-    ,{
-      id: 9,
-      title: blogsTrans[languege].blogs[8].translatedTitle,
-      slug: 'meat-myths-busted',
-      image: '/blogs/blog3-2.jpg'
-    }
-    ,{
-      id: 10,
-      title: blogsTrans[languege].blogs[9].translatedTitle,
-      slug: 'food-and-friendship',
-      image: '/blogs/blog4-2.jpg'
-    }
-  ];
+    return s.split(',').map((x) => x.trim()).filter(Boolean)
+  }
+  return []
+}
 
-  const handleBlogClick = (slug) => {
-    router.push(`/blogs/${slug}`);
-  };
+export default async function BlogsPage({ searchParams }) {
+  const locale = await getLocale()
+  const isAr = locale === 'ar'
+  const isRu = locale === 'ru'
+  const sp = (await searchParams) || {}
+  const blogs = await fetchBlogs()
 
-  // Pagination logic
-  const pageSize = 8;
-  const filtered = blogs.filter(Boolean);
-  const ordered = filtered.slice().reverse(); // newest first
-  const totalPages = Math.max(1, Math.ceil(ordered.length / pageSize));
-  let currentPage = parseInt(searchParams.get('page') || '1', 10);
-  if (isNaN(currentPage) || currentPage < 1) currentPage = 1;
-  if (currentPage > totalPages) currentPage = totalPages;
-  const startIndex = (currentPage - 1) * pageSize;
-  const visibleBlogs = ordered.slice(startIndex, startIndex + pageSize);
+  const headerTitle = isAr
+    ? 'مدونات ميت موت'
+    : isRu
+    ? 'Истории из коптильни'
+    : 'Stories from the smoker'
+  const headerEyebrow = isAr ? 'المدونة' : isRu ? 'Блог' : 'Journal'
+  const headerDescription = isAr
+    ? 'مقالات عن اللحوم، الطهي البطيء، والثقافة من حول العالم.'
+    : isRu
+    ? 'Лонгриды о мясе, медленной кухне и кулинарных традициях со всего мира.'
+    : 'Long-form reads on meat, slow-cooking craft, and food culture from around the world.'
 
-  const goToPage = (p) => {
-    if (p < 1 || p > totalPages) return;
-    const qp = new URLSearchParams(Array.from(searchParams.entries()));
-    qp.set('page', String(p));
-    router.push(`/blogs?${qp.toString()}`);
-  };
+  const pageSize = 7
+  const totalPages = Math.max(1, Math.ceil(blogs.length / pageSize))
+  let currentPage = parseInt(sp.page || '1', 10)
+  if (isNaN(currentPage) || currentPage < 1) currentPage = 1
+  if (currentPage > totalPages) currentPage = totalPages
+  const startIndex = (currentPage - 1) * pageSize
+  const visible = blogs.slice(startIndex, startIndex + pageSize)
+
+  const hrefBase = isAr ? '/ar/blogs' : isRu ? '/ru/blogs' : '/blogs'
+  const [featured, ...rest] = visible
 
   return (
-    <div className="max-w-screen-2xl mx-auto p-5 sm:p-10 md:p-16 relative mt-32">
-      {/* Header Section */}
-      <motion.div 
-        variants={fadeIn('down', 0.8)}
-        initial='hidden'
-        whileInView={'show'}
-        viewport={{ once: false, amount: 0.4 }}
-        className="flex flex-col items-center justify-center mb-10"
-      >
-        <h2 className="text-orange font-bold text-center text-3xl">
-          {blogsTrans[languege].headerTitle}
-        </h2>
-        <p className="text-white font-light text-center text-lg mt-2">
-          {blogsTrans[languege].headerDescription}
+    <main dir={isAr ? 'rtl' : 'ltr'} className="pt-32 sm:pt-40 pb-24">
+      <header className="container mx-auto">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="eyebrow justify-center">{headerEyebrow}</span>
+          <h1 className="mt-5 font-display text-white text-5xl sm:text-6xl xl:text-7xl leading-[1.05]">
+            {headerTitle}
+          </h1>
+          <p className="mt-5 text-white/70 text-lg">{headerDescription}</p>
+        </div>
+        <div className="mx-auto mt-10 h-px w-24 bg-gradient-to-r from-transparent via-orange to-transparent" />
+      </header>
+
+      {visible.length === 0 ? (
+        <p className="container mx-auto mt-16 text-center text-white/55">
+          {isAr
+            ? 'لا توجد مقالات حالياً.'
+            : isRu
+            ? 'Пока нет записей в блоге.'
+            : 'No blog posts yet.'}
         </p>
-      </motion.div>
+      ) : (
+        <section className="container mx-auto mt-16 space-y-16">
+          {/* Featured card on page 1 */}
+          {featured && currentPage === 1 ? (
+            <FeaturedCard item={featured} locale={locale} hrefBase={hrefBase} />
+          ) : null}
 
-      {/* Blogs Grid Layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        {visibleBlogs.map((item) => (
-          <motion.div
-            variants={fadeIn('left', 0.6)}
-            initial='hidden'
-            whileInView={'show'}
-            viewport={{ once: false, amount: 0.4 }} 
-            key={item.id}
-            className="bg-black-heavy text-white rounded-lg overflow-hidden shadow-lg"
-          >
-            <div
-              onClick={() => handleBlogClick(item.slug)}
-              className="bg-cover bg-center h-64 transform transition-all hover:scale-105 cursor-pointer"
-              style={{
-                backgroundImage: `url(${item.image})`,
-              }}
-              title={item.title}
-            ></div>
-            <div className="p-5">
-              <h1 className="text-white font-bold text-2xl mb-3">
-                {item.title}
-              </h1>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {(currentPage === 1 ? rest : visible).map((item) => (
+              <ArticleCard
+                key={item.id}
+                item={item}
+                locale={locale}
+                hrefBase={hrefBase}
+              />
+            ))}
+          </div>
+        </section>
+      )}
 
-      {totalPages > 1 && (
-        <div className="flex flex-wrap items-center justify-center gap-3 mt-12">
-          <button
-            onClick={() => goToPage(currentPage - 1)}
-            disabled={currentPage === 1}
-            className={`px-4 py-2 rounded border text-sm transition ${currentPage === 1 ? 'opacity-40 cursor-not-allowed border-white/20 text-white/50' : 'hover:bg-orange hover:text-black border-white/40 text-white'}`}
-            aria-label="Previous page"
-          >
-            ◀
-          </button>
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
-            <button
+      {totalPages > 1 ? (
+        <nav
+          aria-label="Pagination"
+          className="container mx-auto mt-20 flex flex-wrap items-center justify-center gap-2"
+        >
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+            <Link
               key={p}
-              onClick={() => goToPage(p)}
-              className={`w-10 h-10 rounded-full text-sm font-medium transition border ${p === currentPage ? 'bg-orange text-black border-orange' : 'border-white/30 text-white hover:bg-white/10'}`}
+              href={`${hrefBase}?page=${p}`}
+              className={`grid h-10 w-10 place-items-center rounded-full border text-sm font-medium transition ${
+                p === currentPage
+                  ? 'border-orange bg-orange text-black-heavy shadow-glow'
+                  : 'border-white/15 text-white/75 hover:border-white/40 hover:text-white'
+              }`}
               aria-current={p === currentPage ? 'page' : undefined}
             >
               {p}
-            </button>
+            </Link>
           ))}
-          <button
-            onClick={() => goToPage(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            className={`px-4 py-2 rounded border text-sm transition ${currentPage === totalPages ? 'opacity-40 cursor-not-allowed border-white/20 text-white/50' : 'hover:bg-orange hover:text-black border-white/40 text-white'}`}
-            aria-label="Next page"
-          >
-            ▶
-          </button>
-        </div>
-      )}
-    </div>
-  );
-};
+        </nav>
+      ) : null}
+    </main>
+  )
+}
 
-export default Blogs;
+function FeaturedCard({ item, locale, hrefBase }) {
+  const isAr = locale === 'ar'
+  const isRu = locale === 'ru'
+  const title = pickLocaleField(item, 'title', locale)
+  const excerpt = pickLocaleField(item, 'excerpt', locale)
+  const tags = normalizeTags(pickLocaleField(item, 'tags', locale))
+  const featuredLabel = isAr ? 'مميّز' : isRu ? 'Избранное' : 'Featured'
+  const readLabel = isAr ? 'اقرأ الмقال' : isRu ? 'Читать статью' : 'Read article'
+  return (
+    <Link
+      href={`${hrefBase}/${item.slug}`}
+      className="group grid grid-cols-1 lg:grid-cols-12 gap-8 card-surface !rounded-2xl p-5 sm:p-7 lg:p-8 overflow-hidden"
+    >
+      <div className="relative lg:col-span-7 aspect-[16/10] lg:aspect-[16/11] overflow-hidden rounded-xl bg-ember-light">
+        {item.cover_image ? (
+          <Image
+            src={item.cover_image}
+            alt={title}
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 60vw"
+            className="object-cover transition-transform duration-700 ease-soft group-hover:scale-[1.03]"
+            unoptimized
+          />
+        ) : (
+          <div className="absolute inset-0 bg-ember-light" />
+        )}
+        <div className="absolute top-4 start-4 rounded-full bg-orange/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-black-heavy">
+          {featuredLabel}
+        </div>
+      </div>
+      <div className="lg:col-span-5 flex flex-col justify-center">
+        <span className="eyebrow">{formatDate(item.date, locale)}</span>
+        <h2 className="mt-4 font-display text-white text-3xl sm:text-4xl xl:text-5xl leading-tight group-hover:text-orange transition-colors">
+          {title}
+        </h2>
+        {excerpt ? (
+          <p className="mt-4 text-white/70 leading-relaxed line-clamp-3">{excerpt}</p>
+        ) : null}
+        {tags.length > 0 ? (
+          <div className="mt-5 flex flex-wrap gap-2" style={{ gap: '0.5rem' }}>
+            {tags.slice(0, 3).map((t) => (
+              <span
+                key={t}
+                className="inline-block rounded-full border border-white/10 px-3 py-1 text-[11px] uppercase tracking-wider text-white/60"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        ) : null}
+        <span className="mt-7 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.18em] text-orange">
+          {readLabel}
+          <span aria-hidden className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1">→</span>
+        </span>
+      </div>
+    </Link>
+  )
+}
+
+function ArticleCard({ item, locale, hrefBase }) {
+  const isAr = locale === 'ar'
+  const isRu = locale === 'ru'
+  const title = pickLocaleField(item, 'title', locale)
+  const excerpt = pickLocaleField(item, 'excerpt', locale)
+  const readMore = isAr ? 'اقرأ الмزيد' : isRu ? 'Читать далее' : 'Read more'
+  return (
+    <Link
+      href={`${hrefBase}/${item.slug}`}
+      className="card-surface group overflow-hidden flex flex-col"
+    >
+      <div className="relative aspect-[4/3] overflow-hidden bg-ember-light">
+        {item.cover_image ? (
+          <Image
+            src={item.cover_image}
+            alt={title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+            className="object-cover transition-transform duration-700 ease-soft group-hover:scale-[1.04]"
+            unoptimized
+          />
+        ) : (
+          <div className="absolute inset-0 bg-ember-light" />
+        )}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+      </div>
+      <div className="flex flex-1 flex-col p-6">
+        <span className="eyebrow">{formatDate(item.date, locale)}</span>
+        <h3 className="mt-3 font-display text-white text-xl sm:text-2xl leading-snug group-hover:text-orange transition-colors line-clamp-2">
+          {title}
+        </h3>
+        {excerpt ? (
+          <p className="mt-3 text-sm text-white/65 leading-relaxed line-clamp-3 flex-1">
+            {excerpt}
+          </p>
+        ) : null}
+        <span className="mt-5 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-orange/85">
+          {readMore}
+          <span aria-hidden className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1">→</span>
+        </span>
+      </div>
+    </Link>
+  )
+}

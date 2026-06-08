@@ -1,179 +1,243 @@
-'use client';
-import React from 'react';
-import { motion } from 'framer-motion';
-import { fadeIn } from '@/variants';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useAppContext } from '../context'; // Ensure you have the language context imported
-import newsTrans from '../translation/news/newsTrans'; // Import the translation file
+import Link from 'next/link'
+import Image from 'next/image'
+import { createAdminClient } from '@/lib/supabase/admin'
+import { getLocale } from '@/lib/locale'
+import { pickLocaleField } from '@/lib/pickLocaleField'
 
-const News = () => {
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const [languege] = useAppContext(); // Get the selected language from the context
+export const revalidate = 60
 
-  const news = [
-    {
-      id: 1,
-      title: newsTrans[languege].news[0].translatedTitle,
-      slug: 'meat-moot-global-success',
-      image: '/news/news3-3.jpg'
-    },
-    {
-      id: 2,
-      title: newsTrans[languege].news[1].translatedTitle,
-      slug: 'dubai-hills-opening',
-      image: '/news/news1-1.webp'
-    },
-    {
-      id: 3,
-      title: newsTrans[languege].news[2].translatedTitle,
-      slug: 'jbr-branch-opening',
-      image: '/news/news3-2.webp'
-    },
-    {
-      id: 4,
-      title: newsTrans[languege].news[3].translatedTitle,
-      slug: 'immersive-experience',
-      image: '/news/news2-1.webp'
-    },
-    {
-      id: 5,
-      title: newsTrans[languege].news[4].translatedTitle,
-      slug: 'ertugrul-cast-visit',
-      image: '/news/news3-5.jpg'
-    },
-    {
-      id: 6,
-      title: newsTrans[languege].news[5].translatedTitle,
-      slug: 'arab-stars-visit',
-      image: '/celeb1.webp'
-    },
-    {
-      id: 7,
-      title: newsTrans[languege].news[6].translatedTitle,
-      slug: 'dubai-grand-opening',
-      image: '/news/news6-5.jpg'
-    },
-    {
-      id: 8,
-      title: newsTrans[languege] && newsTrans[languege].news[7] ? newsTrans[languege].news[7].translatedTitle : 
-            (languege === 'ar' ? 'ميت موت يحتفل بالافتتاح الكبير لفرع العين' : 
-             languege === 'ru' ? 'Мит Мут празднует торжественное открытие филиала в Аль-Айне' : 
-             'Meat Moot Celebrates Grand Opening of Al Ain Branch'),
-      slug: 'al-ain-grand-opening',
-      image: '/news/news7-1.jpg'
-    },
-    {
-      id: 9,
-      title: newsTrans[languege] && newsTrans[languege].news[8] ? newsTrans[languege].news[8].translatedTitle : 
-            (languege === 'ar' ? 'بداية مميزة لعام 2026: سنة جديدة سعيدة من ميت موت!' : 
-             languege === 'ru' ? 'Яркое начало 2026 года: С Новым Годом от Мит Мут!' : 
-             'A Sizzling Start to 2026: Happy New Year from Meat Moot!'),
-      slug: 'happy-new-year-2026',
-      image: '/news/interior-design-dubai-2026.jpg'
+async function fetchNews() {
+  const supabase = createAdminClient()
+  const { data } = await supabase
+    .from('news')
+    .select('id, slug, title, title_ar, title_ru, excerpt, excerpt_ar, excerpt_ru, cover_image, date, tags, tags_ar, tags_ru')
+    .eq('published', true)
+    .order('date', { ascending: false })
+  return data || []
+}
+
+function formatDate(iso, locale) {
+  if (!iso) return ''
+  try {
+    const lang = locale === 'ar' ? 'ar-AE' : locale === 'ru' ? 'ru-RU' : 'en-US'
+    return new Intl.DateTimeFormat(lang, {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }).format(new Date(iso))
+  } catch {
+    return ''
+  }
+}
+
+function normalizeTags(raw) {
+  if (!raw) return []
+  if (Array.isArray(raw)) return raw.filter(Boolean)
+  if (typeof raw === 'string') {
+    const s = raw.trim()
+    if (s.startsWith('[')) {
+      try { const a = JSON.parse(s); return Array.isArray(a) ? a : [] } catch {}
     }
-  ];
+    if (s.startsWith('{') && s.endsWith('}')) {
+      return s.slice(1, -1).split(',').map((x) => x.replace(/^"|"$/g, '').trim()).filter(Boolean)
+    }
+    return s.split(',').map((x) => x.trim()).filter(Boolean)
+  }
+  return []
+}
 
-  const handleNewsClick = (slug) => {
-    router.push(`/news/${slug}`);
-  };
+export default async function NewsPage({ searchParams }) {
+  const locale = await getLocale()
+  const isAr = locale === 'ar'
+  const isRu = locale === 'ru'
+  const sp = (await searchParams) || {}
+  const news = await fetchNews()
 
-  // Pagination and ordering (newest first like blogs)
-  const pageSize = 8;
-  const filtered = news.filter(Boolean);
-  const ordered = filtered.slice().reverse();
-  const totalPages = Math.max(1, Math.ceil(ordered.length / pageSize));
-  let currentPage = parseInt(searchParams.get('page') || '1', 10);
-  if (isNaN(currentPage) || currentPage < 1) currentPage = 1;
-  if (currentPage > totalPages) currentPage = totalPages;
-  const startIndex = (currentPage - 1) * pageSize;
-  const visibleNews = ordered.slice(startIndex, startIndex + pageSize);
+  const headerTitle = isAr ? 'آخر الأخبار' : isRu ? 'Новости' : 'Newsroom'
+  const headerEyebrow = isAr
+    ? 'الأخبار'
+    : isRu
+    ? 'Пресса и обновления'
+    : 'Press & updates'
+  const headerDescription = isAr
+    ? 'افتتاحات، شراكات، وفعاليات من عائلة ميت موت.'
+    : isRu
+    ? 'Открытия, партнёрства и закулисье семьи Meat Moot.'
+    : 'Openings, partnerships, and behind-the-scenes news from the Meat Moot family.'
 
-  const goToPage = (p) => {
-    if (p < 1 || p > totalPages) return;
-    const qp = new URLSearchParams(Array.from(searchParams.entries()));
-    qp.set('page', String(p));
-    router.push(`/news?${qp.toString()}`);
-  };
+  const pageSize = 7
+  const totalPages = Math.max(1, Math.ceil(news.length / pageSize))
+  let currentPage = parseInt(sp.page || '1', 10)
+  if (isNaN(currentPage) || currentPage < 1) currentPage = 1
+  if (currentPage > totalPages) currentPage = totalPages
+  const startIndex = (currentPage - 1) * pageSize
+  const visible = news.slice(startIndex, startIndex + pageSize)
+
+  const hrefBase = isAr ? '/ar/news' : isRu ? '/ru/news' : '/news'
+  const [featured, ...rest] = visible
 
   return (
-    <div className="max-w-screen-2xl mx-auto p-5 sm:p-10 md:p-16 relative mt-32">
-      {/* Header Section */}
-      <motion.div 
-        variants={fadeIn('down', 0.8)}
-        initial='hidden'
-        whileInView={'show'}
-        viewport={{ once: false, amount: 0.4 }}
-        className="flex flex-col items-center justify-center mb-10"
-      >
-        <h2 className="text-orange font-bold text-center text-3xl">
-          {newsTrans[languege].headerTitle}
-        </h2>
-        <p className="text-white font-light text-center text-lg mt-2">
-          {newsTrans[languege].headerDescription}
+    <main dir={isAr ? 'rtl' : 'ltr'} className="pt-32 sm:pt-40 pb-24">
+      <header className="container mx-auto">
+        <div className="mx-auto max-w-3xl text-center">
+          <span className="eyebrow justify-center">{headerEyebrow}</span>
+          <h1 className="mt-5 font-display text-white text-5xl sm:text-6xl xl:text-7xl leading-[1.05]">
+            {headerTitle}
+          </h1>
+          <p className="mt-5 text-white/70 text-lg">{headerDescription}</p>
+        </div>
+        <div className="mx-auto mt-10 h-px w-24 bg-gradient-to-r from-transparent via-orange to-transparent" />
+      </header>
+
+      {visible.length === 0 ? (
+        <p className="container mx-auto mt-16 text-center text-white/55">
+          {isAr ? 'لا توجد أخبار حالياً.' : isRu ? 'Пока нет новостей.' : 'No news yet.'}
         </p>
-      </motion.div>
+      ) : (
+        <section className="container mx-auto mt-16 space-y-16">
+          {featured && currentPage === 1 ? (
+            <FeaturedCard item={featured} locale={locale} hrefBase={hrefBase} />
+          ) : null}
 
-      {/* News Grid Layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        {visibleNews.map((item) => (
-          <motion.div
-            variants={fadeIn('left', 0.6)}
-            initial='hidden'
-            whileInView={'show'}
-            viewport={{ once: false, amount: 0.4 }} 
-            key={item.id}
-            className="bg-black-heavy text-white rounded-lg overflow-hidden shadow-lg"
-          >
-            <div
-              onClick={() => handleNewsClick(item.slug)}
-              className="bg-cover bg-center h-64 transform transition-all hover:scale-105 cursor-pointer"
-              style={{
-                backgroundImage: `url(${item.image})`,
-              }}
-              title={item.title}
-            ></div>
-            <div className="p-5">
-              <h1 className="text-white font-bold text-2xl mb-3">
-                {item.title}
-              </h1>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {(currentPage === 1 ? rest : visible).map((item) => (
+              <ArticleCard
+                key={item.id}
+                item={item}
+                locale={locale}
+                hrefBase={hrefBase}
+              />
+            ))}
+          </div>
+        </section>
+      )}
 
-      {totalPages > 1 && (
-        <div className="flex flex-wrap items-center justify-center gap-3 mt-12">
-          <button
-            onClick={() => goToPage(currentPage - 1)}
-            disabled={currentPage === 1}
-            className={`px-4 py-2 rounded border text-sm transition ${currentPage === 1 ? 'opacity-40 cursor-not-allowed border-white/20 text-white/50' : 'hover:bg-orange hover:text-black border-white/40 text-white'}`}
-            aria-label="Previous page"
-          >
-            ◀
-          </button>
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (
-            <button
+      {totalPages > 1 ? (
+        <nav
+          aria-label="Pagination"
+          className="container mx-auto mt-20 flex flex-wrap items-center justify-center gap-2"
+        >
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+            <Link
               key={p}
-              onClick={() => goToPage(p)}
-              className={`w-10 h-10 rounded-full text-sm font-medium transition border ${p === currentPage ? 'bg-orange text-black border-orange' : 'border-white/30 text-white hover:bg-white/10'}`}
+              href={`${hrefBase}?page=${p}`}
+              className={`grid h-10 w-10 place-items-center rounded-full border text-sm font-medium transition ${
+                p === currentPage
+                  ? 'border-orange bg-orange text-black-heavy shadow-glow'
+                  : 'border-white/15 text-white/75 hover:border-white/40 hover:text-white'
+              }`}
               aria-current={p === currentPage ? 'page' : undefined}
             >
               {p}
-            </button>
+            </Link>
           ))}
-          <button
-            onClick={() => goToPage(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            className={`px-4 py-2 rounded border text-sm transition ${currentPage === totalPages ? 'opacity-40 cursor-not-allowed border-white/20 text-white/50' : 'hover:bg-orange hover:text-black border-white/40 text-white'}`}
-            aria-label="Next page"
-          >
-            ▶
-          </button>
-        </div>
-      )}
-    </div>
-  );
-};
+        </nav>
+      ) : null}
+    </main>
+  )
+}
 
-export default News;
+function FeaturedCard({ item, locale, hrefBase }) {
+  const isAr = locale === 'ar'
+  const isRu = locale === 'ru'
+  const title = pickLocaleField(item, 'title', locale)
+  const excerpt = pickLocaleField(item, 'excerpt', locale)
+  const tags = normalizeTags(pickLocaleField(item, 'tags', locale))
+  const latestLabel = isAr ? 'الأحدث' : isRu ? 'Новое' : 'Latest'
+  const readLabel = isAr ? 'اقرأ الخبر' : isRu ? 'Читать новость' : 'Read story'
+  return (
+    <Link
+      href={`${hrefBase}/${item.slug}`}
+      className="group grid grid-cols-1 lg:grid-cols-12 gap-8 card-surface !rounded-2xl p-5 sm:p-7 lg:p-8 overflow-hidden"
+    >
+      <div className="relative lg:col-span-7 aspect-[16/10] lg:aspect-[16/11] overflow-hidden rounded-xl bg-ember-light">
+        {item.cover_image ? (
+          <Image
+            src={item.cover_image}
+            alt={title}
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 60vw"
+            className="object-cover transition-transform duration-700 ease-soft group-hover:scale-[1.03]"
+            unoptimized
+          />
+        ) : (
+          <div className="absolute inset-0 bg-ember-light" />
+        )}
+        <div className="absolute top-4 start-4 rounded-full bg-orange/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-black-heavy">
+          {latestLabel}
+        </div>
+      </div>
+      <div className="lg:col-span-5 flex flex-col justify-center">
+        <span className="eyebrow">{formatDate(item.date, locale)}</span>
+        <h2 className="mt-4 font-display text-white text-3xl sm:text-4xl xl:text-5xl leading-tight group-hover:text-orange transition-colors">
+          {title}
+        </h2>
+        {excerpt ? (
+          <p className="mt-4 text-white/70 leading-relaxed line-clamp-3">{excerpt}</p>
+        ) : null}
+        {tags.length > 0 ? (
+          <div className="mt-5 flex flex-wrap gap-2" style={{ gap: '0.5rem' }}>
+            {tags.slice(0, 3).map((t) => (
+              <span
+                key={t}
+                className="inline-block rounded-full border border-white/10 px-3 py-1 text-[11px] uppercase tracking-wider text-white/60"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+        ) : null}
+        <span className="mt-7 inline-flex items-center gap-2 text-sm font-medium uppercase tracking-[0.18em] text-orange">
+          {readLabel}
+          <span aria-hidden className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1">→</span>
+        </span>
+      </div>
+    </Link>
+  )
+}
+
+function ArticleCard({ item, locale, hrefBase }) {
+  const isAr = locale === 'ar'
+  const isRu = locale === 'ru'
+  const title = pickLocaleField(item, 'title', locale)
+  const excerpt = pickLocaleField(item, 'excerpt', locale)
+  const readMore = isAr ? 'اقرأ المزيد' : isRu ? 'Читать далее' : 'Read more'
+  return (
+    <Link
+      href={`${hrefBase}/${item.slug}`}
+      className="card-surface group overflow-hidden flex flex-col"
+    >
+      <div className="relative aspect-[4/3] overflow-hidden bg-ember-light">
+        {item.cover_image ? (
+          <Image
+            src={item.cover_image}
+            alt={title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+            className="object-cover transition-transform duration-700 ease-soft group-hover:scale-[1.04]"
+            unoptimized
+          />
+        ) : (
+          <div className="absolute inset-0 bg-ember-light" />
+        )}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+      </div>
+      <div className="flex flex-1 flex-col p-6">
+        <span className="eyebrow">{formatDate(item.date, locale)}</span>
+        <h3 className="mt-3 font-display text-white text-xl sm:text-2xl leading-snug group-hover:text-orange transition-colors line-clamp-2">
+          {title}
+        </h3>
+        {excerpt ? (
+          <p className="mt-3 text-sm text-white/65 leading-relaxed line-clamp-3 flex-1">
+            {excerpt}
+          </p>
+        ) : null}
+        <span className="mt-5 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.18em] text-orange/85">
+          {readMore}
+          <span aria-hidden className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1">→</span>
+        </span>
+      </div>
+    </Link>
+  )
+}

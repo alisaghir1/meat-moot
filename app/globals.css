@@ -2,78 +2,254 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Franklin Gothic";
-  src:url("../app/fonts/FRAMDCN.TTF") format("truetype");
-  font-weight: normal;
-  font-style: normal;
+/* ----------------------------------------------------------------------
+   Design tokens
+---------------------------------------------------------------------- */
+:root {
+  --radius: 6px;
+  --bg: #0a0706;
+  --bg-elev: #14100e;
+  --bg-card: rgba(255, 255, 255, 0.04);
+  --line: rgba(255, 255, 255, 0.08);
+  --line-strong: rgba(255, 255, 255, 0.16);
+  --text: #f3ede7;
+  --text-muted: #a8a09a;
+  --text-faint: #6f6864;
+  --accent: #e08b3a;
+  --accent-soft: rgba(224, 139, 58, 0.12);
+  --accent-strong: #c97625;
 }
 
+/* ----------------------------------------------------------------------
+   Legacy fonts (kept for compatibility, but display headings now use
+   Playfair via next/font in app/layout.jsx). New components prefer
+   .font-display / .font-sans utilities.
+---------------------------------------------------------------------- */
 @font-face {
-  font-family: "Antique Olive Compact";
-  src:url("../app/fonts/11120.ttf") format("truetype");
+  font-family: 'Franklin Gothic';
+  src: url('../app/fonts/FRAMDCN.TTF') format('truetype');
   font-weight: normal;
   font-style: normal;
+  font-display: swap;
 }
-
+@font-face {
+  font-family: 'Antique Olive Compact';
+  src: url('../app/fonts/11120.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 @layer base {
   * {
-    @apply box-border
+    @apply box-border;
   }
-  body{
-    @apply bg-black text-black tracking-[0.5px]
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
   }
-  h1,h2,h3{
-    @apply font-bold
+  body {
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, #1a0f0a 0%, #0a0706 60%) no-repeat,
+      #0a0706;
+    color: var(--text);
+    @apply tracking-[0.2px] antialiased;
+    font-family: var(--font-sans), 'Franklin Gothic', system-ui, sans-serif;
   }
-  h1{
-    @apply text-[62px] leading-[84px]
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.025) 1px, transparent 0);
+    background-size: 24px 24px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.6;
   }
-  h2{
-    @apply text-[32px] leading-[46px]
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-display), 'Antique Olive Compact', Georgia, serif;
+    @apply font-bold tracking-tight text-balance;
+    color: #fff;
   }
-  h3{
-    @apply text-[20px] leading-[30px]
+  h1 {
+    @apply text-4xl sm:text-5xl xl:text-6xl leading-[1.1];
   }
-  p{
-    @apply text-black/80 leading-8
+  h2 {
+    @apply text-3xl sm:text-4xl xl:text-5xl leading-[1.15];
   }
-  a{
-    @apply text-white hover:text-orange transition-all duration-300 cursor-pointer
+  h3 {
+    @apply text-2xl sm:text-3xl leading-snug;
   }
-  label{
-    @apply text-white text-sm uppercase block mb-2
+  p {
+    @apply leading-relaxed text-[15px] sm:text-base;
+    color: var(--text);
   }
-  .active{
-    @apply text-orange
+  a {
+    @apply transition-colors duration-200;
+    color: inherit;
   }
+  ::selection {
+    background: var(--accent);
+    color: #1a0f0a;
+  }
+  label {
+    @apply text-sm uppercase tracking-wider block mb-2;
+    color: var(--text-muted);
+  }
+  .active { color: var(--accent); }
 }
 
-h1,h2,h3,h4,h5{
-  font-family: "Antique Olive Compact", sans-serif;
+/* ----------------------------------------------------------------------
+   Utilities
+---------------------------------------------------------------------- */
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] font-medium;
+    color: var(--accent);
+  }
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: currentColor;
+  }
+
+  .divider-rule {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent;
+  }
+
+  .glass {
+    background: rgba(20, 16, 14, 0.6);
+    backdrop-filter: saturate(140%) blur(14px);
+    -webkit-backdrop-filter: saturate(140%) blur(14px);
+    border: 1px solid var(--line);
+  }
+
+  .card-surface {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0));
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    transition: border-color 200ms, transform 200ms, box-shadow 200ms;
+  }
+  .card-surface:hover {
+    border-color: var(--line-strong);
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.7);
+  }
+
+  .btn-base {
+    @apply relative inline-flex items-center justify-center gap-2 px-7 py-3.5
+      text-sm font-medium uppercase tracking-[0.18em]
+      transition-all duration-200 ease-soft
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange focus-visible:ring-offset-2 focus-visible:ring-offset-black
+      disabled:opacity-50 disabled:pointer-events-none;
+    border-radius: 999px;
+  }
+  .btn-primary {
+    @apply btn-base text-black;
+    background: linear-gradient(180deg, #f0a554, #c97625);
+    box-shadow: 0 10px 25px -10px rgba(224, 139, 58, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 14px 30px -10px rgba(224, 139, 58, 0.7); }
+  .btn-ghost {
+    @apply btn-base text-white;
+    background: transparent;
+    border: 1px solid var(--line-strong);
+  }
+  .btn-ghost:hover { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 250ms ease;
+  }
+  .link-underline:hover { background-size: 100% 1px; }
+
+  .section { @apply py-16 sm:py-24 xl:py-32; }
+  .section-tight { @apply py-12 sm:py-16 xl:py-20; }
+
+  .text-muted { color: var(--text-muted); }
+  .text-faint { color: var(--text-faint); }
 }
 
-body,p {
-  font-family: 'Franklin Gothic', sans-serif
-}
-
-
+/* ----------------------------------------------------------------------
+   Loader (legacy)
+---------------------------------------------------------------------- */
 .loader {
-  border: 4px solid #f3f3f3; /* Light gray */
-  border-top: 4px solid orange; /* Orange */
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid var(--accent);
   border-radius: 50%;
   width: 20px;
   height: 20px;
   animation: spin 1s linear infinite;
 }
-
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
+/* ----------------------------------------------------------------------
+   .article-body — long-form CMS content
+---------------------------------------------------------------------- */
+.article-body { color: inherit; line-height: 1.85; font-size: 1.0625rem; }
+.article-body > * + * { margin-top: 1.25rem; }
+.article-body h1, .article-body h2, .article-body h3,
+.article-body h4, .article-body h5, .article-body h6,
+.article-body p, .article-body li,
+.article-body strong, .article-body em { color: inherit; }
+.article-body h2 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+  line-height: 1.2; margin-top: 3rem; margin-bottom: 1rem; font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.article-body h3 {
+  font-family: var(--font-display), Georgia, serif;
+  font-size: clamp(1.375rem, 2vw, 1.625rem);
+  line-height: 1.3; margin-top: 2.25rem; margin-bottom: 0.75rem; font-weight: 700;
+}
+.article-body h4 { font-size: 1.25rem; line-height: 1.4; margin-top: 1.75rem; margin-bottom: 0.5rem; font-weight: 600; }
+.article-body p { margin-bottom: 1.25rem; }
+.article-body ul, .article-body ol { padding-inline-start: 1.5rem; margin-bottom: 1.25rem; }
+.article-body ul { list-style: disc; }
+.article-body ol { list-style: decimal; }
+.article-body li { margin-bottom: 0.5rem; }
+.article-body li::marker { color: var(--accent); }
+.article-body li > p { margin-bottom: 0.25rem; }
+.article-body blockquote {
+  border-inline-start: 3px solid var(--accent);
+  padding: 0.5rem 0 0.5rem 1.25rem;
+  opacity: 0.92; font-style: italic; margin: 2rem 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.25rem;
+}
+.article-body a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+.article-body a:hover { color: var(--accent-strong); }
+.article-body img, .article-body figure { max-width: 100%; height: auto; border-radius: 0.75rem; margin: 2rem 0; }
+.article-body pre { background: #16110f; color: #f5f5f5; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; border: 1px solid var(--line); }
+.article-body code { background: rgba(255, 255, 255, 0.08); padding: 0.125rem 0.375rem; border-radius: 0.25rem; font-size: 0.95em; }
+.article-body pre code { background: transparent; padding: 0; }
+.article-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; }
+.article-body th, .article-body td { border: 1px solid var(--line); padding: 0.625rem 0.875rem; text-align: start; }
+.article-body th { background: rgba(255, 255, 255, 0.04); font-weight: 600; }
+
+/* Drop cap on the first paragraph */
+.article-body--drop > p:first-of-type::first-letter {
+  font-family: var(--font-display), Georgia, serif;
+  float: inline-start;
+  font-size: 4rem;
+  line-height: 0.9;
+  margin-inline-end: 0.5rem;
+  margin-top: 0.35rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+[dir='rtl'] .article-body { text-align: right; }
+[dir='rtl'] .article-body--drop > p:first-of-type::first-letter {
+  float: right; margin-inline-end: 0; margin-inline-start: 0.5rem;
+}

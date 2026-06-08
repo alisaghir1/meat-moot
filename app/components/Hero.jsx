@@ -1,108 +1,100 @@
-"use client";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { Button } from "./ui/button";
-import { fadeIn } from "@/variants";
-import Link from "next/link";
-import { useAppContext } from "../context"; // Import the context to get language
+'use client'
 
-import heroTrans from "../translation/heroTrans.js"; // Import translation file
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import { useAppContext } from '../context'
+import heroTrans from '../translation/heroTrans.js'
 
 const Hero = () => {
-  const [language] = useAppContext(); // Get current language from context
-
-  // Fallback to English if the language is invalid or undefined
-  const t = heroTrans[language] || heroTrans.en;
-
-  const isRtl = language === "ar"; // Check if the language is Arabic (rtl)
+  const [language] = useAppContext()
+  const t = heroTrans[language] || heroTrans.en
+  const isRtl = language === 'ar'
 
   return (
     <section
       id="home"
-      className="relative xl:h-[1098px] py-40 pb-32 xl:py-0"
+      dir={isRtl ? 'rtl' : 'ltr'}
+      className="relative min-h-[100svh] flex items-center overflow-hidden"
     >
-      {/* Video background */}
-      <div className="absolute inset-0 z-0"
-       onContextMenu={(e) => e.preventDefault()}>
+      {/* Video */}
+      <div
+        className="absolute inset-0 z-0"
+        onContextMenu={(e) => e.preventDefault()}
+      >
         <video
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover"
         >
           <source src="/vidio.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
         </video>
-        <div className="absolute inset-x-0 bottom-0 h-1/3  bg-gradient-to-b from-transparent via-transparent to-black-heavy" />
+        {/* Layered cinematic overlays */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black-heavy" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0)_30%,rgba(0,0,0,0.55)_100%)]" />
       </div>
 
-      <div className="container mx-auto relative z-10">
-        <div className="flex items-center justify-center xl:h-[960px]">
-          <div className={`w-full xl:max-w-[700px] text-center font-geis`}>
-            <motion.h1
-              variants={fadeIn("down", 0.6)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false, amount: 0.4 }}
-              className="text-white mb-7 text-3xl md:text-4xl xl:text-5xl mt-5"
-            >
-              {t.title.split("\n").map((line, index) => (
-                <span key={index}>{line}<br /></span>
-              ))}
-            </motion.h1>
-            <motion.p
-              variants={fadeIn("down", 0.4)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false, amount: 0.4 }}
-              className="font-semibold text-xl xl:text-3xl mb-7 text-orange"
-            >
-              {t.subtitle}
-            </motion.p>
-
-            <motion.div
-              variants={fadeIn("down", 1)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false, amount: 0.4 }}
-            >
-              <Link href={'/jbr'}>
-                <Button variant="orange">{t.button}</Button>
-              </Link>
-            </motion.div>
-          </div>
-          
-          {/* Conditionally positioning image */}
-          <motion.div
-            variants={fadeIn("up", 1)}
-            initial="hidden"
-            whileInView={"show"}
-            viewport={{ once: false, amount: 0.4 }}
-            className={`hidden xl:flex xl:absolute xl:top-[180px] ${isRtl ? 'xl:left-[-20px] transform translate-x-[-100%]' : 'xl:right-[-20px]'}`}
+      <div className="container relative z-10 mx-auto py-32 sm:py-40">
+        <div className="mx-auto max-w-3xl text-center">
+          <motion.span
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="eyebrow !text-orange justify-center"
           >
+            {t.eyebrow}
+          </motion.span>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="mt-6 font-display text-white text-balance text-5xl sm:text-6xl xl:text-7xl 2xl:text-8xl leading-[1.05] font-bold"
+          >
+            {t.title.split('\n').map((line, i) => (
+              <span key={i} className="block">
+                {line}
+              </span>
+            ))}
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.25 }}
+            className="mx-auto mt-6 max-w-xl text-lg sm:text-xl text-white/80 leading-relaxed"
+          >
+            {t.subtitle}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="mt-10 flex flex-wrap items-center justify-center gap-4"
+          >
+            <Link href="/jbr" className="btn-primary">
+              {t.button}
+            </Link>
+            <Link href="/#menu" className="btn-ghost">
+              {t.viewMenu}
+            </Link>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="mt-16 flex flex-col items-center gap-3 text-white/60"
+          >
+            <span className="text-[11px] uppercase tracking-[0.3em]">{t.scroll}</span>
+            <div className="h-10 w-px bg-gradient-to-b from-white/40 to-transparent" />
           </motion.div>
         </div>
       </div>
-      
-      {/* Another conditional image */}
-      <motion.div
-        variants={fadeIn("up", 1.2)}
-        initial="hidden"
-        whileInView={"show"}
-        viewport={{ once: false, amount: 0.4 }}
-        className={`hidden xl:flex xl:relative xl:-top-5 z-50 ${isRtl ? 'xl:left-0' : 'xl:right-0'}`} // Position based on rtl/ltr
-      >
-        <Image
-          height={1000}
-          width={1000}
-          alt="meat dish"
-          src={"/main11.png"}
-          className="w-72 h-52"
-        ></Image>
-      </motion.div>
     </section>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero

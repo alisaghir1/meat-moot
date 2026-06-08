@@ -1,6 +1,7 @@
 'use client'
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import { FaCaretDown } from "react-icons/fa"; // Import the caret down icon
 import navTrans from "../translation/navTrans.js"; // Import the navbar translations
 import { useAppContext } from "../context/index.jsx"; // Import the context to get/set the language
@@ -33,8 +34,15 @@ const Nav = ({ containerStyles, linkStyles }) => {
   const [showBranchesDropdown, setShowBranchesDropdown] = useState(false); // For branches dropdown
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false); // For language dropdown
   const [language, setLanguage] = useAppContext(); // Get and set language from context
+  const router = useRouter();
 
   const t = navTrans[language] || navTrans.en; // Current language translations
+
+  const handleLanguageChange = (code) => {
+    setLanguage(code); // update context + cookie
+    setShowLanguageDropdown(false);
+    router.refresh(); // re-render server components (menu, etc.) with new locale
+  };
 
   useEffect(() => {
     // Update the direction when the language changes
@@ -142,10 +150,7 @@ const Nav = ({ containerStyles, linkStyles }) => {
             {languages.map((lang) => (
               <button
                 key={lang.code}
-                onClick={() => {
-                  setLanguage(lang.code); // Update the context
-                  setShowLanguageDropdown(false); // Close the dropdown
-                }}
+                onClick={() => handleLanguageChange(lang.code)}
                 className="block px-4 py-2 hover:text-orange text-left w-full"
               >
                 {lang.label}

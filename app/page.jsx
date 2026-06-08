@@ -5,10 +5,10 @@ import Celebrities from "@/app/components/Celebrities";
 
 export default function Home() {
   return (
-    <main className="w-full  bg-white mx-auto overflow-hidden">
+    <main className="w-full overflow-hidden">
       <Hero />
-      <Celebrities />
       <Menu />
+      <Celebrities />
       <Reservation />
     </main>
   );

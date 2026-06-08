@@ -1,10 +1,13 @@
 import localFont from "next/font/local";
+import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 import { AppWrapper } from "./context";
-import { cookies } from "next/headers"; // Import to access cookies
+import { cookies, headers } from "next/headers";
 import Script from "next/script";
+import { LanguageProvider } from "@/lib/LanguageContext";
+import { organizationSchema, websiteSchema } from "@/lib/schema";
 
 const franklin = localFont({
   src: "./fonts/framd.ttf",
@@ -16,6 +19,20 @@ const antique = localFont({
   src: "./fonts/11120.ttf",
   variable: "--font-antique",
   weight: "100 900",
+});
+
+const sans = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  display: "swap",
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const display = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-display",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export async function generateMetadata() {
@@ -68,12 +85,31 @@ export async function generateMetadata() {
 
 export default async function RootLayout({ children }) {
   const cookieStore = await cookies();
-  const language = cookieStore.get("language")?.value || "en";
+  const headersList = await headers();
+  const pathname = headersList.get("x-pathname") || "";
+  const middlewareLocale = headersList.get("x-locale");
+  // Prefer URL-driven locale from middleware; fall back to legacy cookie.
+  const language =
+    middlewareLocale || cookieStore.get("language")?.value || "en";
   const dir = language === "ar" ? "rtl" : "ltr";
+  const isAdminRoute = pathname.startsWith("/admin");
+
+  const siteJsonLd = !isAdminRoute
+    ? {
+        "@context": "https://schema.org",
+        "@graph": [organizationSchema(), websiteSchema()],
+      }
+    : null;
 
   return (
-    <html lang={language} dir={dir}>
+    <html lang={language} dir={dir} suppressHydrationWarning>
       <head>
+        {siteJsonLd && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
+          />
+        )}
         {/* Google Tag Manager */}
         <Script id="gtm-n9m6b9qh" strategy="beforeInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -124,7 +160,7 @@ export default async function RootLayout({ children }) {
           `}
         </Script>
       </head>
-      <body className={`${franklin.variable}${antique.variable} antialiased`}>
+      <body className={`${franklin.variable} ${antique.variable} ${sans.variable} ${display.variable} antialiased`}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -134,7 +170,6 @@ export default async function RootLayout({ children }) {
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        {/* End Google Tag Manager (noscript) */}
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-N846QXCV"
@@ -143,11 +178,13 @@ export default async function RootLayout({ children }) {
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
-        <AppWrapper>
-          <Header />
-          {children}
-          <Footer />
-        </AppWrapper>
+        <LanguageProvider initialLocale={language}>
+          <AppWrapper>
+            {!isAdminRoute && <Header />}
+            {children}
+            {!isAdminRoute && <Footer />}
+          </AppWrapper>
+        </LanguageProvider>
       </body>
     </html>
   );

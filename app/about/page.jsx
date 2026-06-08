@@ -14,54 +14,52 @@ const About = () => {
   
   const translation = aboutTrans[language] || aboutTrans.en; // Fallback to English if no language is set
 
+  const isAr = language === "ar";
+
   return (
-    <section className="mt-32 bg-black">
-      <div id="about" className="relative bg-white overflow-hidden mt-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
-            <svg
-              className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
-              fill="currentColor"
-              viewBox="0 0 100 100"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <polygon points="50,0 100,0 50,100 0,100"></polygon>
-            </svg>
+    <section className="mt-32 bg-black" dir={isAr ? "rtl" : "ltr"}>
+      <div
+        id="about"
+        className="relative overflow-hidden mt-16 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
+      >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center py-12 lg:py-20">
+          {/* Text */}
+          <motion.main
+            variants={fadeIn(isAr ? "left" : "right", 0.8)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.3 }}
+            className={isAr ? "text-right" : "text-left"}
+          >
+            <h2 className="text-2xl tracking-tight font-extrabold text-orange sm:text-3xl md:text-4xl">
+              {translation.aboutTitle}
+            </h2>
+            <p className="mt-6 text-white/80 leading-relaxed">
+              {translation.aboutText1}
+            </p>
+            <p className="mt-4 text-white/80 leading-relaxed">
+              {translation.aboutText2}
+            </p>
+          </motion.main>
 
-            <div className="pt-1"></div>
-
-            <motion.main
-              variants={fadeIn("down", 1)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: false, amount: 0.4 }}
-              className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28"
-            >
-              <div className="sm:text-center lg:text-left">
-                <h2 className="my-6 text-center text-2xl tracking-tight font-extrabold text-orange sm:text-3xl md:text-4xl">
-                  {translation.aboutTitle}
-                </h2>
-
-                <p>{translation.aboutText1}</p>
-                <p className="mt-6">{translation.aboutText2}</p>
-              </div>
-            </motion.main>
-          </div>
+          {/* Image */}
+          <motion.div
+            variants={fadeIn(isAr ? "right" : "left", 0.8)}
+            initial="hidden"
+            whileInView={"show"}
+            viewport={{ once: false, amount: 0.3 }}
+            className="relative w-full aspect-[4/3] lg:aspect-[5/4] overflow-hidden rounded-2xl shadow-2xl ring-1 ring-white/10"
+          >
+            <Image
+              src={about}
+              fill
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-cover object-center"
+              alt="Meat Moot restaurant interior"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+          </motion.div>
         </div>
-        <motion.div
-          variants={fadeIn("right", 0.8)}
-          initial="hidden"
-          whileInView={"show"}
-          viewport={{ once: false, amount: 0.4 }}
-          className={`lg:absolute lg:inset-y-0 ${language === 'ar' ? 'lg:left-0' : 'lg:right-0'}  lg:w-1/2`}
-        >
-          <Image
-            src={about}
-            className="w-full object-fill object-top sm:h-72 md:h-96 lg:w-full lg:h-full"
-            alt="about image"
-          />
-        </motion.div>
       </div>
       <motion.div
         variants={fadeIn("up", 0.6)}
@@ -74,12 +72,12 @@ const About = () => {
           {translation.historyTitle}
         </h2>
 
-        <p className="text-white">{translation.historyText}</p>
+        <p className="text-white/80 max-w-4xl mx-auto leading-relaxed">{translation.historyText}</p>
         <h2 className="mb-6 mt-14 text-2xl tracking-tight font-extrabold text-orange sm:text-3xl md:text-4xl">
           {translation.uaeBranchesTitle}
         </h2>
 
-        <p className="text-white">{translation.uaeBranchesText}</p>
+        <p className="text-white/80 max-w-4xl mx-auto leading-relaxed">{translation.uaeBranchesText}</p>
       </motion.div>
       <motion.div
         variants={fadeIn("up", 0.8)}
@@ -104,7 +102,7 @@ const About = () => {
         initial="hidden"
         whileInView={"show"}
         viewport={{ once: false, amount: 0.4 }} 
-        className="text-white text-center ">{translation.atmosphereText}</motion.p>
+        className="text-white/80 text-center max-w-4xl leading-relaxed whitespace-pre-line">{translation.atmosphereText}</motion.p>
         <Link href={'/#menu'}>
           <Button className='mt-10 w-56' variant='orange'>{translation.menuButton || 'Discover our menu'}</Button>
         </Link>

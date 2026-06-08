@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useRouter } from "next/navigation";
 import { RiMenu2Line, RiHomeFill } from "react-icons/ri";
 import { IoCloseOutline } from "react-icons/io5";
 import { BiSolidFoodMenu } from "react-icons/bi";
@@ -63,12 +64,14 @@ const NavMobile = ({ containerStyles, linkStyles, iconStyles }) => {
   const [showBranchesDropdown, setShowBranchesDropdown] = useState(false);
   const [showLanguageDropdown, setShowLanguageDropdown] = useState(false);
   const [language, setLanguage] = useAppContext(); // Get and set language from context
+  const router = useRouter();
 
   const t = navTrans[language] || navTrans.en; // Current language translations
 
   // Handle language change
   const handleLanguageChange = (newLanguage) => {
     setLanguage(newLanguage);
+    router.refresh(); // re-render server components with the new locale
   };
 
   return (

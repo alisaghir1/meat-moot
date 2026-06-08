@@ -102,7 +102,7 @@ const ReservationForm = () => {
   return (
     <form onSubmit={sendEmail}>
       <div>
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-[30px]">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
           <div>
             <Label htmlFor="firstName">
               {reservationFormTrans[languege].firstName} <span className="text-orange">*</span>
@@ -199,7 +199,7 @@ const ReservationForm = () => {
             </Select>
           </div>
         </div>
-        <div className="grid mt-[30px] grid-cols-1 xl:grid-cols-1 gap-[30px]">
+        <div className="grid mt-5 grid-cols-1 xl:grid-cols-1 gap-5">
         <div>
             <Label htmlFor="time">
               {reservationFormTrans[languege].time} <span className="text-orange">*</span>
@@ -219,7 +219,10 @@ const ReservationForm = () => {
               <PopoverTrigger asChild>
                 <Button
                   variant={"input"}
-                  className={cn("w-full justify-start text-left font-normal")}
+                  type="button"
+                  className={cn(
+                    "w-full justify-start text-left font-normal h-12 px-4 rounded-md text-sm"
+                  )}
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
                   {formData.date ? (
@@ -243,17 +246,20 @@ const ReservationForm = () => {
         </div>
       </div>
       <Button
+        type="submit"
         variant="orange"
-        className="font-normal uppercase w-full mt-[30px] text-center flex items-center justify-center"
+        className="w-full mt-8 h-12 rounded-md text-sm font-semibold uppercase tracking-[0.18em] flex items-center justify-center"
         disabled={loading}
       >
         {loading ? (
-          <div className="loader"></div> // Add your loader component or CSS here
+          <div className="loader"></div>
         ) : (
           reservationFormTrans[languege].submit
         )}
       </Button>
-      {showAlert && <p className="mt-4 text-white">{alertMessage}</p>}
+      {showAlert && (
+        <p className="mt-4 text-sm text-white/85 text-center">{alertMessage}</p>
+      )}
     </form>
   );
 };
