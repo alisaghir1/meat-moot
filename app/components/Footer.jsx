@@ -7,6 +7,7 @@ import { FaFacebookF, FaInstagram } from 'react-icons/fa'
 import { TbBrandTripadvisor } from 'react-icons/tb'
 import { useAppContext } from '../context'
 import footerTrans from '../translation/footerTrans'
+import navTrans from '../translation/navTrans'
 
 const social = [
   { href: 'https://www.instagram.com/meatmoot.uae', label: 'Instagram', Icon: FaInstagram },
@@ -28,16 +29,18 @@ const social = [
 ]
 
 const branches = [
-  { href: '/jbr', label: 'JBR' },
-  { href: '/city-walk', label: 'City Walk' },
-  { href: '/al-qana', label: 'Al Qana' },
-  { href: '/khawaneej', label: 'Al Khawaneej' },
-  { href: '/dubai-hills', label: 'Dubai Hills' },
+  { href: '/jbr', key: 'jbr' },
+  { href: '/city-walk', key: 'city_walk' },
+  { href: '/al-qana', key: 'al_qana' },
+  { href: '/khawaneej', key: 'khawaneej' },
+  { href: '/dubai-hills', key: 'dubai_hills' },
+  { href: '/al-ain', key: 'al_ain' },
 ]
 
 export default function Footer() {
   const [language] = useAppContext()
   const t = footerTrans[language] || footerTrans.en
+  const branchTranslations = navTrans[language] || navTrans.en
   const isRtl = language === 'ar'
 
   return (
@@ -86,7 +89,7 @@ export default function Footer() {
               </li>
               <li>
                 <span className="block text-white/50">Dubai, UAE</span>
-                <span className="text-white">5 signature locations</span>
+                <span className="text-white">{t.locations}</span>
               </li>
             </ul>
           </div>
@@ -101,7 +104,7 @@ export default function Footer() {
                     href={b.href}
                     className="link-underline text-white/85 hover:text-orange"
                   >
-                    {b.label}
+                    {branchTranslations[b.key]}
                   </Link>
                 </li>
               ))}

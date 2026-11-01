@@ -21,6 +21,7 @@ const branches = [
   { path: "/al-qana", key: "al_qana" },
   { path: "/khawaneej", key: "khawaneej" },
   { path: "/dubai-hills", key: "dubai_hills" },
+  { path: "/al-ain", key: "al_ain" },
 ];
 
 const languages = [

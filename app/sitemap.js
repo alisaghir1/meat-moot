@@ -10,6 +10,7 @@ const STATIC_ROUTES = [
   '/terms',
   '/menu',
   '/al-qana',
+  '/al-ain',
   '/city-walk',
   '/dubai-hills',
   '/jbr',

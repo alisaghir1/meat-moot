@@ -13,6 +13,7 @@ const navTrans = {
       al_qana: "Al_Qana",
       khawaneej: "Khawaneej",
       dubai_hills: "Dubai_Hills",
+      al_ain: "Al Ain",
     },
     ru: {
       home: "Главная",
@@ -28,6 +29,7 @@ const navTrans = {
       al_qana: "Аль_Кана",
       khawaneej: "Хаваниж",
       dubai_hills: "Дубай_Хиллз",
+      al_ain: "Аль-Айн",
     },
     ar: {
       home: "الرئيسية",
@@ -43,6 +45,7 @@ const navTrans = {
       al_qana: "القناة",
       khawaneej: "الخوانيج",
       dubai_hills: "تلال دبي",
+      al_ain: "العين",
     },
   };
   

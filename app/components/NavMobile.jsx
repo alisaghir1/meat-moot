@@ -50,6 +50,7 @@ const branches = [
   { path: "/al-qana", name: "al_qana" },
   { path: "/khawaneej", name: "khawaneej" },
   { path: "/dubai-hills", name: "dubai_hills" },
+  { path: "/al-ain", name: "al_ain" },
 ];
 
 const languages = [

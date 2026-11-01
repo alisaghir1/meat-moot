@@ -102,15 +102,17 @@ export default function BranchPage({ translations, images = [], mapHref, phone, 
                 {t.get_directions}
               </Button>
             </Link>
-            <Link href={`tel:${phone}`} className="w-full sm:w-auto">
-              <Button
-                variant="black"
-                className="w-full sm:w-56 gap-2 border border-orange hover:bg-orange hover:text-white"
-              >
-                <FaPhoneAlt />
-                {t.call_us}
-              </Button>
-            </Link>
+            {phone && (
+              <Link href={`tel:${phone}`} className="w-full sm:w-auto">
+                <Button
+                  variant="black"
+                  className="w-full sm:w-56 gap-2 border border-orange hover:bg-orange hover:text-white"
+                >
+                  <FaPhoneAlt />
+                  {t.call_us}
+                </Button>
+              </Link>
+            )}
           </div>
         </motion.div>
       </section>
