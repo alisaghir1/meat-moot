@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
 import { getSession } from '@/lib/auth'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { categorySchema, pickCategoryFields } from '@/lib/validation/menu'
@@ -38,6 +39,7 @@ export async function POST(request) {
       console.error('[admin/menu/categories POST]', error)
       return NextResponse.json({ error: 'Create failed.' }, { status: 500 })
     }
+    revalidatePath('/', 'layout')
     return NextResponse.json({ ok: true, category: row }, { status: 201 })
   } catch (err) {
     console.error('[admin/menu/categories POST] unexpected', err)

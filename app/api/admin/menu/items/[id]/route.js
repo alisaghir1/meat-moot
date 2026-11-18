@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
 import { getSession } from '@/lib/auth'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { itemSchema, pickItemFields } from '@/lib/validation/menu'
@@ -40,6 +41,7 @@ export async function PUT(request, { params }) {
       console.error('[admin/menu/items PUT]', error)
       return NextResponse.json({ error: 'Update failed.' }, { status: 500 })
     }
+    revalidatePath('/', 'layout')
     return NextResponse.json({ ok: true, item: row })
   } catch (err) {
     console.error('[admin/menu/items PUT] unexpected', err)
@@ -61,6 +63,7 @@ export async function DELETE(_request, { params }) {
       console.error('[admin/menu/items DELETE]', error)
       return NextResponse.json({ error: 'Delete failed.' }, { status: 500 })
     }
+    revalidatePath('/', 'layout')
     return NextResponse.json({ ok: true })
   } catch (err) {
     console.error('[admin/menu/items DELETE] unexpected', err)

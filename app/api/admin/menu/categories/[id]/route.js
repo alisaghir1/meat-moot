@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
 import { getSession } from '@/lib/auth'
 import { createAdminClient } from '@/lib/supabase/admin'
 import { categorySchema, pickCategoryFields } from '@/lib/validation/menu'
@@ -43,6 +44,7 @@ export async function PUT(request, { params }) {
       console.error('[admin/menu/categories PUT]', error)
       return NextResponse.json({ error: 'Update failed.' }, { status: 500 })
     }
+    revalidatePath('/', 'layout')
     return NextResponse.json({ ok: true, category: row })
   } catch (err) {
     console.error('[admin/menu/categories PUT] unexpected', err)
@@ -64,6 +66,7 @@ export async function DELETE(_request, { params }) {
       console.error('[admin/menu/categories DELETE]', error)
       return NextResponse.json({ error: 'Delete failed. The category may still have items.' }, { status: 500 })
     }
+    revalidatePath('/', 'layout')
     return NextResponse.json({ ok: true })
   } catch (err) {
     console.error('[admin/menu/categories DELETE] unexpected', err)
