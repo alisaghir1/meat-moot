@@ -172,7 +172,7 @@ export default async function MenuPage() {
                                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
                                 {it.price != null ? (
                                   <span className="absolute top-3 end-3 rounded-full bg-black/70 backdrop-blur px-3 py-1 text-xs font-semibold text-orange ring-1 ring-white/10">
-                                    {it.currency || 'AED'} {formatPrice(it.price)} {isAr ? '+ ضريبة القيمة المضافة' : isRu ? '+ НДС' : '+ VAT'}
+                                    {it.currency || 'AED'} {formatPrice(it.price)} {isAr ? '(شامل ضريبة القيمة المضافة) / كغ' : isRu ? '(с НДС) / кг' : '(with VAT) / kg'}
                                   </span>
                                 ) : null}
                               </div>
@@ -189,7 +189,7 @@ export default async function MenuPage() {
                                 </h3>
                                 {it.price != null && !it.image ? (
                                   <span className="shrink-0 text-orange font-semibold">
-                                    {it.currency || 'AED'} {formatPrice(it.price)} {isAr ? '+ ضريبة القيمة المضافة' : isRu ? '+ НДС' : '+ VAT'}
+                                    {it.currency || 'AED'} {formatPrice(it.price)} {isAr ? '(شامل ضريبة القيمة المضافة) / كغ' : isRu ? '(с НДС) / кг' : '(with VAT) / kg'}
                                   </span>
                                 ) : null}
                               </div>

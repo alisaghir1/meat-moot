@@ -121,7 +121,7 @@ export default function MenuTabs({ categories, locale }) {
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
                     {item.price != null ? (
                       <span className="absolute top-3 end-3 rounded-full bg-black/70 backdrop-blur px-3 py-1 text-xs font-semibold text-orange ring-1 ring-white/10">
-                        {item.currency || 'AED'} {formatPrice(item.price)} {isAr ? '+ ضريبة القيمة المضافة' : isRu ? '+ НДС' : '+ VAT'}
+                        {item.currency || 'AED'} {formatPrice(item.price)} {isAr ? '(شامل ضريبة القيمة المضافة) / كغ' : isRu ? '(с НДС) / кг' : '(with VAT) / kg'}
                       </span>
                     ) : null}
                   </div>
